@@ -39,6 +39,7 @@ h2 {
 box-shadow: 0 0 10px 1px #000;
     
     z-index: 99999;
+    transition: all 0.5s;
 }
 
 #sidepanel img{
@@ -120,6 +121,7 @@ box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
     width: calc(100% - 220px);
     margin: 0px;
     margin-left: 220px;
+    transition: all 0.5s;
     
 }
 
@@ -209,8 +211,46 @@ box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
 box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
 }
 
+#menu_but{
+    display: none;
+}
 
-/* ----------- mobile first ----------- */
+/* ----------- mobile ----------- */
 
+
+@media screen and (max-width: 400px) {
+  
+    #sidepanel{
+        position: fixed;
+        height: 80px;
+        width: 100%;
+    }
+    
+    #sidepanel h2{
+        display: none;
+    }
+    
+    #sidepanel ul{
+        display: none;
+    }
+    
+     #sidepanel_credit{
+        display: none;
+    }
+    
+    #content{
+        width: 100%;
+        margin: 0px;
+    }
+    
+    #menu_but{
+        display: block;
+        position: fixed;
+        right: 25px;
+        top: 25px;
+        
+}
+  }
+}
 
 
