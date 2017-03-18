@@ -4,6 +4,8 @@ html {
     background: #e6e9e9;
 }
 
+
+
 body {
     background: #fff;
     color: #545454;
@@ -238,6 +240,8 @@ box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
         display: none;
     }
     
+    
+    
     #content{
         width: 100%;
         margin: 0px;
@@ -249,7 +253,12 @@ box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
         right: 25px;
         top: 25px;
         
-}
+    }
+    #on{
+        display:inline-block;
+        
+    }
+    
   }
 }
 
