@@ -7,7 +7,7 @@ package jdbc_test;
 import java.sql.*;
 
 public class JDBCTest {
-
+    // Her er en gist med alt relevant database code: https://gist.github.com/InAbsencia/188bd72a58e87ba21244d2c00c56e308
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         // I skal nok ændre denne her til Oracle variant. Den er: com.mysql.jdbc.Driver
         // Class.forName("org.mariadb.jdbc.Driver");
