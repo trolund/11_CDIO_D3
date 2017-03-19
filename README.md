@@ -1,6 +1,6 @@
 # CDIO-D2 (Group 11)
 
-This project is created in cooperation with 02324 Advanced Programming and 02327 Preliminary databases and database programming at DTU.
+This project is created in cooperation with 02324 Advanced Programming and 02327 Preliminary databases and database programming at DTU, Technical University of Denmark.
 
 ## Information
 Daniel Anusic (s155005)
