@@ -30,6 +30,7 @@ public class Connector {
             e.printStackTrace();
             System.exit(1);
         }
+        System.err.println("DEBUG: [" + this.getClass().getName() + "] Status: Successfully connected to MySQL database,\nhost '" + host + "' with user '" + username + "'.");
     }
 
     public Connection getConnection() {
