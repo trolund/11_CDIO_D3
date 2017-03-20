@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class Connector {
 
-    private final String CONFIG_FILE = "mysql.config";
+    private final String CONFIG_FILE = "11_CDIO_D3/mysql_mariadb.config";
     private String driverClass;
     private String driver;
     private String host;
