@@ -4,6 +4,8 @@ import java.sql.*;
 
 public class Connector {
 
+    private final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
+    private final String DRIVER = "jdbc:mysql:";
     private final String HOST = "Localhost";
     private final int PORT = 3306;
     private final String DATABASE = "02327_project";
@@ -13,8 +15,8 @@ public class Connector {
 
     public Connector() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+            Class.forName(DRIVER_CLASS);
+            String url = DRIVER + "//" + HOST + ":" + PORT + "/" + DATABASE;
             connection = DriverManager.getConnection(url, USERNAME, PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
