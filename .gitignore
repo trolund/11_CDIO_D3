@@ -1,4 +1,4 @@
 /11_CDIO_D3/build
 /out
-/mysql_mariadb.config
-/mysql_oracle.config
+/11_CDIO_D3/mysql_mariadb.config
+/11_CDIO_D3/mysql_oracle.config
