@@ -1,37 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f958997-fa86-4669-9b0b-f8ef585820fa" name="Default" comment="Fixing workspace name.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/build/classes/data/IData.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/build/classes/jdbc_test/JDBCTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/build/classes/logic/ILogic.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/build/classes/main/Main.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/build/classes/ui/IUI.class" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.classpath" afterPath="$PROJECT_DIR$/11_CDIO_D3/.classpath" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.project" afterPath="$PROJECT_DIR$/11_CDIO_D3/.project" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.settings/.jsdtscope" afterPath="$PROJECT_DIR$/11_CDIO_D3/.settings/.jsdtscope" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/11_CDIO_D3/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/11_CDIO_D3/.settings/org.eclipse.wst.common.component" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="$PROJECT_DIR$/11_CDIO_D3/.settings/org.eclipse.wst.common.project.facet.core.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.settings/org.eclipse.wst.jsdt.ui.superType.container" afterPath="$PROJECT_DIR$/11_CDIO_D3/.settings/org.eclipse.wst.jsdt.ui.superType.container" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/.settings/org.eclipse.wst.jsdt.ui.superType.name" afterPath="$PROJECT_DIR$/11_CDIO_D3/.settings/org.eclipse.wst.jsdt.ui.superType.name" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/CDIO_D3.iml" afterPath="$PROJECT_DIR$/11_CDIO_D3/CDIO_D3.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/WebContent/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/META-INF/MANIFEST.MF" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/WebContent/assets/classy_fabric.png" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/assets/classy_fabric.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/WebContent/assets/menu.svg" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/assets/menu.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/WebContent/assets/usersvg.svg" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/assets/usersvg.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/WebContent/home.html" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/WebContent/index.html" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/WebContent/main.css" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/drivers/javax.ws.rs-api-2.0.1.jar" afterPath="$PROJECT_DIR$/11_CDIO_D3/drivers/javax.ws.rs-api-2.0.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/drivers/mysql-connector-java-5.0.8-bin.jar" afterPath="$PROJECT_DIR$/11_CDIO_D3/drivers/mysql-connector-java-5.0.8-bin.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/src/data/IData.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/IData.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/src/jdbc_test/JDBCTest.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/jdbc_test/JDBCTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/src/logic/ILogic.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/logic/ILogic.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/src/main/Main.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/main/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CDIO_D3/src/ui/IUI.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/ui/IUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="0f958997-fa86-4669-9b0b-f8ef585820fa" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/WebContent/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -554,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490013218653</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixing workspace name.">
+      <created>1490013777451</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1490013777451</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -564,7 +542,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -576,7 +554,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
