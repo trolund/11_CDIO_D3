@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99f64ccb-3919-430e-9797-79b55d5bee2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/drivers.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CDIO_D3/.classpath" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CDIO_D3/src/main/Main.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -358,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490014987058</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added more IntelliJ idea files.">
+      <created>1490015223123</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1490015223123</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -400,7 +408,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixing project structure." />
     <MESSAGE value="Added .iml file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added .iml file." />
+    <MESSAGE value="Added more IntelliJ idea files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more IntelliJ idea files." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
