@@ -1,4 +1,6 @@
-package data;
+package data.dao;
+
+import data.dto.OperatorDTO;
 
 import java.util.List;
 

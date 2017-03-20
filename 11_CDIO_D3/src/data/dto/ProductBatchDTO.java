@@ -1,4 +1,4 @@
-package data;
+package data.dto;
 
 public class ProductBatchDTO {
 
