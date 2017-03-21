@@ -9,5 +9,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="drivers"/>
+	<classpathentry kind="lib" path="/Users/troelslund/git/11_CDIO_D3/11_CDIO_D3/drivers/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/troelslund/git/11_CDIO_D3/11_CDIO_D3/drivers/javax.ws.rs-api-2.0.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
