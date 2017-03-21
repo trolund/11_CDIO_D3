@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99f64ccb-3919-430e-9797-79b55d5bee2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchComponentDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavareBatchDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavareDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptComponentDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -668,7 +661,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490096302575</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Implemented DAO classes.">
+      <created>1490097430787</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1490097430787</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -737,7 +737,8 @@
     <MESSAGE value="Changed Data Access Layer package structure." />
     <MESSAGE value="Changed Data Access layer implementation." />
     <MESSAGE value="Implemented DAO interfaces." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented DAO interfaces." />
+    <MESSAGE value="Implemented DAO classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented DAO classes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -904,16 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/Connector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/logic/Logic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -949,17 +940,6 @@
         <state relative-caret-position="36">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#106#107#0" expanded="true" />
-            <element signature="e#149#150#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1042,16 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchComponentDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1119,6 +1089,32 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
