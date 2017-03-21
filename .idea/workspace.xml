@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99f64ccb-3919-430e-9797-79b55d5bee2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/DALException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchComponentDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavareBatchDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavareDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptComponentDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IOperatorDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IOperatorDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IProductBatchComponentDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IProductBatchComponentDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IProductBatchDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IProductBatchDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareBatchDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareBatchDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptComponentDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptComponentDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptDAO.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,80 +24,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IReceptComponentDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptComponentDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="80" lean-forward="false" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IReceptDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRaavareDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRaavareBatchDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareBatchDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IProductBatchDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IProductBatchDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IProductBatchComponentDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IProductBatchComponentDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -169,12 +95,19 @@
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareDAO.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptComponentDAO.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptDAO.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchComponent.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatch.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavareBatch.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavare.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptComponentDAO.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptDAO.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="29" />
-    <option name="width" value="960" />
+    <option name="width" value="1920" />
     <option name="height" value="1051" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -728,11 +661,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490088789521</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implemented DAO interfaces.">
+      <created>1490096302575</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1490096302575</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="29" width="960" height="1051" extended-state="4" />
+    <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -742,15 +682,15 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.5083333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2185501" sideWeight="0.4875" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21770833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22083333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -796,7 +736,8 @@
     <MESSAGE value="Implemented main Java backend structure." />
     <MESSAGE value="Changed Data Access Layer package structure." />
     <MESSAGE value="Changed Data Access layer implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed Data Access layer implementation." />
+    <MESSAGE value="Implemented DAO interfaces." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented DAO interfaces." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1061,6 +1002,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptComponentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="80" lean-forward="false" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IRaavareBatchDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1091,10 +1042,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IReceptComponentDAO.java">
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="80" lean-forward="false" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+        <state relative-caret-position="108">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchComponentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1105,6 +1076,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLReceptComponentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavareDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLRaavareBatchDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
