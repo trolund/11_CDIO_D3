@@ -1,13 +1,13 @@
 package logic;
 
-import data.Connector;
+import data.IData;
 
 public class Logic implements ILogic {
 
-    private final Connector conn;
+    private final IData data;
 
-    public Logic(Connector conn) {
-        this.conn = conn;
+    public Logic(IData data) {
+        this.data = data;
     }
 
 }
