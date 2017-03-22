@@ -69,17 +69,58 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public void createOperator(OperatorDTO opr) throws DALException {
+        String createOprSql = "INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement createOprStmt = null;
+        try {
+            createOprStmt = connector.getConnection().prepareStatement(createOprSql);
+            createOprStmt.setInt(1, opr.getOprId());
+            createOprStmt.setString(2, opr.getOprNavn());
+            createOprStmt.setString(3, opr.getOprIni());
+            createOprStmt.setString(4, opr.getOprCpr());
+            createOprStmt.setString(5, opr.getOprPassword());
+            // roles?
 
+            createOprStmt.executeQuery();
+        } catch (SQLException e) {
+            throw new DALException(e.getMessage(), e);
+        } finally {
+            try {
+                connector.cleanup(createOprStmt);
+            } catch (SQLException e) {
+                throw new DALException(e.getMessage(), e);
+            }
+        }
     }
 
     @Override
     public void updateOperator(OperatorDTO opr) throws DALException {
+        String updateOprSql = "UPDATE operatoer SET opr_navn = ?, ini = ?, cpr = ?, password = ? WHERE opr_id = ?";
+        PreparedStatement updateOprStmt = null;
+        try {
+            updateOprStmt = connector.getConnection().prepareStatement(updateOprSql);
+            updateOprStmt.setString(1, opr.getOprNavn());
+            updateOprStmt.setString(2, opr.getOprIni());
+            updateOprStmt.setString(3, opr.getOprCpr());
+            updateOprStmt.setString(4, opr.getOprPassword());
+            updateOprStmt.setInt(5, opr.getOprId());
+            // roles??
 
+            updateOprStmt.executeQuery();
+        } catch (SQLException e) {
+            throw new DALException(e.getMessage(), e);
+        } finally {
+            try {
+                connector.cleanup(updateOprStmt);
+            } catch (SQLException e) {
+                throw new DALException(e.getMessage(), e);
+            }
+        }
     }
 
     @Override
     public void deleteOperator(int oprId) throws DALException {
-
+        // Bjarne sagde at vi IKKE! skal slette en operator,
+        // men sætter den inaktiv. Hvordan gøres dette?
     }
 
 }

@@ -60,6 +60,11 @@ public class Connector {
             rs.close();
     }
 
+    public void cleanup(PreparedStatement stmt) throws SQLException {
+        if (stmt != null)
+            stmt.close();
+    }
+
     public Connection getConnection() {
         return connection;
     }

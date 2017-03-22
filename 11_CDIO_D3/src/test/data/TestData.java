@@ -29,9 +29,9 @@ public class TestData implements IData {
         try {
             OperatorDTO oprDtoId1 = operatorDao.getOperator(1);
             System.out.println("\n##### Testing SQLOperatorDAO.getOperator(oprId) #####");
-            System.out.println("##### Retrieving OperatorDTO from database... #####");
+            System.out.println("##### Retrieving OperatorDTO from database...   #####\n");
             System.out.println(oprDtoId1);
-            System.out.println("###################################################\n");
+            System.out.println("\n#####################################################\n");
         } catch (DALException e) {
             e.printStackTrace();
         }
@@ -40,12 +40,34 @@ public class TestData implements IData {
         try {
             List<OperatorDTO> list = operatorDao.getOperatorList();
 
-            System.out.println("##### Testing SQLOperatorDAO.getOperatirList() #####");
-            System.out.println("##### Retrieving OperatorDTO from database... #####");
+            System.out.println("##### Testing SQLOperatorDAO.getOperatorList()  #####");
+            System.out.println("##### Retrieving OperatorDTO from database...   #####\n");
             for (int i = 0; i < list.size(); i++)
                 System.out.println(i + ": " + list.get(i));
-            System.out.println("###################################################\n");
+            System.out.println("\n#####################################################\n");
 
+        } catch (DALException e) {
+            e.printStackTrace();
+        }
+
+        /* Testing SQLOperatorDAO.createOperator() */
+        System.out.println("##### Testing SQLOperatorDAO.createOperator(oprDto) #####");
+        System.out.println("##### Creating Operator Arnold..................... #####");
+        try {
+            OperatorDTO oprDto = new OperatorDTO(666, "Arnold", "ASN", "234234", "hellokitty", null);
+            operatorDao.createOperator(oprDto);
+            System.out.println("#####################################################\n");
+        } catch (DALException e) {
+            System.err.println(e.getMessage() + "\n");
+        }
+
+        /* Testing SQLOperatorDAO.updateOperator() */
+        System.out.println("##### Testing SQLOperatorDAO.updateOperator(oprDto) #####");
+        System.out.println("##### Updating Operator Arnold..................... #####");
+        try {
+            OperatorDTO oprDto = new OperatorDTO(666, "Arnold", "ASN", "234234", "hellokittyunderwear", null);
+            operatorDao.updateOperator(oprDto);
+            System.out.println("#########################################################\n");
         } catch (DALException e) {
             e.printStackTrace();
         }
