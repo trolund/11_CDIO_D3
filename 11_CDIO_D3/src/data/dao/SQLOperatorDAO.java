@@ -11,37 +11,31 @@ import java.util.List;
 
 public class SQLOperatorDAO implements IOperatorDAO {
 
-    private final Connector conn;
+    private final Connector connector;
 
-    public SQLOperatorDAO(Connector conn) {
-        this.conn = conn;
+    public SQLOperatorDAO(Connector connector) {
+        this.connector = connector;
     }
 
     @Override
     public OperatorDTO getOperator(int oprId) throws DALException {
-        String getOperatorSql = "SELECT * FROM operatoer WHERE opr_id = ?";
-        PreparedStatement getOperatorStmt = null;
+        String getOprSql = "SELECT * FROM operatoer WHERE opr_id = ?";
+        PreparedStatement getOprStmt = null;
         ResultSet rs = null;
         try {
-            getOperatorStmt = conn.getConnection().prepareStatement(getOperatorSql);
-            getOperatorStmt.setInt(1, oprId);
-            rs = getOperatorStmt.executeQuery();
-            // TEMPORARY CODE FOR TESTING PURPOSES!!!!!
-            List<String> tempList = new ArrayList<String>();
-            tempList.add("user");
-            return new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password"), tempList);
+            getOprStmt = connector.getConnection().prepareStatement(getOprSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            getOprStmt.setInt(1, oprId);
+            rs = getOprStmt.executeQuery();
+
+            if (!rs.first()) throw new DALException("Operator id [" + oprId + "] does not exist!");
+
+            // ROLES SKAL IKKE VAERE NULL! FIND EN FIX.
+            return new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password"), null);
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {
             try {
-                if (getOperatorStmt != null)
-                    getOperatorStmt.close();
-            } catch (SQLException e) {
-                throw new DALException(e.getMessage(), e);
-            }
-            try {
-                if (rs != null)
-                    rs.close();
+                connector.cleanup(getOprStmt, rs);
             } catch (SQLException e) {
                 throw new DALException(e.getMessage(), e);
             }
@@ -50,7 +44,27 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public List<OperatorDTO> getOperatorList() throws DALException {
-        return null;
+        String getOprListSql = "SELECT * FROM operatoer";
+        List<OperatorDTO> oprList = new ArrayList<>();
+        PreparedStatement getOprListStmt = null;
+        ResultSet rs = null;
+        try {
+            getOprListStmt = connector.getConnection().prepareStatement(getOprListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            rs = getOprListStmt.executeQuery();
+            while (rs.next()) {
+                // ROLES SKAL IKKE VAERE NULL!!!!!!!!!!!!!!!
+                oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password"), null));
+            }
+            return oprList;
+        } catch (SQLException e) {
+            throw new DALException(e.getMessage(), e);
+        } finally {
+            try {
+                connector.cleanup(getOprListStmt, rs);
+            } catch (SQLException e) {
+                throw new DALException(e.getMessage(), e);
+            }
+        }
     }
 
     @Override

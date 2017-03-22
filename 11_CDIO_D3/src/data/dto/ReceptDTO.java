@@ -21,4 +21,12 @@ public class ReceptDTO {
         this.receptNavn = receptNavn;
     }
 
+    @Override
+    public String toString() {
+        return "ReceptDTO{" +
+                "receptId=" + receptId +
+                ", receptNavn='" + receptNavn + '\'' +
+                '}';
+    }
+
 }

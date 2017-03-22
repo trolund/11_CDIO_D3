@@ -12,7 +12,7 @@ public class OperatorDTO {
     private String oprPassword;
     private List<String> oprRoles; // Vi skal lave en ekstra tabel som indeholder roller.
 
-    public OperatorDTO(int oprId, String oprNavn, String oprIni, String oprCpr, String oprPassword, List<String> oprRoles)  {
+    public OperatorDTO(int oprId, String oprNavn, String oprIni, String oprCpr, String oprPassword, List<String> oprRoles) {
         this.oprId = oprId;
         this.oprIni = oprIni;
         this.oprNavn = oprNavn;
@@ -71,6 +71,17 @@ public class OperatorDTO {
 
     public void setOprRoles(List<String> oprRoles) {
         this.oprRoles = oprRoles;
+    }
+
+    @Override
+    public String toString() {
+        return "OperatorDTO{" + "oprId=" + oprId +
+                ", oprNavn='" + oprNavn + '\'' +
+                ", oprIni='" + oprIni + '\'' +
+                ", oprCpr='" + oprCpr + '\'' +
+                ", oprPassword='" + oprPassword + '\'' +
+                ", oprRoles=" + oprRoles +
+                '}';
     }
 
 }

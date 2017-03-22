@@ -30,4 +30,13 @@ public class RaavareBatchDTO {
         this.amount = amount;
     }
 
+    @Override
+    public String toString() {
+        return "RaavareBatchDTO{" +
+                "raavareBatchId=" + raavareBatchId +
+                ", raavareId=" + raavareId +
+                ", amount=" + amount +
+                '}';
+    }
+
 }

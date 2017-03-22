@@ -30,4 +30,13 @@ public class RaavareDTO {
         this.supplier = supplier;
     }
 
+    @Override
+    public String toString() {
+        return "RaavareDTO{" +
+                "raavareId=" + raavareId +
+                ", raavareNavn='" + raavareNavn + '\'' +
+                ", supplier='" + supplier + '\'' +
+                '}';
+    }
+
 }

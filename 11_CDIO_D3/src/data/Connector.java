@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class Connector {
 
-    private final String CONFIG_FILE = "/mysql_mariadb.config";
+    private final String CONFIG_FILE = "mysql_mariadb.config";
     private String driverClass;
     private String driver;
     private String host;
@@ -30,7 +30,7 @@ public class Connector {
             e.printStackTrace();
             System.exit(1);
         }
-        System.err.println("DEBUG: [" + this.getClass().getName() + "] Status: Successfully connected to MySQL database,\nhost '" + host + "' with user '" + username + "'.");
+        System.out.println("DEBUG: [" + this.getClass().getName() + "] Status: Successfully connected to MySQL database,\nhost '" + host + "' with user '" + username + "'.");
     }
 
     public Connection getConnection() {
@@ -45,6 +45,13 @@ public class Connector {
     public void doUpdate(String query) throws SQLException {
         Statement stmt = connection.createStatement();
         stmt.executeUpdate(query);
+    }
+
+    public void cleanup(PreparedStatement stmt, ResultSet rs) throws SQLException {
+        if (stmt != null)
+            stmt.close();
+        if (rs != null)
+            rs.close();
     }
 
     private void loadProperties() {

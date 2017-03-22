@@ -48,4 +48,15 @@ public class ProductBatchComponentDTO {
         this.operatorId = operatorId;
     }
 
+    @Override
+    public String toString() {
+        return "ProductBatchComponentDTO{" +
+                "productBatchId=" + productBatchId +
+                ", raavareBatchId=" + raavareBatchId +
+                ", tara=" + tara +
+                ", netto=" + netto +
+                ", operatorId=" + operatorId +
+                '}';
+    }
+
 }

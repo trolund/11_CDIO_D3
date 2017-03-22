@@ -30,4 +30,13 @@ public class ProductBatchDTO {
         this.receptId = receptId;
     }
 
+    @Override
+    public String toString() {
+        return "ProductBatchDTO{" +
+                "productBatchId=" + productBatchId +
+                ", status=" + status +
+                ", receptId=" + receptId +
+                '}';
+    }
+
 }

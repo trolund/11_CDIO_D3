@@ -39,4 +39,14 @@ public class ReceptComponentDTO {
         this.tolerance = tolerance;
     }
 
+    @Override
+    public String toString() {
+        return "ReceptComponentDTO{" +
+                "receptId=" + receptId +
+                ", raavareId=" + raavareId +
+                ", nomNetto=" + nomNetto +
+                ", tolerance=" + tolerance +
+                '}';
+    }
+
 }
