@@ -12,6 +12,15 @@ public class OperatorDTO {
     private String oprPassword;
     private List<String> oprRoles; // Vi skal lave en ekstra tabel som indeholder roller.
 
+    public OperatorDTO(int oprId, String oprNavn, String oprIni, String oprCpr, String oprPassword, List<String> oprRoles)  {
+        this.oprId = oprId;
+        this.oprIni = oprIni;
+        this.oprNavn = oprNavn;
+        this.oprCpr = oprCpr;
+        this.oprPassword = oprPassword;
+        this.oprRoles = oprRoles;
+    }
+
     public OperatorDTO() {
         this.oprRoles = new ArrayList<>();
     }
