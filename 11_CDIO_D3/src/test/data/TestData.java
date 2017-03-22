@@ -18,8 +18,8 @@ public class TestData implements IData {
 
     private final Connector connector;
 
-    public TestData(Connector connector) {
-        this.connector = connector;
+    public TestData() {
+        this.connector = Connector.getInstance();
     }
 
     public void testSQLoperatorDAO() {
@@ -53,7 +53,7 @@ public class TestData implements IData {
     }
 
     public static void main(String[] args) {
-        TestData testData = new TestData(new Connector());
+        TestData testData = new TestData();
         testData.testSQLoperatorDAO();
     }
 

@@ -20,7 +20,9 @@ public class Connector {
 
     private Connection connection;
 
-    public Connector() {
+    private static final Connector instance = new Connector();
+
+    private Connector() {
         loadProperties();
         try {
             Class.forName(driverClass);
@@ -31,27 +33,6 @@ public class Connector {
             System.exit(1);
         }
         System.out.println("DEBUG: [" + this.getClass().getName() + "] Status: Successfully connected to MySQL database,\nhost '" + host + "' with user '" + username + "'.");
-    }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
-    public ResultSet doQuery(String query) throws SQLException {
-        Statement stmt = connection.createStatement();
-        return stmt.executeQuery(query);
-    }
-
-    public void doUpdate(String query) throws SQLException {
-        Statement stmt = connection.createStatement();
-        stmt.executeUpdate(query);
-    }
-
-    public void cleanup(PreparedStatement stmt, ResultSet rs) throws SQLException {
-        if (stmt != null)
-            stmt.close();
-        if (rs != null)
-            rs.close();
     }
 
     private void loadProperties() {
@@ -70,6 +51,21 @@ public class Connector {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void cleanup(PreparedStatement stmt, ResultSet rs) throws SQLException {
+        if (stmt != null)
+            stmt.close();
+        if (rs != null)
+            rs.close();
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public static synchronized Connector getInstance() {
+        return instance;
     }
 
 }
