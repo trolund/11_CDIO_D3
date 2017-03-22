@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99f64ccb-3919-430e-9797-79b55d5bee2c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchComponentDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchComponentDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareBatchDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareBatchDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptComponentDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptComponentDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptDTO.java" />
-    </list>
+    <list default="true" id="99f64ccb-3919-430e-9797-79b55d5bee2c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -734,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490195518011</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Cleaned up DTO code.">
+      <created>1490197682205</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1490197682205</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -808,7 +805,8 @@
     <MESSAGE value="Fixed MySQL config file annoyance. Added toStrings to DTOs. Implemented SQLOperatorDAO. Added a testing data layer." />
     <MESSAGE value="Connector is now a Singleton class." />
     <MESSAGE value="Implemeted the rest of the database functions in SQLOperatorDAO." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemeted the rest of the database functions in SQLOperatorDAO." />
+    <MESSAGE value="Cleaned up DTO code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up DTO code." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
