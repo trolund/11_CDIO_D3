@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="99f64ccb-3919-430e-9797-79b55d5bee2c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/Connector.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/Connector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/test/data/TestData.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/test/data/TestData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchComponentDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchComponentDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareBatchDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareBatchDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptComponentDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptComponentDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptDTO.java" afterPath="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptDTO.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,52 +25,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="IOperatorDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IOperatorDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLOperatorDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2160">
-              <caret line="122" column="55" lean-forward="false" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/test/data/TestData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="69" column="89" lean-forward="false" selection-start-line="69" selection-start-column="89" selection-end-line="69" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OperatorDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="83" column="20" lean-forward="true" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -136,16 +96,16 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/DataTest.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/test/TestData.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/Data.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/Connector.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/test/data/TestData.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchComponentDTO.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchDTO.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareBatchDTO.java" />
-        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptComponentDTO.java" />
+        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptDTO.java" />
-        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/Data.java" />
-        <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/Connector.java" />
-        <option value="$PROJECT_DIR$/11_CDIO_D3/src/test/data/TestData.java" />
         <option value="$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java" />
       </list>
     </option>
@@ -767,12 +727,19 @@
       <option name="project" value="LOCAL" />
       <updated>1490190580538</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Implemeted the rest of the database functions in SQLOperatorDAO.">
+      <created>1490195518011</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1490195518011</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="29" width="1920" height="1051" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -781,15 +748,16 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.40104166" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5989583" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5989583" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9573561" sideWeight="0.47291666" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20208333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20208333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -801,7 +769,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -840,11 +807,12 @@
     <MESSAGE value="Implementing DAO objects." />
     <MESSAGE value="Fixed MySQL config file annoyance. Added toStrings to DTOs. Implemented SQLOperatorDAO. Added a testing data layer." />
     <MESSAGE value="Connector is now a Singleton class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Connector is now a Singleton class." />
+    <MESSAGE value="Implemeted the rest of the database functions in SQLOperatorDAO." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemeted the rest of the database functions in SQLOperatorDAO." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1015,16 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchComponentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
@@ -1148,54 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchComponentDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareBatchDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptComponentDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/Data.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1227,22 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IOperatorDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="83" column="20" lean-forward="true" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/test/data/TestData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="559">
@@ -1253,12 +1147,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java">
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLProductBatchComponentDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="122" column="55" lean-forward="false" selection-start-line="122" selection-start-column="55" selection-end-line="122" selection-end-column="55" />
+        <state relative-caret-position="108">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/IOperatorDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="11" column="126" lean-forward="false" selection-start-line="11" selection-start-column="126" selection-end-line="11" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dao/SQLOperatorDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="100" column="55" lean-forward="false" selection-start-line="100" selection-start-column="55" selection-end-line="100" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/OperatorDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-290">
+          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#884#885#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchComponentDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ProductBatchDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareBatchDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/RaavareDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#428#429#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptComponentDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_CDIO_D3/src/data/dto/ReceptDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
           </folding>
         </state>
       </provider>

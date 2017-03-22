@@ -2,61 +2,43 @@ package data.dto;
 
 public class ProductBatchComponentDTO {
 
-    private int productBatchId;
-    private int raavareBatchId;
+    private int pBId;
+    private int rBId;
     private double tara;
     private double netto;
-    private int operatorId;
+    private int oprId;
 
-    public int getProductBatchId() {
-        return productBatchId;
+    public ProductBatchComponentDTO(int pBId, int rBId, double tara, double netto, int oprId) {
+        this.pBId = pBId;
+        this.rBId = rBId;
+        this.tara = tara;
+        this.netto = netto;
+        this.oprId = oprId;
     }
 
-    public void setProductBatchId(int productBatchId) {
-        this.productBatchId = productBatchId;
+    public int getpBId() {
+        return pBId;
     }
 
-    public int getRaavareBatchId() {
-        return raavareBatchId;
-    }
-
-    public void setRaavareBatchId(int raavareBatchId) {
-        this.raavareBatchId = raavareBatchId;
+    public int getrBId() {
+        return rBId;
     }
 
     public double getTara() {
         return tara;
     }
 
-    public void setTara(double tara) {
-        this.tara = tara;
-    }
-
     public double getNetto() {
         return netto;
     }
 
-    public void setNetto(double netto) {
-        this.netto = netto;
-    }
-
-    public int getOperatorId() {
-        return operatorId;
-    }
-
-    public void setOperatorId(int operatorId) {
-        this.operatorId = operatorId;
+    public int getOprId() {
+        return oprId;
     }
 
     @Override
     public String toString() {
-        return "ProductBatchComponentDTO{" +
-                "productBatchId=" + productBatchId +
-                ", raavareBatchId=" + raavareBatchId +
-                ", tara=" + tara +
-                ", netto=" + netto +
-                ", operatorId=" + operatorId +
-                '}';
+        return "ProductBatchComponentDTO [" + pBId + ", " + rBId + ", " + tara + ", " + netto + ", " + oprId + "]";
     }
 
 }

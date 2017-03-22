@@ -2,41 +2,31 @@ package data.dto;
 
 public class RaavareBatchDTO {
 
-    private int raavareBatchId;
+    private int rBId;
     private int raavareId;
     private double amount;
 
-    public int getRaavareBatchId() {
-        return raavareBatchId;
+    public RaavareBatchDTO(int rBId, int raavareId, double amount) {
+        this.rBId = rBId;
+        this.raavareId = raavareId;
+        this.amount = amount;
     }
 
-    public void setRaavareBatchId(int raavareBatchId) {
-        this.raavareBatchId = raavareBatchId;
+    public int getrBId() {
+        return rBId;
     }
 
     public int getRaavareId() {
         return raavareId;
     }
 
-    public void setRaavareId(int raavareId) {
-        this.raavareId = raavareId;
-    }
-
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
     @Override
     public String toString() {
-        return "RaavareBatchDTO{" +
-                "raavareBatchId=" + raavareBatchId +
-                ", raavareId=" + raavareId +
-                ", amount=" + amount +
-                '}';
+        return "RaavareBatchDTO [" + rBId + ", " + raavareId + ", " + amount + "]";
     }
 
 }

@@ -74,7 +74,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
         try {
             createOprStmt = connector.getConnection().prepareStatement(createOprSql);
             createOprStmt.setInt(1, opr.getOprId());
-            createOprStmt.setString(2, opr.getOprNavn());
+            createOprStmt.setString(2, opr.getOprName());
             createOprStmt.setString(3, opr.getOprIni());
             createOprStmt.setString(4, opr.getOprCpr());
             createOprStmt.setString(5, opr.getOprPassword());
@@ -98,7 +98,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
         PreparedStatement updateOprStmt = null;
         try {
             updateOprStmt = connector.getConnection().prepareStatement(updateOprSql);
-            updateOprStmt.setString(1, opr.getOprNavn());
+            updateOprStmt.setString(1, opr.getOprName());
             updateOprStmt.setString(2, opr.getOprIni());
             updateOprStmt.setString(3, opr.getOprCpr());
             updateOprStmt.setString(4, opr.getOprPassword());

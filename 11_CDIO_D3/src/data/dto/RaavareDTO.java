@@ -3,40 +3,30 @@ package data.dto;
 public class RaavareDTO {
 
     private int raavareId;
-    private String raavareNavn;
+    private String raavareName;
     private String supplier;
+
+    public RaavareDTO(int raavareId, String raavareName, String supplier) {
+        this.raavareId = raavareId;
+        this.raavareName = raavareName;
+        this.supplier = supplier;
+    }
 
     public int getRaavareId() {
         return raavareId;
     }
 
-    public void setRaavareId(int raavareId) {
-        this.raavareId = raavareId;
-    }
-
-    public String getRaavareNavn() {
-        return raavareNavn;
-    }
-
-    public void setRaavareNavn(String raavareNavn) {
-        this.raavareNavn = raavareNavn;
+    public String getraavareName() {
+        return raavareName;
     }
 
     public String getSupplier() {
         return supplier;
     }
 
-    public void setSupplier(String supplier) {
-        this.supplier = supplier;
-    }
-
     @Override
     public String toString() {
-        return "RaavareDTO{" +
-                "raavareId=" + raavareId +
-                ", raavareNavn='" + raavareNavn + '\'' +
-                ", supplier='" + supplier + '\'' +
-                '}';
+        return "RaavareDTO [" + raavareId + ", " + raavareName + ", " + supplier + "]";
     }
 
 }

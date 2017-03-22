@@ -2,41 +2,31 @@ package data.dto;
 
 public class ProductBatchDTO {
 
-    private int productBatchId;
+    private int pBId;
     private int status;
     private int receptId;
 
-    public int getProductBatchId() {
-        return productBatchId;
+    public ProductBatchDTO(int pBId, int status, int receptId) {
+        this.pBId = pBId;
+        this.status = status;
+        this.receptId = receptId;
     }
 
-    public void setProductBatchId(int productBatchId) {
-        this.productBatchId = productBatchId;
+    public int getpBId() {
+        return pBId;
     }
 
     public int getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public int getReceptId() {
         return receptId;
     }
 
-    public void setReceptId(int receptId) {
-        this.receptId = receptId;
-    }
-
     @Override
     public String toString() {
-        return "ProductBatchDTO{" +
-                "productBatchId=" + productBatchId +
-                ", status=" + status +
-                ", receptId=" + receptId +
-                '}';
+        return "ProductBatchDTO [" + pBId + ", " + status + ", " + receptId + "]";
     }
 
 }
