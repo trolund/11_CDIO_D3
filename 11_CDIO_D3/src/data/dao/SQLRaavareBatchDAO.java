@@ -1,10 +1,17 @@
 package data.dao;
 
+import data.Connector;
 import data.dto.RaavareBatchDTO;
 
 import java.util.List;
 
 public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
+
+    private final Connector connector;
+
+    public SQLRaavareBatchDAO(Connector connector) {
+        this.connector = connector;
+    }
 
     @Override
     public RaavareBatchDTO getRaavareBatch(int rbId) throws DALException {

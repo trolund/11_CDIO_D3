@@ -1,10 +1,17 @@
 package data.dao;
 
+import data.Connector;
 import data.dto.RaavareDTO;
 
 import java.util.List;
 
 public class SQLRaavareDAO implements IRaavareDAO {
+
+    private final Connector connector;
+
+    public SQLRaavareDAO(Connector connector) {
+        this.connector = connector;
+    }
 
     @Override
     public RaavareDTO getRaavare(int raavareId) throws DALException {

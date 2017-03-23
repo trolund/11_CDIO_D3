@@ -1,10 +1,17 @@
 package data.dao;
 
+import data.Connector;
 import data.dto.ProductBatchDTO;
 
 import java.util.List;
 
 public class SQLProductBatchDAO implements IProductBatchDAO {
+
+    private final Connector connector;
+
+    public SQLProductBatchDAO(Connector connector) {
+        this.connector = connector;
+    }
 
     @Override
     public ProductBatchDTO getProductBatch(int pbId) throws DALException {

@@ -119,8 +119,23 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
     }
 
     @Override
-    public void deleteProductBatchComponent(int pbID) throws DALException {
-
+    public void deleteProductBatchComponent(int pbId, int rbId) throws DALException {
+        String deletePBCSql = "DELETE FROM produktbatchkomponent WHERE pb_id = ? AND rb_id = ?";
+        PreparedStatement deletePBCStmt = null;
+        try {
+            deletePBCStmt = connector.getConnection().prepareStatement(deletePBCSql);
+            deletePBCStmt.setInt(1, pbId);
+            deletePBCStmt.setInt(2, rbId);
+            deletePBCStmt.executeQuery();
+        } catch (SQLException e) {
+            throw new DALException(e.getMessage(), e);
+        } finally {
+            try {
+                connector.cleanup(deletePBCStmt);
+            } catch (SQLException e) {
+                throw new DALException(e.getMessage(), e);
+            }
+        }
     }
 
 }
