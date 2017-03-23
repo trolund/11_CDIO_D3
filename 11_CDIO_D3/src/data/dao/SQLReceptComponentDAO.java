@@ -1,10 +1,17 @@
 package data.dao;
 
+import data.Connector;
 import data.dto.ReceptComponentDTO;
 
 import java.util.List;
 
 public class SQLReceptComponentDAO implements IReceptComponentDAO {
+
+    private final Connector connector;
+
+    public SQLReceptComponentDAO(Connector connector) {
+        this.connector = connector;
+    }
 
     @Override
     public ReceptComponentDTO getReceptComponent(int receptId, int raavareId) throws DALException {

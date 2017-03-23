@@ -119,8 +119,21 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public void deleteOperator(int oprId) throws DALException {
-        // Bjarne sagde at vi IKKE! skal slette en operator,
-        // men sætter den inaktiv. Hvordan gøres dette?
+        String deleteOprSql = "DELETE FROM operatoer WHERE opr_id = ?";
+        PreparedStatement deleteOprStmt = null;
+        try {
+            deleteOprStmt = connector.getConnection().prepareStatement(deleteOprSql);
+            deleteOprStmt.setInt(1, oprId);
+            deleteOprStmt.executeQuery();
+        } catch (SQLException e) {
+            throw new DALException(e.getMessage(), e);
+        } finally {
+            try {
+                connector.cleanup(deleteOprStmt);
+            } catch (SQLException e) {
+                throw new DALException(e.getMessage(), e);
+            }
+        }
     }
 
 }

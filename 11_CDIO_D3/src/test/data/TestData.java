@@ -40,12 +40,10 @@ public class TestData implements IData {
         /* Testing SQLOperatorDAO.getOperatorList() */
         try {
             List<OperatorDTO> list = operatorDao.getOperatorList();
-
             System.out.println("##### Testing SQLOperatorDAO.getOperatorList()  #####\n");
             for (int i = 0; i < list.size(); i++)
                 System.out.println(i + ": " + list.get(i));
             System.out.println("\n#####################################################\n\n");
-
         } catch (DALException e) {
             e.printStackTrace();
         }
@@ -67,6 +65,26 @@ public class TestData implements IData {
             operatorDao.updateOperator(oprDto);
             System.out.println(operatorDao.getOperator(666));
             System.out.println("\n#########################################################\n\n");
+        } catch (DALException e) {
+            e.printStackTrace();
+        }
+
+        /* Testing SQLOperatorDAO.deleteOperator(oprId) */
+        System.out.println("##### Testing SQLOperatorDAO.deleteOperator(oprId) #####\n");
+        try {
+            operatorDao.deleteOperator(666);
+            System.out.println("\n#########################################################\n\n");
+        } catch (DALException e) {
+            e.printStackTrace();
+        }
+
+        /* Testing SQLOperatorDAO.getOperatorList() */
+        try {
+            List<OperatorDTO> list = operatorDao.getOperatorList();
+            System.out.println("##### Testing SQLOperatorDAO.getOperatorList()  #####\n");
+            for (int i = 0; i < list.size(); i++)
+                System.out.println(i + ": " + list.get(i));
+            System.out.println("\n#####################################################\n\n");
         } catch (DALException e) {
             e.printStackTrace();
         }
@@ -115,6 +133,26 @@ public class TestData implements IData {
             SQLProductBatchCompDao.updateProductBatchComponent(pbcDTO);
             System.out.println(SQLProductBatchCompDao.getProductBatchComponent(4, 6));
             System.out.println("\n#########################################################\n\n");
+        } catch (DALException e) {
+            e.printStackTrace();
+        }
+
+        /* Testing SQLProductBatchComponentDAO.deletePBC(pbId, rbId) */
+        System.out.println("##### SQLProductBatchComponentDAO.deletePBC(pbId, rbId) #####\n");
+        try {
+            SQLProductBatchCompDao.deleteProductBatchComponent(4, 6);
+            System.out.println("\n#########################################################\n\n");
+        } catch (DALException e) {
+            e.printStackTrace();
+        }
+
+        /* Testing SQLProductBatchComponentDAO.getProductBatchComponentList() */
+        try {
+            List<ProductBatchComponentDTO> list = SQLProductBatchCompDao.getProductBatchComponentList();
+            System.out.println("\n##### Testing SQLProductBatchComponentDAO.getProductBatchComponentList() #####\n");
+            for (int i = 0; i < list.size(); i++)
+                System.out.println(i + ": " + list.get(i));
+            System.out.println("\n#####################################################\n\n");
         } catch (DALException e) {
             e.printStackTrace();
         }
