@@ -58,7 +58,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
             getPBCListStmt = connector.getConnection().prepareStatement(getPBCListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             rs = getPBCListStmt.executeQuery();
             while (rs.next()) {
-                pbcList.add(new ProductBatchComponentDTO(rs.getInt("rb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
+                pbcList.add(new ProductBatchComponentDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
             }
             return pbcList;
         } catch (SQLException e) {
@@ -106,7 +106,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
             updatePBCStmt.setInt(3, pbc.getpBId());
             updatePBCStmt.setInt(4, pbc.getrBId());
             updatePBCStmt.setInt(5, pbc.getOprId());
-            updatePBCStmt.executeQuery();
+            updatePBCStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {

@@ -105,7 +105,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
             updateOprStmt.setInt(5, opr.getOprId());
             // roles??
 
-            updateOprStmt.executeQuery();
+            updateOprStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {
