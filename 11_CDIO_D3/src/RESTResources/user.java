@@ -1,7 +1,7 @@
 package RESTResources;
-//import javax.ws.rs.*;
-//import javax.ws.rs.core.MediaType;
-/*
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
 @Path("/user")
 public class user {
 	
@@ -12,4 +12,3 @@ public class user {
 	}
 
 }
-*/
