@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="99f64ccb-3919-430e-9797-79b55d5bee2c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/.classpath" afterPath="$PROJECT_DIR$/11_CDIO_D3/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/WebContent/home.html" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/WebContent/index.html" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/WebContent/main.css" afterPath="$PROJECT_DIR$/11_CDIO_D3/WebContent/main.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -636,7 +638,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490269653617</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixing branch.">
+      <created>1490623998377</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1490623998378</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -743,7 +752,8 @@
     <MESSAGE value="Cleaned up DTO code." />
     <MESSAGE value="Implemented SQLProductBatchComponentDAO." />
     <MESSAGE value="Implemented delete functions for SQLOperatorDAO and SQLProductBatchComponentDAO." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented delete functions for SQLOperatorDAO and SQLProductBatchComponentDAO." />
+    <MESSAGE value="Fixing branch." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing branch." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
