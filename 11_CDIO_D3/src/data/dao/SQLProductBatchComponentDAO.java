@@ -45,7 +45,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 
     @Override
     public List<ProductBatchComponentDTO> getProductBatchComponentList(int pbId) throws DALException {
-        return null;
+        return null; // what is this?
     }
 
     @Override
