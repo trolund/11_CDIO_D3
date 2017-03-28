@@ -1,7 +1,5 @@
 package data.dto;
 
-import java.util.List;
-
 public class OperatorDTO {
 
     private int oprId;
@@ -9,15 +7,13 @@ public class OperatorDTO {
     private String oprIni;
     private String oprCpr;
     private String oprPassword;
-    private List<String> oprRoles;
 
-    public OperatorDTO(int oprId, String oprName, String oprIni, String oprCpr, String oprPassword, List<String> oprRoles) {
+    public OperatorDTO(int oprId, String oprName, String oprIni, String oprCpr, String oprPassword) {
         this.oprId = oprId;
         this.oprName = oprName;
         this.oprIni = oprIni;
         this.oprCpr = oprCpr;
         this.oprPassword = oprPassword;
-        this.oprRoles = oprRoles;
     }
 
     public int getOprId() {
@@ -40,13 +36,9 @@ public class OperatorDTO {
         return oprPassword;
     }
 
-    public List<String> getOprRoles() {
-        return oprRoles;
-    }
-
     @Override
     public String toString() {
-        return "OperatorDTO [" + oprId + ", " + oprName + ", " + oprIni + ", " + oprCpr + ", " + oprPassword + ", " + oprRoles + "]";
+        return "OperatorDTO [" + oprId + ", " + oprName + ", " + oprIni + ", " + oprCpr + ", " + oprPassword + "]";
     }
 
 }

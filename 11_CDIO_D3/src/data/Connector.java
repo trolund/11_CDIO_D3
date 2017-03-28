@@ -1,15 +1,15 @@
 package data;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class Connector {
 
-    private final String CONFIG_FILE = "mysql_mariadb.config";
+    private final String MYSQL_CONFIG_FILE = "mysql_mariadb.config";
+    private final String SQL_CONFIG_FILE = "sql.config";
     private String driverClass;
     private String driver;
     private String host;
@@ -19,11 +19,16 @@ public class Connector {
     private String password;
 
     private Connection connection;
+    private Map<String, String> sqlHashMap;
 
     private static final Connector instance = new Connector();
 
     private Connector() {
-        loadProperties();
+        sqlHashMap = new HashMap<>();
+        loadConnectorProperties();
+        createSQLProperties();
+        loadSQLProperties();
+
         try {
             Class.forName(driverClass);
             String url = driver + "://" + host + ":" + port + "/" + database;
@@ -35,17 +40,72 @@ public class Connector {
         System.out.println("DEBUG: [" + this.getClass().getName() + "] Status: Successfully connected to MySQL database,\nhost '" + host + "' with user '" + username + "'.");
     }
 
-    private void loadProperties() {
-        Properties properties = new Properties();
-        try (InputStream is = new FileInputStream(CONFIG_FILE)) {
-            properties.load(is);
-            this.driverClass = properties.getProperty("DRIVER_CLASS");
-            this.driver = properties.getProperty("DRIVER");
-            this.host = properties.getProperty("HOST");
-            this.port = Integer.parseInt(properties.getProperty("PORT"));
-            this.database = properties.getProperty("DATABASE");
-            this.username = properties.getProperty("USERNAME");
-            this.password = properties.getProperty("PASSWORD");
+    private void loadConnectorProperties() {
+        Properties p = new Properties();
+        try (InputStream is = new FileInputStream(MYSQL_CONFIG_FILE)) {
+            p.load(is);
+            this.driverClass = p.getProperty("DRIVER_CLASS");
+            this.driver = p.getProperty("DRIVER");
+            this.host = p.getProperty("HOST");
+            this.port = Integer.parseInt(p.getProperty("PORT"));
+            this.database = p.getProperty("DATABASE");
+            this.username = p.getProperty("USERNAME");
+            this.password = p.getProperty("PASSWORD");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createSQLProperties() {
+        Properties p = new Properties();
+        // Operator SQL
+        p.setProperty("getOprSql", "SELECT * FROM operatoer WHERE opr_id = ?");
+        p.setProperty("getOprListSql", "SELECT * FROM operatoer");
+        p.setProperty("createOprSql", "INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES (?, ?, ?, ?, ?)");
+        p.setProperty("updateOprSql", "UPDATE operatoer SET opr_navn = ?, ini = ?, cpr = ?, password = ? WHERE opr_id = ?");
+        p.setProperty("deleteOprSql", "DELETE FROM operatoer WHERE opr_id = ?");
+
+        // ProductBatchComponent SQL
+        p.setProperty("getPBCSql", "SELECT * FROM produktbatchkomponent WHERE pb_id = ? AND rb_id = ?");
+        p.setProperty("getPBCListIdSql", "SELECT * FROM produktbatchkomponent WHERE pb_id = ?");
+        p.setProperty("getPBCListSql", "SELECT * FROM produktbatchkomponent");
+        p.setProperty("createPBCSql", "INSERT INTO produktbatchkomponent(pb_id, rb_id, tara, netto, opr_id) VALUES (?, ?, ?, ?, ?)");
+        p.setProperty("updatePBCSql", "UPDATE produktbatchkomponent SET tara = ?, netto = ? WHERE pb_id = ? AND rb_id = ? AND opr_id = ?");
+        p.setProperty("deletePBCSql", "DELETE FROM produktbatchkomponent WHERE pb_id = ? AND rb_id = ?");
+
+        // ProductBatch SQL
+        p.setProperty("getPBSql", "SELECT * FROM produktbatch WHERE pb_id = ?");
+        p.setProperty("getPBListSql", "SELECT * FROM produktbatch");
+        p.setProperty("createPBSql", "INSERT INTO produktbatch(pb_id, status, recept_id) VALUES (?, ?, ?)");
+        p.setProperty("updatePBSql", "UPDATE produktbatch SET status = ? WHERE pb_id = ? AND recept_id = ?");
+        p.setProperty("deletePBSql", "DELETE FROM produktbatch WHERE pb_id = ?");
+
+        FileOutputStream fs = null;
+        try {
+            File file = new File(SQL_CONFIG_FILE);
+            fs = new FileOutputStream(file);
+            p.store(fs, SQL_CONFIG_FILE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fs.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadSQLProperties() {
+        Properties p = new Properties();
+        try (InputStream is = new FileInputStream(SQL_CONFIG_FILE)) {
+            p.load(is);
+            for (String key : p.stringPropertyNames()) {
+                String value = p.getProperty(key);
+                sqlHashMap.put(key, value);
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -65,6 +125,14 @@ public class Connector {
             stmt.close();
     }
 
+    public void closeConnection() throws SQLException {
+        connection.close();
+    }
+
+    public String getSQL(String key) {
+        return sqlHashMap.get(key);
+    }
+
     public Connection getConnection() {
         return connection;
     }
@@ -72,5 +140,6 @@ public class Connector {
     public static synchronized Connector getInstance() {
         return instance;
     }
+
 
 }

@@ -19,7 +19,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public OperatorDTO getOperator(int oprId) throws DALException {
-        String getOprSql = "SELECT * FROM operatoer WHERE opr_id = ?";
+        String getOprSql = connector.getSQL("getOprSql");
         PreparedStatement getOprStmt = null;
         ResultSet rs = null;
         try {
@@ -29,8 +29,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
             if (!rs.first()) throw new DALException("Operator id [" + oprId + "] does not exist!");
 
-            // ROLES SKAL IKKE VAERE NULL! FIND EN FIX.
-            return new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password"), null);
+            return new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password"));
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {
@@ -44,7 +43,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public List<OperatorDTO> getOperatorList() throws DALException {
-        String getOprListSql = "SELECT * FROM operatoer";
+        String getOprListSql = connector.getSQL("getOprListSql";
         List<OperatorDTO> oprList = new ArrayList<>();
         PreparedStatement getOprListStmt = null;
         ResultSet rs = null;
@@ -52,8 +51,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
             getOprListStmt = connector.getConnection().prepareStatement(getOprListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             rs = getOprListStmt.executeQuery();
             while (rs.next()) {
-                // ROLES SKAL IKKE VAERE NULL!!!!!!!!!!!!!!!
-                oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password"), null));
+                oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password")));
             }
             return oprList;
         } catch (SQLException e) {
@@ -69,7 +67,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public void createOperator(OperatorDTO opr) throws DALException {
-        String createOprSql = "INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES (?, ?, ?, ?, ?)";
+        String createOprSql = connector.getSQL("createOprSql");
         PreparedStatement createOprStmt = null;
         try {
             createOprStmt = connector.getConnection().prepareStatement(createOprSql);
@@ -78,8 +76,6 @@ public class SQLOperatorDAO implements IOperatorDAO {
             createOprStmt.setString(3, opr.getOprIni());
             createOprStmt.setString(4, opr.getOprCpr());
             createOprStmt.setString(5, opr.getOprPassword());
-            // roles?
-
             createOprStmt.executeQuery();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
@@ -94,7 +90,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public void updateOperator(OperatorDTO opr) throws DALException {
-        String updateOprSql = "UPDATE operatoer SET opr_navn = ?, ini = ?, cpr = ?, password = ? WHERE opr_id = ?";
+        String updateOprSql = connector.getSQL("updateOprSql");
         PreparedStatement updateOprStmt = null;
         try {
             updateOprStmt = connector.getConnection().prepareStatement(updateOprSql);
@@ -103,8 +99,6 @@ public class SQLOperatorDAO implements IOperatorDAO {
             updateOprStmt.setString(3, opr.getOprCpr());
             updateOprStmt.setString(4, opr.getOprPassword());
             updateOprStmt.setInt(5, opr.getOprId());
-            // roles??
-
             updateOprStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
@@ -119,7 +113,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public void deleteOperator(int oprId) throws DALException {
-        String deleteOprSql = "DELETE FROM operatoer WHERE opr_id = ?";
+        String deleteOprSql = connector.getSQL("del")
         PreparedStatement deleteOprStmt = null;
         try {
             deleteOprStmt = connector.getConnection().prepareStatement(deleteOprSql);
