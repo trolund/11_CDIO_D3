@@ -51,6 +51,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
         ResultSet rs = null;
         try {
             getPBCListStmt = connector.getConnection().prepareStatement(getPBCListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            getPBCListStmt.setInt(1, pbId);
             rs = getPBCListStmt.executeQuery();
             while (rs.next()) {
                 pbcList.add(new ProductBatchComponentDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));

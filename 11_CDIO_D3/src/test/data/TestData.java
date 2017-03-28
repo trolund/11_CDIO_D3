@@ -55,7 +55,7 @@ public class TestData implements IData {
         /* Testing SQLOperatorDAO.createOperator() */
         System.out.println("##### Testing SQLOperatorDAO.createOperator(oprDto) #####");
         try {
-            OperatorDTO oprDTO = new OperatorDTO(666, "Arnold", "ASN", "234234", "hellokitty", null);
+            OperatorDTO oprDTO = new OperatorDTO(666, "Arnold", "ASN", "234234", "hellokitty");
             operatorDao.createOperator(oprDTO);
             System.out.println("Created: " + oprDTO);
             System.out.println("#####################################################\n");
@@ -66,7 +66,7 @@ public class TestData implements IData {
         /* Testing SQLOperatorDAO.updateOperator() */
         System.out.println("##### Testing SQLOperatorDAO.updateOperator(oprDto) #####");
         try {
-            OperatorDTO oprDto = new OperatorDTO(666, "Arnold", "ASN", "234234", "byekitty", null);
+            OperatorDTO oprDto = new OperatorDTO(666, "Arnold", "ASN", "234234", "byekitty");
             operatorDao.updateOperator(oprDto);
             System.out.println("Updated: " + operatorDao.getOperator(666));
             System.out.println("#########################################################\n");
@@ -115,6 +115,17 @@ public class TestData implements IData {
         try {
             List<ProductBatchComponentDTO> list = SQLProductBatchCompDao.getProductBatchComponentList();
             System.out.println("##### Testing SQLProductBatchComponentDAO.getProductBatchComponentList() #####");
+            for (int i = 0; i < list.size(); i++)
+                System.out.println(i + ": " + list.get(i));
+            System.out.println("#####################################################\n");
+        } catch (DALException e) {
+            e.printStackTrace();
+        }
+
+        /* Testing SQLProductBatchComponentDAO.getProductBatchComponentList(pbId) */
+        try {
+            List<ProductBatchComponentDTO> list = SQLProductBatchCompDao.getProductBatchComponentList(4);
+            System.out.println("##### Testing SQLProductBatchComponentDAO.getProductBatchComponentList(pbId) #####");
             for (int i = 0; i < list.size(); i++)
                 System.out.println(i + ": " + list.get(i));
             System.out.println("#####################################################\n");

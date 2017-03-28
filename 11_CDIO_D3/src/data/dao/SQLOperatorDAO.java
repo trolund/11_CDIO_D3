@@ -43,7 +43,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public List<OperatorDTO> getOperatorList() throws DALException {
-        String getOprListSql = connector.getSQL("getOprListSql";
+        String getOprListSql = connector.getSQL("getOprListSql");
         List<OperatorDTO> oprList = new ArrayList<>();
         PreparedStatement getOprListStmt = null;
         ResultSet rs = null;
@@ -113,7 +113,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
     @Override
     public void deleteOperator(int oprId) throws DALException {
-        String deleteOprSql = connector.getSQL("del")
+        String deleteOprSql = connector.getSQL("deleteOprSql");
         PreparedStatement deleteOprStmt = null;
         try {
             deleteOprStmt = connector.getConnection().prepareStatement(deleteOprSql);
