@@ -82,6 +82,11 @@ public class Connector {
         p.setProperty("updatePBSql", "UPDATE produktbatch SET status = ? WHERE pb_id = ? AND recept_id = ?");
         p.setProperty("deletePBSql", "DELETE FROM produktbatch WHERE pb_id = ?");
 
+
+        // RaavareBatch SQL
+        p.setProperty("getRBSql", "SELECT * FROM raavarebatch WHERE rb_id = ?");
+        p.setProperty("getRBListSql", "SELECT * FROM raavarebatch");
+
         FileOutputStream fs = null;
         try {
             File file = new File(SQL_CONFIG_FILE);
