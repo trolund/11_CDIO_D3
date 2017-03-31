@@ -8,13 +8,11 @@ package test.data;
 
 import data.Connector;
 import data.IData;
-import data.dao.DALException;
-import data.dao.SQLOperatorDAO;
-import data.dao.SQLProductBatchComponentDAO;
-import data.dao.SQLProductBatchDAO;
+import data.dao.*;
 import data.dto.OperatorDTO;
 import data.dto.ProductBatchComponentDTO;
 import data.dto.ProductBatchDTO;
+import data.dto.RaavareBatchDTO;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -235,14 +233,32 @@ public class TestData implements IData {
         }
     }
 
+    public static void testSQLRaavareBatchDAO() {
+        SQLRaavareBatchDAO dao = new SQLRaavareBatchDAO();
+
+        /* Testing SQLRaavareBatchDAO.getRaavareBatchDTO(rbId) */
+        try {
+            System.out.println("##### Testing SQLRaavareBatchDAO.getRaavareBatchDTO(rbId) #####");
+            System.out.println("Getting RaavareBatchDTO with id 5.");
+            RaavareBatchDTO rbDTO = dao.getRaavareBatch(5);
+            System.out.println("Got: " + rbDTO);
+        } catch (DALException e) {
+            e.printStackTrace();
+        }
+        System.out.println("####################################################################################\n");
+
+    }
+
     public static void main(String[] args) {
-        TestData testData = new TestData();
-        System.out.println("\n################### Testing SQLOperatorDAO ###################");
-        testData.testSQLoperatorDAO();
-        System.out.println("\n\n\n################### Testing SQLProductBatchComponentDAO ###################\n");
-        testData.testSQLProductBatchComponentDAO();
-        System.out.println("\n\n\n################### Testing SQLProductBatchDAO ###################\n");
-        testData.testSQLProductBatch();
+        //TestData testData = new TestData();
+        //System.out.println("\n################### Testing SQLOperatorDAO ###################");
+        //testData.testSQLoperatorDAO();
+        //System.out.println("\n\n\n################### Testing SQLProductBatchComponentDAO ###################\n");
+        //testData.testSQLProductBatchComponentDAO();
+        //System.out.println("\n\n\n################### Testing SQLProductBatchDAO ###################\n");
+       // testData.testSQLProductBatch();
+        System.out.println("\n\n\n################### Testing SQLRaavareBatchDAO ###################\n");
+        testData.testSQLRaavareBatchDAO();
         try {
             connector.closeConnection();
         } catch (SQLException e) {

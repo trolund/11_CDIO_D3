@@ -12,6 +12,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="drivers"/>
+<<<<<<< .merge_file_17WEcM
 <<<<<<< .merge_file_QIUPni
 	<classpathentry kind="lib" path="/Users/troelslund/git/11_CDIO_D3/11_CDIO_D3/drivers/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="/Users/troelslund/git/11_CDIO_D3/11_CDIO_D3/drivers/javax.ws.rs-api-2.0.1.jar"/>
@@ -19,6 +20,8 @@
 	<classpathentry kind="lib" path="/home/absencia/git/11_CDIO_D3/11_CDIO_D3/drivers/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 =======
+=======
+>>>>>>> .merge_file_gYco6L
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -26,5 +29,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
+<<<<<<< .merge_file_17WEcM
 >>>>>>> .merge_file_SjJ4Yh
+=======
+>>>>>>> .merge_file_gYco6L
 </classpath>
