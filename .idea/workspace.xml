@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d97f155f-78db-4b4c-8afe-ed4b4a1e6245" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/drivers.xml" afterPath="$PROJECT_DIR$/.idea/libraries/drivers.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/.classpath" afterPath="$PROJECT_DIR$/11_CDIO_D3/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/.gitignore" afterPath="$PROJECT_DIR$/11_CDIO_D3/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/11_CDIO_D3/.settings/org.eclipse.wst.common.component" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/11_CDIO_D3/11_CDIO_D3.iml" afterPath="$PROJECT_DIR$/11_CDIO_D3/11_CDIO_D3.iml" />
-    </list>
+    <list default="true" id="d97f155f-78db-4b4c-8afe-ed4b4a1e6245" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -355,6 +345,14 @@
       <option name="presentableId" value="Default" />
       <updated>1491040117288</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixing project structure.">
+      <created>1491040485899</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1491040485899</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -391,6 +389,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixing project structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing project structure." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
