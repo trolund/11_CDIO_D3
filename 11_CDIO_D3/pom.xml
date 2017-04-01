@@ -4,8 +4,6 @@
   <artifactId>CDIO_D3</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-<<<<<<< .merge_file_znRMMO
-<<<<<<< .merge_file_tKW4Lm
   <dependencies>
     <dependency>
       <groupId>org.glassfish.jersey.core</groupId>
@@ -48,10 +46,6 @@
       <version>2.0.1</version>
     </dependency>
   </dependencies>
-=======
->>>>>>> .merge_file_d3fNPn
-=======
->>>>>>> .merge_file_OMGffN
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

@@ -234,7 +234,7 @@ public class TestData implements IData {
     }
 
     public static void testSQLRaavareBatchDAO() {
-        SQLRaavareBatchDAO dao = new SQLRaavareBatchDAO();
+        SQLRaavareBatchDAO dao = new SQLRaavareBatchDAO(connector);
 
         /* Testing SQLRaavareBatchDAO.getRaavareBatchDTO(rbId) */
         try {
@@ -250,7 +250,7 @@ public class TestData implements IData {
     }
 
     public static void main(String[] args) {
-        //TestData testData = new TestData();
+        TestData testData = new TestData();
         //System.out.println("\n################### Testing SQLOperatorDAO ###################");
         //testData.testSQLoperatorDAO();
         //System.out.println("\n\n\n################### Testing SQLProductBatchComponentDAO ###################\n");
