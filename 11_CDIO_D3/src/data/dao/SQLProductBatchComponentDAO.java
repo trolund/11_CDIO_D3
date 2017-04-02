@@ -103,7 +103,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
             createPBCStmt.setDouble(3, pbc.getTara());
             createPBCStmt.setDouble(4, pbc.getNetto());
             createPBCStmt.setInt(5, pbc.getOprId());
-            createPBCStmt.executeQuery();
+            createPBCStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {
@@ -146,7 +146,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
             deletePBCStmt = connector.getConnection().prepareStatement(deletePBCSql);
             deletePBCStmt.setInt(1, pbId);
             deletePBCStmt.setInt(2, rbId);
-            deletePBCStmt.executeQuery();
+            deletePBCStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {

@@ -76,7 +76,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
             createOprStmt.setString(3, opr.getOprIni());
             createOprStmt.setString(4, opr.getOprCpr());
             createOprStmt.setString(5, opr.getOprPassword());
-            createOprStmt.executeQuery();
+            createOprStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {
@@ -118,7 +118,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
         try {
             deleteOprStmt = connector.getConnection().prepareStatement(deleteOprSql);
             deleteOprStmt.setInt(1, oprId);
-            deleteOprStmt.executeQuery();
+            deleteOprStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {

@@ -75,7 +75,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
             createPBStmt.setInt(1, pb.getpBId());
             createPBStmt.setInt(2, pb.getStatus());
             createPBStmt.setInt(3, pb.getReceptId());
-            createPBStmt.executeQuery();
+            createPBStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {
@@ -115,7 +115,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
         try {
             deletePBStmt = connector.getConnection().prepareStatement(deletePBSql);
             deletePBStmt.setInt(1, pbId);
-            deletePBStmt.executeQuery();
+            deletePBStmt.executeUpdate();
         } catch (SQLException e) {
             throw new DALException(e.getMessage(), e);
         } finally {
