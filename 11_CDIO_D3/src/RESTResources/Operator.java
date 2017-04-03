@@ -36,9 +36,9 @@ public class Operator {
 		}
 
 		if (password.equals(oprDTO.getOprPassword())) {
-			return "Passworded er korrekt!";
+			return "Correct password!";
 		} else {
-			return "Passworded er forkert!";
+			return "Wrong password!";
 		}
 
 	}
