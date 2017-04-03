@@ -10,7 +10,7 @@
 // ajax get user data 
 
 jQuery.ajax({
-            url: "CDIO_D3/api/oprDTO/get",
+            url: "CDIO_D3/api/opr/get",
             type: "GET",
 
             contentType: 'application/json; charset=utf-8',
