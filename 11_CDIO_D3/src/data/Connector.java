@@ -8,8 +8,8 @@ import java.util.Properties;
 
 public class Connector {
 
-    private final String MYSQL_CONFIG_FILE = "mysql_mariadb.config";
-    private final String SQL_CONFIG_FILE = "sql.config";
+    private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
+    private final String SQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/sql.config";
     private String driverClass;
     private String driver;
     private String host;

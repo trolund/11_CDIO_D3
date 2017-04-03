@@ -3,7 +3,7 @@ package RESTResources;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("/cdio")
+@ApplicationPath("/api")
 public class ApplicationConfig extends Application {
 
 }

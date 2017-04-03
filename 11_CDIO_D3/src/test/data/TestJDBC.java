@@ -1,26 +1,17 @@
 package test.data;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import java.util.List;
-
+import data.Connector;
+import data.dao.*;
+import data.dto.OperatorDTO;
+import data.dto.ProductBatchComponentDTO;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import data.Connector;
-import data.dao.DALException;
-import data.dao.SQLOperatorDAO;
-import data.dao.SQLProductBatchComponentDAO;
-import data.dao.SQLProductBatchDAO;
-import data.dao.SQLRaavareBatchDAO;
-import data.dao.SQLRaavareDAO;
-import data.dao.SQLReceptComponentDAO;
-import data.dao.SQLReceptDAO;
-import data.dao.SQLRoleDAO;
-import data.dto.OperatorDTO;
-import data.dto.ProductBatchComponentDTO;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class TestJDBC {
 
