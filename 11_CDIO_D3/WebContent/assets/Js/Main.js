@@ -10,14 +10,12 @@
 // ajax get user data 
 
 jQuery.ajax({
-            url: "/rest/abc",
+            url: "CDIO_D3/api/oprDTO/get",
             type: "GET",
 
             contentType: 'application/json; charset=utf-8',
             success: function(resultData) {
-                //here is your json.
-                  // process it
-
+                console.log('success', resultData);
             },
             error : function(jqXHR, textStatus, errorThrown) {
             },
