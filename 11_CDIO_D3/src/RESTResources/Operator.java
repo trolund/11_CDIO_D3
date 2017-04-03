@@ -21,8 +21,6 @@ public class Operator {
 	public String getUser() {
 		return "If you see this, REST should be working correctly!";
 	}
-	
-	
 
 	@POST
 	@Path("/verify")

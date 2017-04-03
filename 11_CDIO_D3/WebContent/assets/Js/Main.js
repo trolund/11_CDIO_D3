@@ -9,13 +9,14 @@
 
 // ajax get user data 
 
+var oprname = $('#oprname');
 jQuery.ajax({
-            url: "CDIO_D3/api/opr/get",
+            url: "api/opr/test",
             type: "GET",
 
             contentType: 'application/json; charset=utf-8',
             success: function(resultData) {
-                console.log('success', resultData);
+                oprname.append("trolle");
             },
             error : function(jqXHR, textStatus, errorThrown) {
             },
