@@ -4,7 +4,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/user")
-public class user {
+public class User {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
