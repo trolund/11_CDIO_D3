@@ -23,8 +23,8 @@ public class SecUtil {
 			}
 
 			return hexString.toString();
-		} catch (Exception ex) {
-			throw new RuntimeException(ex);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 
