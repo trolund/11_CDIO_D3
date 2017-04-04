@@ -25,12 +25,12 @@ public class Operator {
 	@POST
 	@Path("/verify")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String verify(@FormParam("oprId") int oprId, @FormParam("password") String password) {
+	public String verify(@FormParam("oprId") String oprId, @FormParam("password") String password) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 
 		OperatorDTO oprDTO = null;
 		try {
-			oprDTO = oprDAO.getOperator(oprId);
+			oprDTO = oprDAO.getOperator(Integer.parseInt(oprId));
 		} catch (DALException e) {
 			e.printStackTrace();
 			return "Operator with id [" + oprId + "] does not exist!";
