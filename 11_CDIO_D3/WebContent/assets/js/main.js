@@ -7,6 +7,13 @@
       });
     });
 
+// user button menu 
+    $(document).ready(function(){
+      $("#user_but").click(function(){       
+          $( "#content_box" ).load( 'adduser.html');
+      });
+    });
+
 // ajax get user data 
     jQuery.ajax({
         url: "api/opr/get",
