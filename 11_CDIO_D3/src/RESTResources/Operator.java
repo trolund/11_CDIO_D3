@@ -34,6 +34,9 @@ public class Operator {
 		} catch (DALException e) {
 			e.printStackTrace();
 			return "Operator with id [" + oprId + "] does not exist!";
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			return "Please input a valid ID!";
 		}
 
 		if (password.equals(oprDTO.getOprPassword())) {
