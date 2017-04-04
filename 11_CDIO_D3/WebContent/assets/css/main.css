@@ -3,7 +3,8 @@ html {
 }
 
 body {
-    background: #fff;
+     background-color:#333;
+    background-image: url(../../assets/classy_fabric.png);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -103,7 +104,7 @@ h2 {
 
 #content {
     background-color:#333;
-    background-image: url(assets/classy_fabric.png);
+    background-image: url(../../assets/classy_fabric.png);
     height: 100%;
     position:absolute;
     width: calc(100% - 220px);
@@ -122,61 +123,6 @@ h2 {
     margin-top: 30px;
     -webkit-box-shadow: 0 0 10px 1px #000;
     box-shadow: 0 0 10px 1px #000;
-}
-
-#login_container {
-    /* height: auto;
-    width: 300px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
-    border-radius: 5px;
-    border: solid 1px #999;
-    background-color: #3fb0ac;
-    -webkit-box-shadow: 0 0 10px 1px #000;
-    box-shadow: 0 0 10px 1px #000;
-    z-index: 99999;
-    */
-}
-
-#login_box {
-    background-color: #3fb0ac;
-    height: 300px;
-    width: 300px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 0px;
-}
-
-#login_box input {
-    font-size: 15px;
-    outline:none;
-    border: 0px;
-    background-color: transparent;
-    border-bottom: 2px #173e43 solid;
-    transition: background 0.2s;
-}
-
-#login_box input[type=submit] {
-    margin-top: 10px;
-    height: 40px;
-    width: 100%;
-    outline:none;
-    border: 0px;
-    padding: 5px;
-    border-top: solid #173e43 1px;
-    border-bottom: solid #173e43 1px;
-    position:relative;
-}
-
-#login_container input[type=submit]:hover {
-    color: #fff;
-    background-color: #173e43;
-    -webkit-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
-    box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
 }
 
 #menu_but {
