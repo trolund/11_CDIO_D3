@@ -33,16 +33,16 @@ public class Operator {
 			oprDTO = oprDAO.getOperator(Integer.parseInt(oprId));
 		} catch (DALException e) {
 			e.printStackTrace();
-			return "Operator with id [" + oprId + "] does not exist!";
+			return "ID does not exist.";
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
-			return "Please input a valid ID!";
+			return "Invalid ID.";
 		}
 
 		if (password.equals(oprDTO.getOprPassword())) {
-			return "Correct password!";
+			return "Correct password.";
 		} else {
-			return "Wrong password!";
+			return "Invalid credentials.";
 		}
 	}
 
