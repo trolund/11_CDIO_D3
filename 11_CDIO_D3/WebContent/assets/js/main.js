@@ -8,18 +8,15 @@
     });
 
 // ajax get user data 
-
     jQuery.ajax({
         url: "api/opr/get",
         type: "GET",
         contentType: 'text/plain',
         success: function(resultData) {
-            $('#oprname').html(resultData);
+            $('#oprName').html(resultData);
         },
         error : function(jqXHR, textStatus, errorThrown) {
         },
 
         timeout: 120000,
     });
-
-
