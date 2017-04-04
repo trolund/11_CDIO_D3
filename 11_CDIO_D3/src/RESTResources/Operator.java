@@ -48,5 +48,25 @@ public class Operator {
 			return "Invalid credentials.";
 		}
 	}
+	
+	@GET
+	@Path("/get")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getopr() {
+//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+//		OperatorDTO oprDTO = null;
+//		
+//		try {
+//			oprDTO = oprDAO.getOperator(1);
+//		} catch (DALException e) {
+//			e.printStackTrace();
+//			return "opr with that ID does not exist.";
+//		} catch (NumberFormatException e) {
+//			e.printStackTrace();
+//			return "Invalid ID.";
+//		}		
+//		return oprDTO.getOprName();
+		return "Troels Lund";
+	}
 
 }

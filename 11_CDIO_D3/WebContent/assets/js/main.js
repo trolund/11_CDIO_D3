@@ -9,17 +9,17 @@
 
 // ajax get user data 
 
-var oprname = $('#oprname');
-jQuery.ajax({
-            url: "api/opr/test",
-            type: "GET",
+    jQuery.ajax({
+        url: "api/opr/get",
+        type: "GET",
+        contentType: 'text/plain',
+        success: function(resultData) {
+            $('#oprname').html(resultData);
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+        },
 
-            contentType: 'application/json; charset=utf-8',
-            success: function(resultData) {
-                oprname.append("trolle");
-            },
-            error : function(jqXHR, textStatus, errorThrown) {
-            },
+        timeout: 120000,
+    });
 
-            timeout: 120000,
-        });
+
