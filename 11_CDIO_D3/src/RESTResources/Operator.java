@@ -30,8 +30,6 @@ public class Operator {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		SecUtil secUtil = SecUtil.getInstance();
 
-		System.out.println("Hashed password: " + secUtil.sha256(password));
-
 		OperatorDTO oprDTO = null;
 		try {
 			oprDTO = oprDAO.getOperator(Integer.parseInt(oprId));
@@ -43,7 +41,7 @@ public class Operator {
 			return "Invalid ID.";
 		}
 
-		if (secUtil.sha256(password).equals(secUtil.sha256(oprDTO.getOprPassword()))) {
+		if (secUtil.sha256(password).equals(oprDTO.getOprPassword())) {
 			return "Correct password.";
 		} else {
 			return "Invalid credentials.";
