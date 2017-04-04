@@ -11,7 +11,7 @@ import data.Connector;
 import data.dao.DALException;
 import data.dao.SQLOperatorDAO;
 import data.dto.OperatorDTO;
-import utils.SecUtil;
+import utils.SecUtils;
 
 @Path("/opr")
 public class Operator {
@@ -28,7 +28,7 @@ public class Operator {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String verify(@FormParam("oprId") String oprId, @FormParam("password") String password) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-		SecUtil secUtil = SecUtil.getInstance();
+		SecUtils secUtil = SecUtils.getInstance();
 
 		OperatorDTO oprDTO = null;
 		try {

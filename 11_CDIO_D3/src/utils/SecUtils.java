@@ -2,11 +2,11 @@ package utils;
 
 import java.security.MessageDigest;
 
-public class SecUtil {
+public class SecUtils {
 
-	private static final SecUtil instance = new SecUtil();
+	private static final SecUtils instance = new SecUtils();
 
-	private SecUtil() {
+	private SecUtils() {
 
 	}
 
@@ -28,7 +28,7 @@ public class SecUtil {
 		}
 	}
 
-	public static synchronized SecUtil getInstance() {
+	public static synchronized SecUtils getInstance() {
 		return instance;
 	}
 
