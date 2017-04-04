@@ -33,6 +33,7 @@ public class Operator {
 			oprDTO = oprDAO.getOperator(oprId);
 		} catch (DALException e) {
 			e.printStackTrace();
+			return "Operator with id [" + oprId + "] does not exist!";
 		}
 
 		if (password.equals(oprDTO.getOprPassword())) {
@@ -40,6 +41,6 @@ public class Operator {
 		} else {
 			return "Wrong password!";
 		}
-
 	}
+
 }
