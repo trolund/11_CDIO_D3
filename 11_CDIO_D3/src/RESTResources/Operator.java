@@ -28,8 +28,7 @@ public class Operator {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String verify(@FormParam("oprId") String oprId, @FormParam("password") String password) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-
-		System.out.println("Hashed password: " + SecUtil.getInstance().sha256(password));
+		SecUtil secUtil = SecUtil.getInstance();
 
 		OperatorDTO oprDTO = null;
 		try {
@@ -42,7 +41,7 @@ public class Operator {
 			return "Invalid ID.";
 		}
 
-		if (password.equals(oprDTO.getOprPassword())) {
+		if (secUtil.sha256(password).equals(oprDTO.getOprPassword())) {
 			return "Correct password.";
 		} else {
 			return "Invalid credentials.";

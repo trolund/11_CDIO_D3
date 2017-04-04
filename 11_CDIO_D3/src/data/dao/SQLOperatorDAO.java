@@ -13,6 +13,12 @@ public class SQLOperatorDAO implements IOperatorDAO {
 
 	private final Connector connector;
 
+	
+	/*
+	 * 
+	 * 
+	 * UPDATE THIS CLASS TO SUPPORT SHA256 PASSWORDS CORRECTLY!!!
+	 */
 	public SQLOperatorDAO(Connector connector) {
 		this.connector = connector;
 	}
