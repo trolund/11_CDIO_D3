@@ -11,12 +11,27 @@
     $(document).ready(function(){
       $("#user_but").click(function(){       
           $( "#content_box" ).load( 'adduser.html');
+          
+          jQuery.ajax({
+        url: "/api/opr/getOprList",
+        type: "GET",
+        contentType: 'text/plain',
+        success: function(resultData) {
+            $("#table_con").html(resultData);
+        },
+        error : function(jqXHR, textStatus, errorThrown) {
+        },
+
+        timeout: 120000,
+    });
+          
+          
       });
     });
 
 // ajax get user data 
     jQuery.ajax({
-        url: "api/opr/getname",
+        url: "/api/opr/getname",
         type: "GET",
         contentType: 'text/plain',
         success: function(resultData) {
