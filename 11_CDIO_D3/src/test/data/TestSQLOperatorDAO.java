@@ -49,7 +49,7 @@ public class TestSQLOperatorDAO {
 			int oprId = 1;
 			System.out.println("\n" + spr + " Testing SQLOperatorDAO.getOperator(" + oprId + ") Positive " + spr);
 
-			System.out.println("Receiving Operator with oprId: " + oprId);
+			System.out.println("Receiving OperatorDTO with oprId: " + oprId);
 			OperatorDTO oprDTO = oprDAO.getOperator(oprId);
 			System.out.println("Received: " + oprDTO);
 
@@ -74,7 +74,7 @@ public class TestSQLOperatorDAO {
 
 			System.out.println("\n" + spr + " Testing SQLOperatorDAO.getOperator(" + oprId + ") Negative " + spr);
 
-			System.out.println("Receiving Operator with oprId: " + oprId);
+			System.out.println("Receiving OperatorDTO with oprId: " + oprId);
 			OperatorDTO oprDTO = oprDAO.getOperator(oprId);
 			System.out.println("Received: " + oprDTO);
 

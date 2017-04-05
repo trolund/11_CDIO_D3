@@ -1,13 +1,13 @@
 package data.dao;
 
-import data.Connector;
-import data.dto.ProductBatchComponentDTO;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import data.Connector;
+import data.dto.ProductBatchComponentDTO;
 
 public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 
@@ -98,8 +98,8 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
         PreparedStatement createPBCStmt = null;
         try {
             createPBCStmt = connector.getConnection().prepareStatement(createPBCSql);
-            createPBCStmt.setInt(1, pbc.getpBId());
-            createPBCStmt.setInt(2, pbc.getrBId());
+            createPBCStmt.setInt(1, pbc.getpbId());
+            createPBCStmt.setInt(2, pbc.getrbId());
             createPBCStmt.setDouble(3, pbc.getTara());
             createPBCStmt.setDouble(4, pbc.getNetto());
             createPBCStmt.setInt(5, pbc.getOprId());
@@ -123,8 +123,8 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
             updatePBCStmt = connector.getConnection().prepareStatement(updatePBCSql);
             updatePBCStmt.setDouble(1, pbc.getTara());
             updatePBCStmt.setDouble(2, pbc.getNetto());
-            updatePBCStmt.setInt(3, pbc.getpBId());
-            updatePBCStmt.setInt(4, pbc.getrBId());
+            updatePBCStmt.setInt(3, pbc.getpbId());
+            updatePBCStmt.setInt(4, pbc.getrbId());
             updatePBCStmt.setInt(5, pbc.getOprId());
             updatePBCStmt.executeUpdate();
         } catch (SQLException e) {
@@ -140,22 +140,22 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 
     @Override
     public void deleteProductBatchComponent(int pbId, int rbId) throws DALException {
-        String deletePBCSql = connector.getSQL("deletePBCSql");
-        PreparedStatement deletePBCStmt = null;
-        try {
-            deletePBCStmt = connector.getConnection().prepareStatement(deletePBCSql);
-            deletePBCStmt.setInt(1, pbId);
-            deletePBCStmt.setInt(2, rbId);
-            deletePBCStmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new DALException(e.getMessage(), e);
-        } finally {
-            try {
-                connector.cleanup(deletePBCStmt);
-            } catch (SQLException e) {
-                throw new DALException(e.getMessage(), e);
-            }
-        }
+		String deletePBCSql = connector.getSQL("deletePBCSql");
+		PreparedStatement deletePBCStmt = null;
+		try {
+			deletePBCStmt = connector.getConnection().prepareStatement(deletePBCSql);
+			deletePBCStmt.setInt(1, pbId);
+			deletePBCStmt.setInt(2, rbId);
+			deletePBCStmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(deletePBCStmt);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
     }
 
 }
