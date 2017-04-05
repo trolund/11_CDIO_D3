@@ -23,8 +23,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		PreparedStatement getPBStmt = null;
 		ResultSet rs = null;
 		try {
-			getPBStmt = connector.getConnection().prepareStatement(getPBSql, ResultSet.TYPE_SCROLL_SENSITIVE,
-					ResultSet.CONCUR_UPDATABLE);
+			getPBStmt = connector.getConnection().prepareStatement(getPBSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			getPBStmt.setInt(1, pbId);
 			rs = getPBStmt.executeQuery();
 
@@ -49,8 +48,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		PreparedStatement getPBListStmt = null;
 		ResultSet rs = null;
 		try {
-			getPBListStmt = connector.getConnection().prepareStatement(getPBListSql, ResultSet.TYPE_SCROLL_SENSITIVE,
-					ResultSet.CONCUR_UPDATABLE);
+			getPBListStmt = connector.getConnection().prepareStatement(getPBListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = getPBListStmt.executeQuery();
 			while (rs.next()) {
 				pbList.add(new ProductBatchDTO(rs.getInt("pb_id"), rs.getInt("status"), rs.getInt("recept_id")));

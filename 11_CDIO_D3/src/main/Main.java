@@ -6,8 +6,8 @@ import ui.UI;
 
 public class Main {
 
-    public static void main(String[] args) {
-        new UI(new Logic(new Data()));
-    }
+	public static void main(String[] args) {
+		new UI(new Logic(new Data()));
+	}
 
 }

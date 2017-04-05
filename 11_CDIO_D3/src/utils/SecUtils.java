@@ -2,14 +2,26 @@ package utils;
 
 import java.security.MessageDigest;
 
+/*
+ * Singleton class for security related utilities.
+ */
 public class SecUtils {
 
+	/*
+	 * Singleton instance of this class.
+	 */
 	private static final SecUtils instance = new SecUtils();
 
+	/*
+	 * private constructor. Can't be instantiated.
+	 */
 	private SecUtils() {
 
 	}
 
+	/*
+	 * SHA256 algorithm.
+	 */
 	public String sha256(String base) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -28,6 +40,9 @@ public class SecUtils {
 		}
 	}
 
+	/*
+	 * Getter for the singleton instance.
+	 */
 	public static synchronized SecUtils getInstance() {
 		return instance;
 	}

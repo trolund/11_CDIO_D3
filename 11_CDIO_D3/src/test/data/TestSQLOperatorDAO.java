@@ -171,8 +171,7 @@ public class TestSQLOperatorDAO {
 			String newName = "Dannuke";
 			String newCpr = "9999";
 
-			OperatorDTO updatedOprDTO = new OperatorDTO(oprId, newName, oprDTO.getOprIni(), newCpr,
-					oprDTO.getOprPassword());
+			OperatorDTO updatedOprDTO = new OperatorDTO(oprId, newName, oprDTO.getOprIni(), newCpr, oprDTO.getOprPassword());
 
 			System.out.println("Created: " + oprDAO.getOperator(oprId));
 			oprDAO.updateOperator(updatedOprDTO);

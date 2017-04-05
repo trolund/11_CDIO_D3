@@ -47,8 +47,7 @@ public class TestSQLProductBatchDAO {
 	public void testGetProductBatchPositive() {
 		try {
 			int pbId = 1;
-			System.out
-					.println("\n" + spr + " Testing SQLProductBatchDAO.getProductBatch(" + pbId + ") Positive " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchDAO.getProductBatch(" + pbId + ") Positive " + spr);
 
 			System.out.println("Receiving ProductBatchDTO with pbId: " + pbId + ".");
 			ProductBatchDTO pbDTO = pbDAO.getProductBatch(pbId);
@@ -74,8 +73,7 @@ public class TestSQLProductBatchDAO {
 			/* Make sure that the ProductBatchDTO does not exist. */
 			pbDAO.deleteProductBatch(pbId);
 
-			System.out
-					.println("\n" + spr + " Testing SQLProductBatchDAO.getProductBatch(" + pbId + ") Negative " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchDAO.getProductBatch(" + pbId + ") Negative " + spr);
 
 			System.out.println("Receiving ProductBatchDTO with pbId: " + pbId + ".");
 			ProductBatchDTO pbDTO = pbDAO.getProductBatch(pbId);

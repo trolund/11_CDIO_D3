@@ -2,25 +2,25 @@ package data.dto;
 
 public class RoleDTO {
 
-    private int oprId;
-    private String roleName;
+	private int oprId;
+	private String roleName;
 
-    public RoleDTO(int oprId, String roleName) {
-        this.oprId = oprId;
-        this.roleName = roleName;
-    }
+	public RoleDTO(int oprId, String roleName) {
+		this.oprId = oprId;
+		this.roleName = roleName;
+	}
 
-    public int getOprId() {
-        return oprId;
-    }
+	public int getOprId() {
+		return oprId;
+	}
 
-    public String getRoleName() {
-        return roleName;
-    }
+	public String getRoleName() {
+		return roleName;
+	}
 
-    @Override
-    public String toString() {
-        return "RoleDTO [" + oprId + ", " + roleName + "]";
-    }
+	@Override
+	public String toString() {
+		return "RoleDTO [" + oprId + ", " + roleName + "]";
+	}
 
 }

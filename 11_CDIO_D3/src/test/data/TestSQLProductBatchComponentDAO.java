@@ -48,8 +48,7 @@ public class TestSQLProductBatchComponentDAO {
 		try {
 			int pbId = 1;
 			int rbId = 2;
-			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.getPBC(" + pbId + ", " + rbId
-					+ ") Positive " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.getPBC(" + pbId + ", " + rbId + ") Positive " + spr);
 
 			System.out.println("Receiving ProductBatchComponentDTO with pbId: " + pbId + ", rbId: " + rbId + ".");
 			ProductBatchComponentDTO pbcDTO = pbcDAO.getProductBatchComponent(pbId, rbId);
@@ -75,8 +74,7 @@ public class TestSQLProductBatchComponentDAO {
 			/* Make sure that the ProductBatchComponentDTO does not exist. */
 			pbcDAO.deleteProductBatchComponent(pbId, rbId);
 
-			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.getPBC(" + pbId + ", " + rbId
-					+ ") Negative " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.getPBC(" + pbId + ", " + rbId + ") Negative " + spr);
 
 			System.out.println("Receiving ProductBatchComponentDTO with pbId: " + pbId + ", rbId: " + rbId + ".");
 			ProductBatchComponentDTO pbcDTO = pbcDAO.getProductBatchComponent(pbId, rbId);
@@ -119,8 +117,7 @@ public class TestSQLProductBatchComponentDAO {
 		try {
 			int rbId = 1;
 			List<ProductBatchComponentDTO> pbcList = pbcDAO.getProductBatchComponentList(rbId);
-			System.out.println(
-					"\n" + spr + " Testing SQLProductBatchComponentDAO.getPBCList(" + rbId + ") Positive " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.getPBCList(" + rbId + ") Positive " + spr);
 			for (int i = 0; i < pbcList.size(); i++) {
 				System.out.println(i + ": " + pbcList.get(i));
 			}

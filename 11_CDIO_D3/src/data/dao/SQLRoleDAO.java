@@ -1,41 +1,110 @@
 package data.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import data.Connector;
 import data.dto.RoleDTO;
 
-import java.util.List;
-
 public class SQLRoleDAO implements IRoleDAO {
 
-    private final Connector connector;
+	private final Connector connector;
 
-    public SQLRoleDAO(Connector connector) {
-        this.connector = connector;
-    }
+	public SQLRoleDAO(Connector connector) {
+		this.connector = connector;
+	}
 
-    @Override
-    public List<RoleDTO> getOprRoles(int oprId) throws DALException {
-        return null;
-    }
+	@Override
+	public List<RoleDTO> getOprRoles(int oprId) throws DALException {
+		List<RoleDTO> roleList = new ArrayList<>();
+		String getOprRolesSql = connector.getSQL("getOprRolesSql");
+		PreparedStatement getOprRolesStmt = null;
+		ResultSet rs = null;
+		try {
+			getOprRolesStmt = connector.getConnection().prepareStatement(getOprRolesSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			getOprRolesStmt.setInt(1, oprId);
+			rs = getOprRolesStmt.executeQuery();
+			while (rs.next()) {
+				roleList.add(new RoleDTO(rs.getInt("opr_id"), rs.getString("rolle_navn")));
+			}
+			return roleList;
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(getOprRolesStmt, rs);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
+	}
 
-    @Override
-    public List<RoleDTO> getRoleList() throws DALException {
-        return null;
-    }
+	@Override
+	public List<RoleDTO> getRoleList() throws DALException {
+		List<RoleDTO> roleList = new ArrayList<>();
+		String getRoleListSql = connector.getSQL("getRoleListSql");
+		PreparedStatement getRoleListStmt = null;
+		ResultSet rs = null;
 
-    @Override
-    public void createRole(RoleDTO role) throws DALException {
+		try {
+			getRoleListStmt = connector.getConnection().prepareStatement(getRoleListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			rs = getRoleListStmt.executeQuery();
+			while (rs.next()) {
+				roleList.add(new RoleDTO(rs.getInt("opr_id"), rs.getString("rolle_navn")));
+			}
+			return roleList;
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(getRoleListStmt, rs);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
+	}
 
-    }
+	@Override
+	public void createRole(RoleDTO roleDTO) throws DALException {
+		String createRoleSql = connector.getSQL("createRoleSql");
+		PreparedStatement createRoleStmt = null;
+		try {
+			createRoleStmt = connector.getConnection().prepareStatement(createRoleSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			createRoleStmt.setInt(1, roleDTO.getOprId());
+			createRoleStmt.setString(2, roleDTO.getRoleName());
+			createRoleStmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(createRoleStmt);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
+	}
 
-    @Override
-    public void updateRole(RoleDTO role) throws DALException {
-
-    }
-
-    @Override
-    public void deleteRole(RoleDTO role) throws DALException {
-
-    }
+	@Override
+	public void deleteRole(RoleDTO roleDTO) throws DALException {
+		String deleteRoleSql = connector.getSQL("deleteRoleSql");
+		PreparedStatement deleteRoleStmt = null;
+		try {
+			deleteRoleStmt = connector.getConnection().prepareStatement(deleteRoleSql);
+			deleteRoleStmt.setInt(1, roleDTO.getOprId());
+			deleteRoleStmt.setString(2, roleDTO.getRoleName());
+			deleteRoleStmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(deleteRoleStmt);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
+	}
 
 }

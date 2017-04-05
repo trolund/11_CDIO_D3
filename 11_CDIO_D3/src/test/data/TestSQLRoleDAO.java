@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 
 import data.Connector;
-import data.dao.IRoleDAO;
 import data.dao.SQLRoleDAO;
 
 public class TestSQLRoleDAO {

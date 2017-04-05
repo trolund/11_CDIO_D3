@@ -80,22 +80,17 @@ public class Operator {
 			oprList = oprDAO.getOperatorList();
 		} catch (DALException e) {
 			e.printStackTrace();
-		} 
-		
+		}
+
 		StringBuilder returnString = new StringBuilder();
-		
+
 		for (Iterator iterator = oprList.iterator(); iterator.hasNext();) {
 			OperatorDTO operatorDTO = (OperatorDTO) iterator.next();
 			returnString.append("<table>");
-			returnString.append("<tr>"+
-					"<td>" + operatorDTO.getOprId() + "</td>" + 
-					"<td>"  + operatorDTO.getOprIni() + "</td>" + 
-					"<td>"  + operatorDTO.getOprName() + "</td>" + 
-					"<td>"  + operatorDTO.getOprCpr() + "</td>" + 
-					"<td>"  + operatorDTO.getOprPassword() + "</td>" + 
-					"</tr>");
+			returnString.append("<tr>" + "<td>" + operatorDTO.getOprId() + "</td>" + "<td>" + operatorDTO.getOprIni() + "</td>" + "<td>" + operatorDTO.getOprName() + "</td>" + "<td>" + operatorDTO.getOprCpr() + "</td>" + "<td>" + operatorDTO.getOprPassword() + "</td>" + "</tr>");
 			returnString.append("</table>");
 		}
 		return returnString.toString();
 	}
+
 }

@@ -2,25 +2,25 @@ package data.dto;
 
 public class ReceptDTO {
 
-    private int receptId;
-    private String receptName;
+	private int receptId;
+	private String receptName;
 
-    public ReceptDTO(int receptId, String receptName) {
-        this.receptId = receptId;
-        this.receptName = receptName;
-    }
+	public ReceptDTO(int receptId, String receptName) {
+		this.receptId = receptId;
+		this.receptName = receptName;
+	}
 
-    public int getReceptId() {
-        return receptId;
-    }
+	public int getReceptId() {
+		return receptId;
+	}
 
-    public String getReceptName() {
-        return receptName;
-    }
+	public String getReceptName() {
+		return receptName;
+	}
 
-    @Override
-    public String toString() {
-        return "ReceptDTO [" + receptId + ", " + receptName + "]";
-    }
+	@Override
+	public String toString() {
+		return "ReceptDTO [" + receptId + ", " + receptName + "]";
+	}
 
 }

@@ -15,8 +15,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/*
+ * Database connector class.
+ * 
+ * This class has the responsibility to load database information and SQL queries 
+ * as start up as well as to maintain them and update them accordingly.
+ */
 public class Connector {
 
+	/*
+	 * 
+	 */
 	private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
 	private final String SQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/sql.config";
 
@@ -99,9 +108,21 @@ public class Connector {
 		p.setProperty("getRBSql", "SELECT * FROM raavarebatch WHERE rb_id = ?");
 		p.setProperty("getRBListSql", "SELECT * FROM raavarebatch");
 		p.setProperty("getRBListIdSql", "SELECT * FROM raavarebatch WHERE rb_id = ?");
-		p.setProperty("createRBSql", "INSERT INTO raavareBatch(rb_id, raavare_id, maengde) VALUES (?, ?, ?)");
+		p.setProperty("createRBSql", "INSERT INTO raavarebatch(rb_id, raavare_id, maengde) VALUES (?, ?, ?)");
 		p.setProperty("updateRBSql", "UPDATE raavarebatch SET maengde = ? WHERE rb_id = ? AND raavare_id = ?");
 		p.setProperty("deleteRBSql", "DELETE FROM raavarebatch WHERE rb_id = ?");
+
+		// Raavare SQL
+
+		// ReceptComponent SQL
+
+		// Recept SQL
+
+		// Role SQL
+		p.setProperty("getOprRolesSql", "SELECT * FROM rolle WHERE opr_id = ?");
+		p.setProperty("getRoleListSql", "SELECT * FROM rolle");
+		p.setProperty("createRoleSql", "INSERT INTO rolle(opr_id, rolle_navn) VALUES (?, ?)");
+		p.setProperty("deleteRoleSql", "DELETE FROM rolle WHERE opr_id = ? AND rolle_navn = ?");
 
 		FileOutputStream fs = null;
 		try {

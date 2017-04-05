@@ -24,15 +24,13 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		PreparedStatement getOprStmt = null;
 		ResultSet rs = null;
 		try {
-			getOprStmt = connector.getConnection().prepareStatement(getOprSql, ResultSet.TYPE_SCROLL_SENSITIVE,
-					ResultSet.CONCUR_UPDATABLE);
+			getOprStmt = connector.getConnection().prepareStatement(getOprSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			getOprStmt.setInt(1, oprId);
 			rs = getOprStmt.executeQuery();
 
 			if (!rs.first()) throw new DALException("Operator id [" + oprId + "] does not exist!");
 
-			return new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"),
-					rs.getString("cpr"), rs.getString("password"));
+			return new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password"));
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);
 		} finally {
@@ -51,12 +49,10 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		PreparedStatement getOprListStmt = null;
 		ResultSet rs = null;
 		try {
-			getOprListStmt = connector.getConnection().prepareStatement(getOprListSql, ResultSet.TYPE_SCROLL_SENSITIVE,
-					ResultSet.CONCUR_UPDATABLE);
+			getOprListStmt = connector.getConnection().prepareStatement(getOprListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = getOprListStmt.executeQuery();
 			while (rs.next()) {
-				oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"),
-						rs.getString("cpr"), rs.getString("password")));
+				oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password")));
 			}
 			return oprList;
 		} catch (SQLException e) {

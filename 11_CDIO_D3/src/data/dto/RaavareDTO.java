@@ -2,31 +2,31 @@ package data.dto;
 
 public class RaavareDTO {
 
-    private int raavareId;
-    private String raavareName;
-    private String supplier;
+	private int raavareId;
+	private String raavareName;
+	private String supplier;
 
-    public RaavareDTO(int raavareId, String raavareName, String supplier) {
-        this.raavareId = raavareId;
-        this.raavareName = raavareName;
-        this.supplier = supplier;
-    }
+	public RaavareDTO(int raavareId, String raavareName, String supplier) {
+		this.raavareId = raavareId;
+		this.raavareName = raavareName;
+		this.supplier = supplier;
+	}
 
-    public int getRaavareId() {
-        return raavareId;
-    }
+	public int getRaavareId() {
+		return raavareId;
+	}
 
-    public String getraavareName() {
-        return raavareName;
-    }
+	public String getraavareName() {
+		return raavareName;
+	}
 
-    public String getSupplier() {
-        return supplier;
-    }
+	public String getSupplier() {
+		return supplier;
+	}
 
-    @Override
-    public String toString() {
-        return "RaavareDTO [" + raavareId + ", " + raavareName + ", " + supplier + "]";
-    }
+	@Override
+	public String toString() {
+		return "RaavareDTO [" + raavareId + ", " + raavareName + ", " + supplier + "]";
+	}
 
 }
