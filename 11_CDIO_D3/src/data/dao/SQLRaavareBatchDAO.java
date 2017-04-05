@@ -50,6 +50,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		try {
 			getRBListStmt = connector.getConnection().prepareStatement(getRBListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = getRBListStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("No RaavareBatch's exist!");
+
 			while (rs.next()) {
 				rbList.add(new RaavareBatchDTO(rs.getInt("rb_id"), rs.getInt("raavare_id"), rs.getDouble("maengde")));
 			}
@@ -75,6 +78,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 			getRBListIdStmt = connector.getConnection().prepareStatement(getRBListIdSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			getRBListIdStmt.setInt(1, raavareId);
 			rs = getRBListIdStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("No RaavareBatch's exist with raavareId: " + raavareId + "!");
+
 			while (rs.next()) {
 				rbList.add(new RaavareBatchDTO(rs.getInt("rb_id"), rs.getInt("raavare_id"), rs.getDouble("maengde")));
 			}

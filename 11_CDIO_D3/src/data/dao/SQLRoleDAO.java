@@ -27,6 +27,9 @@ public class SQLRoleDAO implements IRoleDAO {
 			getOprRolesStmt = connector.getConnection().prepareStatement(getOprRolesSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			getOprRolesStmt.setInt(1, oprId);
 			rs = getOprRolesStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("Operator id [" + oprId + "] has no roles or doesn't exist!");
+
 			while (rs.next()) {
 				roleList.add(new RoleDTO(rs.getInt("opr_id"), rs.getString("rolle_navn")));
 			}
@@ -52,6 +55,9 @@ public class SQLRoleDAO implements IRoleDAO {
 		try {
 			getRoleListStmt = connector.getConnection().prepareStatement(getRoleListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = getRoleListStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("No roles exist!");
+
 			while (rs.next()) {
 				roleList.add(new RoleDTO(rs.getInt("opr_id"), rs.getString("rolle_navn")));
 			}

@@ -52,6 +52,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 			getPBCListStmt = connector.getConnection().prepareStatement(getPBCListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			getPBCListStmt.setInt(1, pbId);
 			rs = getPBCListStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("No ProductBatchComponent's exist with pbId: " + pbId + "!");
+
 			while (rs.next()) {
 				pbcList.add(new ProductBatchComponentDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
 			}
@@ -76,6 +79,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 		try {
 			getPBCListStmt = connector.getConnection().prepareStatement(getPBCListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = getPBCListStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("No ProductBatchComponent's exist!");
+
 			while (rs.next()) {
 				pbcList.add(new ProductBatchComponentDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
 			}

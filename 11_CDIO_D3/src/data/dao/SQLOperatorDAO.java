@@ -51,6 +51,9 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		try {
 			getOprListStmt = connector.getConnection().prepareStatement(getOprListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = getOprListStmt.executeQuery();
+			
+			if (!rs.first()) throw new DALException("No operators exist!");
+			
 			while (rs.next()) {
 				oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password")));
 			}
