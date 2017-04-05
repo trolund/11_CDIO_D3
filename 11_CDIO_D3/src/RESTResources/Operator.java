@@ -86,7 +86,12 @@ public class Operator {
 		
 		for (Iterator iterator = oprList.iterator(); iterator.hasNext();) {
 			OperatorDTO operatorDTO = (OperatorDTO) iterator.next();
-			returnString.append("<tr>"+ "<td>"  + operatorDTO.getOprName() + "</td>" + "</tr>");
+			returnString.append("<table>");
+			returnString.append("<tr>"+
+					"<td>" + operatorDTO.getOprId() + "</td>" + 
+					"<td>"  + operatorDTO.getOprName() + "</td>" + 
+					"</tr>");
+			returnString.append("</table>");
 		}
 		return returnString.toString();
 	}
