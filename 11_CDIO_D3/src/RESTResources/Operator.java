@@ -89,7 +89,10 @@ public class Operator {
 			returnString.append("<table>");
 			returnString.append("<tr>"+
 					"<td>" + operatorDTO.getOprId() + "</td>" + 
+					"<td>"  + operatorDTO.getOprIni() + "</td>" + 
 					"<td>"  + operatorDTO.getOprName() + "</td>" + 
+					"<td>"  + operatorDTO.getOprCpr() + "</td>" + 
+					"<td>"  + operatorDTO.getOprPassword() + "</td>" + 
 					"</tr>");
 			returnString.append("</table>");
 		}
