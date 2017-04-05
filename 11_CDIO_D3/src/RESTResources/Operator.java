@@ -1,5 +1,8 @@
 package RESTResources;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -49,9 +52,9 @@ public class Operator {
 	}
 
 	@GET
-	@Path("/get")
+	@Path("/getname")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getopr() {
+	public String getname() {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		OperatorDTO oprDTO = null;
 
@@ -67,4 +70,24 @@ public class Operator {
 		return oprDTO.getOprName();
 	}
 
+	@GET
+	@Path("/getOprList")
+	@Produces(MediaType.TEXT_HTML)
+	public String getopr() {
+		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+		List<OperatorDTO> oprList = null;
+		try {
+			oprList = oprDAO.getOperatorList();
+		} catch (DALException e) {
+			e.printStackTrace();
+		} 
+		
+		StringBuilder returnString = new StringBuilder();
+		
+		for (Iterator iterator = oprList.iterator(); iterator.hasNext();) {
+			OperatorDTO operatorDTO = (OperatorDTO) iterator.next();
+			returnString.append("<tr>"+ "<td>"  + operatorDTO.getOprName() + "</td>" + "</tr>");
+		}
+		return returnString.toString();
+	}
 }

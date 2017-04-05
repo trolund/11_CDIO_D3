@@ -16,7 +16,7 @@
 
 // ajax get user data 
     jQuery.ajax({
-        url: "api/opr/get",
+        url: "api/opr/getname",
         type: "GET",
         contentType: 'text/plain',
         success: function(resultData) {
