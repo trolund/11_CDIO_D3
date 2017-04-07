@@ -75,8 +75,7 @@ public class Connector {
 	}
 
 	/*
-	 * Method to load the database configuration from file
-	 * into Java properties.
+	 * Method to load the database configuration from file into Java properties.
 	 */
 	private void loadConnectorProperties() {
 		Properties p = new Properties();
@@ -102,14 +101,14 @@ public class Connector {
 	private void createSQLProperties() {
 		Properties p = new Properties();
 
-		// Operator SQL
+		/* Operator SQL */
 		p.setProperty("getOprSql", "SELECT * FROM operatoer WHERE opr_id = ?");
 		p.setProperty("getOprListSql", "SELECT * FROM operatoer");
 		p.setProperty("createOprSql", "INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES (?, ?, ?, ?, ?)");
 		p.setProperty("updateOprSql", "UPDATE operatoer SET opr_navn = ?, ini = ?, cpr = ?, password = ? WHERE opr_id = ?");
 		p.setProperty("deleteOprSql", "DELETE FROM operatoer WHERE opr_id = ?");
 
-		// ProductBatchComponent SQL
+		/* ProductBatchComponent SQL */
 		p.setProperty("getPBCSql", "SELECT * FROM produktbatchkomponent WHERE pb_id = ? AND rb_id = ?");
 		p.setProperty("getPBCListIdSql", "SELECT * FROM produktbatchkomponent WHERE pb_id = ?");
 		p.setProperty("getPBCListSql", "SELECT * FROM produktbatchkomponent");
@@ -117,14 +116,14 @@ public class Connector {
 		p.setProperty("updatePBCSql", "UPDATE produktbatchkomponent SET tara = ?, netto = ? WHERE pb_id = ? AND rb_id = ? AND opr_id = ?");
 		p.setProperty("deletePBCSql", "DELETE FROM produktbatchkomponent WHERE pb_id = ? AND rb_id = ?");
 
-		// ProductBatch SQL
+		/* ProductBatch SQL */
 		p.setProperty("getPBSql", "SELECT * FROM produktbatch WHERE pb_id = ?");
 		p.setProperty("getPBListSql", "SELECT * FROM produktbatch");
 		p.setProperty("createPBSql", "INSERT INTO produktbatch(pb_id, status, recept_id) VALUES (?, ?, ?)");
 		p.setProperty("updatePBSql", "UPDATE produktbatch SET status = ? WHERE pb_id = ? AND recept_id = ?");
 		p.setProperty("deletePBSql", "DELETE FROM produktbatch WHERE pb_id = ?");
 
-		// RaavareBatch SQL
+		/* RaavareBatch SQL */
 		p.setProperty("getRBSql", "SELECT * FROM raavarebatch WHERE rb_id = ?");
 		p.setProperty("getRBListSql", "SELECT * FROM raavarebatch");
 		p.setProperty("getRBListIdSql", "SELECT * FROM raavarebatch WHERE rb_id = ?");
@@ -132,14 +131,14 @@ public class Connector {
 		p.setProperty("updateRBSql", "UPDATE raavarebatch SET maengde = ? WHERE rb_id = ? AND raavare_id = ?");
 		p.setProperty("deleteRBSql", "DELETE FROM raavarebatch WHERE rb_id = ?");
 
-		// Raavare SQL
+		/* Raavare SQL */
 		p.setProperty("getRaavareSql", "SELECT * FROM raavare WHERE raavare_id = ?");
 		p.setProperty("getRaavareListSql", "SELECT * FROM raavare");
 		p.setProperty("createRaavareSql", "INSERT INTO raavare(raavare_id, raavare_navn, leverandoer) VALUES (?, ?, ?)");
 		p.setProperty("updateRaavareSql", "UPDATE raavare SET raavare_navn = ?, leverandoer = ? WHERE raavare_id = ?");
 		p.setProperty("deleteRaavareSql", "DELETE FROM raavare WHERE raavare_id = ?");
 
-		// ReceptComponent SQL
+		/* ReceptComponent SQL */
 		p.setProperty("getRCSql", "SELECT * FROM receptkomponent WHERE recept_id = ? AND raavare_id = ?");
 		p.setProperty("getRCListIdSql", "SELECT * FROM receptkomponent WHERE recept_id = ?");
 		p.setProperty("getRCListSql", "SELECT * FROM receptkomponent");
@@ -147,19 +146,20 @@ public class Connector {
 		p.setProperty("updateRCSql", "UPDATE receptkomponent SET nom_netto = ?, tolerance = ? WHERE recept_id = ? AND raavare_id = ?");
 		p.setProperty("deleteRCSql", "DELETE FROM receptkomponent WHERE recept_id = ? AND raavare_id = ?");
 
-		// Recept SQL
+		/* Recept SQL */
 		p.setProperty("getReceptSql", "SELECT * FROM recept WHERE recept_id = ?");
 		p.setProperty("getReceptListSql", "SELECT * FROM recept");
 		p.setProperty("createReceptSql", "INSERT INTO recept(recept_id, recept_navn) VALUES (?, ?)");
 		p.setProperty("updateReceptSql", "UPDATE recept SET recept_navn = ? WHERE recept_id = ?");
 		p.setProperty("deleteReceptSql", "DELETE FROM recept WHERE recept_id = ?");
 
-		// Role SQL
+		/* Role SQL */
 		p.setProperty("getOprRolesSql", "SELECT * FROM rolle WHERE opr_id = ?");
 		p.setProperty("getRoleListSql", "SELECT * FROM rolle");
 		p.setProperty("createRoleSql", "INSERT INTO rolle(opr_id, rolle_navn) VALUES (?, ?)");
 		p.setProperty("deleteRoleSql", "DELETE FROM rolle WHERE opr_id = ? AND rolle_navn = ?");
 
+		/* Saves and outputs the file. */
 		FileOutputStream fs = null;
 		try {
 			File file = new File(SQL_CONFIG_FILE);

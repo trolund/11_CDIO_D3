@@ -1,5 +1,9 @@
 package data.dto;
 
+/*
+ * RaavareBatch data transfer object.
+ * This class is used to store information about database entities.
+ */
 public class RaavareBatchDTO {
 
 	private int rBId;

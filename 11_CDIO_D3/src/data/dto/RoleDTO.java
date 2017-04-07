@@ -1,5 +1,9 @@
 package data.dto;
 
+/*
+ * Role data transfer object.
+ * This class is used to store information about database entities.
+ */
 public class RoleDTO {
 
 	private int oprId;

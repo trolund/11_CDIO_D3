@@ -1,5 +1,9 @@
 package data.dto;
 
+/*
+ * Operator data transfer object.
+ * This class is used to store information about database entities.
+ */
 public class OperatorDTO {
 
 	private int oprId;

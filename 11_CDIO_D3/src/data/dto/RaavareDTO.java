@@ -1,5 +1,9 @@
 package data.dto;
 
+/*
+ * Raavare data transfer object.
+ * This class is used to store information about database entities.
+ */
 public class RaavareDTO {
 
 	private int raavareId;

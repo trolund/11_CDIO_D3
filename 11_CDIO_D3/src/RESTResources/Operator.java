@@ -52,9 +52,9 @@ public class Operator {
 	}
 
 	@GET
-	@Path("/getname")
+	@Path("/getName")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getname() {
+	public String getName() {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		OperatorDTO oprDTO = null;
 

@@ -1,5 +1,9 @@
 package data.dto;
 
+/*
+ * Recept data transfer object.
+ * This class is used to store information about database entities.
+ */
 public class ReceptDTO {
 
 	private int receptId;

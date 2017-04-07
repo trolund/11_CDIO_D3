@@ -2,6 +2,9 @@ package logic;
 
 import data.IData;
 
+/*
+ * Logic layer implementation.
+ */
 public class Logic implements ILogic {
 
 	private final IData data;

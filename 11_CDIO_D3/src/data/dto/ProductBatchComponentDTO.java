@@ -1,5 +1,9 @@
 package data.dto;
 
+/*
+ * ProductBatchComponent data transfer object.
+ * This class is used to store information about database entities.
+ */
 public class ProductBatchComponentDTO {
 
 	private int pbId;
