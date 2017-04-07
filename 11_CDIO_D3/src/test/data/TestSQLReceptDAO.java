@@ -2,6 +2,7 @@ package test.data;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 import data.Connector;
 import data.dao.SQLReceptDAO;
@@ -29,6 +30,69 @@ public class TestSQLReceptDAO {
 	@After
 	public void tearDown() {
 		receptDAO = null;
+	}
+
+	/* 
+	 * Testing SQLReceptDAO.getRecept(receptId)
+	 * Positive atomic test
+	 */
+	@Test
+	public void testGetReceptPositive() {
+
+	}
+
+	/* 
+	 * Testing SQLReceptDAO.getRecept(receptId)
+	 * Negative atomic test
+	 */
+	@Test
+	public void testGetReceptNegative() {
+
+	}
+
+	/* 
+	 * Testing SQLReceptDAO.getReceptList()
+	 * Positive atomic test
+	 */
+	@Test
+	public void testGetReceptListPositive() {
+
+	}
+
+	/*
+	 * Testing SQLReceptDAO.createRecept(receptDTO)
+	 * Positive atomic test
+	 */
+	@Test
+	public void testCreateReceptPositive() {
+
+	}
+
+	/*
+	 * Testing SQLReceptDAO.createRecept(receptDTO)
+	 * Negative atomic test
+	 */
+	@Test
+	public void testCreateReceptNegative() {
+
+	}
+
+	/* 
+	 * Testing SQLReceptDAO.updateRecept(receptDTO)
+	 * Positive atomic test
+	 */
+	@Test
+	public void testUpdateReceptPositive() {
+
+	}
+
+	/*
+	 * Testing SQLReceptDAO.deleteRecept(receptId)
+	 * Positive atomic test
+	 */
+	@Test
+	public void testDeleteReceptPositive() {
+
 	}
 
 }

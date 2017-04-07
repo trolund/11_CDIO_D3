@@ -55,9 +55,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 
 			if (!rs.first()) throw new DALException("No ProductBatchComponent's exist with pbId: " + pbId + "!");
 
-			while (rs.next()) {
+			do {
 				pbcList.add(new ProductBatchComponentDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
-			}
+			} while (rs.next());
 			return pbcList;
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);
@@ -82,9 +82,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 
 			if (!rs.first()) throw new DALException("No ProductBatchComponent's exist!");
 
-			while (rs.next()) {
+			do {
 				pbcList.add(new ProductBatchComponentDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
-			}
+			} while (rs.next());
 			return pbcList;
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);

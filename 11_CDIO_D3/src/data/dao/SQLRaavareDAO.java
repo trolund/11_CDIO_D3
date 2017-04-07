@@ -22,7 +22,6 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		String getRaavareSql = connector.getSQL("getRaavareSql");
 		PreparedStatement getRaavareStmt = null;
 		ResultSet rs = null;
-
 		try {
 			getRaavareStmt = connector.getConnection().prepareStatement(getRaavareSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			getRaavareStmt.setInt(1, raavareId);
@@ -54,9 +53,9 @@ public class SQLRaavareDAO implements IRaavareDAO {
 
 			if (!rs.first()) throw new DALException("No Raavare's exist!");
 
-			while (rs.next()) {
+			do {
 				raavareList.add(new RaavareDTO(rs.getInt("raavare_id"), rs.getString("raavare_navn"), rs.getString("leverandoer")));
-			}
+			} while (rs.next());
 			return raavareList;
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);

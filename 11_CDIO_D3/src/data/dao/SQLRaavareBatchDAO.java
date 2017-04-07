@@ -53,9 +53,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 
 			if (!rs.first()) throw new DALException("No RaavareBatch's exist!");
 
-			while (rs.next()) {
+			do {
 				rbList.add(new RaavareBatchDTO(rs.getInt("rb_id"), rs.getInt("raavare_id"), rs.getDouble("maengde")));
-			}
+			} while (rs.next());
 			return rbList;
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);
@@ -81,9 +81,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 
 			if (!rs.first()) throw new DALException("No RaavareBatch's exist with raavareId: " + raavareId + "!");
 
-			while (rs.next()) {
+			do {
 				rbList.add(new RaavareBatchDTO(rs.getInt("rb_id"), rs.getInt("raavare_id"), rs.getDouble("maengde")));
-			}
+			} while (rs.next());
 			return rbList;
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);

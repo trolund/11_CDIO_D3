@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
-import data.dto.ProductBatchComponentDTO;
 import data.dto.ReceptComponentDTO;
 
 public class SQLReceptComponentDAO implements IReceptComponentDAO {
@@ -45,26 +44,26 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 
 	@Override
 	public List<ReceptComponentDTO> getReceptComponentList(int receptId) throws DALException {
-		String getPBCListSql = connector.getSQL("getPBCListIdSql");
-		List<ProductBatchComponentDTO> pbcList = new ArrayList<>();
-		PreparedStatement getPBCListStmt = null;
+		String getRCListIdSql = connector.getSQL("getRCListIdSql");
+		List<ReceptComponentDTO> rcList = new ArrayList<>();
+		PreparedStatement getRCListIdStmt = null;
 		ResultSet rs = null;
 		try {
-			getPBCListStmt = connector.getConnection().prepareStatement(getPBCListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			getPBCListStmt.setInt(1, pbId);
-			rs = getPBCListStmt.executeQuery();
+			getRCListIdStmt = connector.getConnection().prepareStatement(getRCListIdSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			getRCListIdStmt.setInt(1, receptId);
+			rs = getRCListIdStmt.executeQuery();
 
-			if (!rs.first()) throw new DALException("No ProductBatchComponent's exist with pbId: " + pbId + "!");
+			if (!rs.first()) throw new DALException("No ReceptComponent's exist with receptId: " + receptId + "!");
 
-			while (rs.next()) {
-				pbcList.add(new ProductBatchComponentDTO(rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("opr_id")));
-			}
-			return pbcList;
+			do {
+				rcList.add(new ReceptComponentDTO(rs.getInt("recept_id"), rs.getInt("raavare_id"), rs.getDouble("nom_netto"), rs.getInt("tolerance")));
+			} while (rs.next());
+			return rcList;
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);
 		} finally {
 			try {
-				connector.cleanup(getPBCListStmt, rs);
+				connector.cleanup(getRCListIdStmt, rs);
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -73,22 +72,93 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 
 	@Override
 	public List<ReceptComponentDTO> getReceptComponentList() throws DALException {
-		return null;
+		String getRCListSql = connector.getSQL("getRCListSql");
+		List<ReceptComponentDTO> rcList = new ArrayList<>();
+		PreparedStatement getRCListStmt = null;
+		ResultSet rs = null;
+		try {
+			getRCListStmt = connector.getConnection().prepareStatement(getRCListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			rs = getRCListStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("No ReceptComponent's exist!");
+
+			do {
+				rcList.add(new ReceptComponentDTO(rs.getInt("recept_id"), rs.getInt("raavare_id"), rs.getDouble("nom_netto"), rs.getInt("tolerance")));
+			} while (rs.next());
+			return rcList;
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(getRCListStmt, rs);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
 	}
 
 	@Override
 	public void createReceptComponent(ReceptComponentDTO rc) throws DALException {
-
+		String createRCSql = connector.getSQL("createRCSql");
+		PreparedStatement createRCStmt = null;
+		try {
+			createRCStmt = connector.getConnection().prepareStatement(createRCSql);
+			createRCStmt.setInt(1, rc.getReceptId());
+			createRCStmt.setInt(2, rc.getRaavareId());
+			createRCStmt.setDouble(3, rc.getNomNetto());
+			createRCStmt.setDouble(4, rc.getTolerance());
+			createRCStmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(createRCStmt);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
 	}
 
 	@Override
 	public void updateReceptComponent(ReceptComponentDTO rc) throws DALException {
-
+		String updateRCSql = connector.getSQL("updateRCSql");
+		PreparedStatement updateRCStmt = null;
+		try {
+			updateRCStmt = connector.getConnection().prepareStatement(updateRCSql);
+			updateRCStmt.setDouble(1, rc.getNomNetto());
+			updateRCStmt.setDouble(2, rc.getTolerance());
+			updateRCStmt.setInt(3, rc.getReceptId());
+			updateRCStmt.setInt(4, rc.getRaavareId());
+			updateRCStmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(updateRCStmt);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
 	}
 
 	@Override
 	public void deleteReceptComponent(int receptId, int raavareId) throws DALException {
-
+		String deleteRCSql = connector.getSQL("deleteRCSql");
+		PreparedStatement deleteRCStmt = null;
+		try {
+			deleteRCStmt = connector.getConnection().prepareStatement(deleteRCSql);
+			deleteRCStmt.setInt(1, receptId);
+			deleteRCStmt.setInt(2, raavareId);
+			deleteRCStmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(deleteRCStmt);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
 	}
 
 }
