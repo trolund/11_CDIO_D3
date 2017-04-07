@@ -135,8 +135,17 @@ public class Connector {
 		p.setProperty("deleteRBSql", "DELETE FROM raavarebatch WHERE rb_id = ?");
 
 		// Raavare SQL
+		p.setProperty("getRaavareSql", "SELECT * FROM raavare WHERE raavare_id = ?");
+		p.setProperty("getRaavareListSql", "SELECT * FROM raavare");
+		p.setProperty("createRaavareSql", "INSERT INTO raavare(raavare_id, raavare_navn, leverandoer) VALUES (?, ?, ?)");
+		p.setProperty("updateRaavareSql", "UPDATE raavare SET raavare_navn = ?, leverandoer = ? WHERE raavare_id = ?");
+		p.setProperty("deleteRaavareSql", "DELETE FROM raavare WHERE raavare_id = ?");
 
 		// ReceptComponent SQL
+		p.setProperty("getRCSql", "SELECT * FROM receptkomponent WHERE recept_id = ? AND raavare_id = ?");
+		p.setProperty("getRCListIdSql", "SELECT * FROM receptkomponent WHERE recept_id = ?");
+		p.setProperty("getRCListSql", "SELECT * FROM receptkomponent");
+		
 
 		// Recept SQL
 
