@@ -141,7 +141,7 @@ public class TestSQLProductBatchComponentDAO {
 			int rbId = 2;
 			pbcDAO.deleteProductBatchComponent(pbId, rbId);
 
-			System.out.println("\n" + spr + " SQLProductBatchComponentDAO.createPBC(pbcDTO) Positive " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.createPBC(pbcDTO) Positive " + spr);
 
 			ProductBatchComponentDTO pbcDTO = new ProductBatchComponentDTO(pbId, rbId, 502.23, 43.23, 1);
 			pbcDAO.createProductBatchComponent(pbcDTO);
@@ -164,7 +164,7 @@ public class TestSQLProductBatchComponentDAO {
 		try {
 			int pbId = 1;
 			int rbId = 2;
-			System.out.println("\n" + spr + " SQLProductBatchComponentDAO.createPBC(pbcDTO) Negative " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.createPBC(pbcDTO) Negative " + spr);
 
 			ProductBatchComponentDTO pbcDTO = new ProductBatchComponentDTO(pbId, rbId, 432.23, 23.23, 1);
 			pbcDAO.createProductBatchComponent(pbcDTO);
@@ -185,7 +185,7 @@ public class TestSQLProductBatchComponentDAO {
 	@Test
 	public void testUpdatePBCPositive() {
 		try {
-			System.out.println("\n" + spr + " SQLProductBatchComponentDAO.updatePBC(pbcDTO) Positive " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.updatePBC(pbcDTO) Positive " + spr);
 			/* Creating pbcDTO to make sure that it exists. */
 			int pbId = 2;
 			int rbId = 3;
@@ -222,7 +222,7 @@ public class TestSQLProductBatchComponentDAO {
 	@Test
 	public void testDeletePBCPositive() {
 		try {
-			System.out.println("\n" + spr + " SQLProductBatchComponentDAO.deletePBC(pbId, rbId) Positive " + spr);
+			System.out.println("\n" + spr + " Testing SQLProductBatchComponentDAO.deletePBC(pbId, rbId) Positive " + spr);
 			/* Creating ProductBatchComponentDTO to make sure that it exists. */
 			int pbId = 2;
 			int rbId = 3;

@@ -1,5 +1,6 @@
 package test.data;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.List;
@@ -155,7 +156,34 @@ public class TestSQLRaavareDAO {
 	 */
 	@Test
 	public void testUpdateRaavarePositive() {
+		try {
+			System.out.println("\n" + spr + " Testing SQLRaavareDAO.updateRaavare(raavareDTO) Positive " + spr);
+			/* Creating RaavareDTO to make sure that it exists. */
+			int raavareId = 423;
+			raavareDAO.deleteRaavare(423);
+			RaavareDTO raavareDTO = new RaavareDTO(raavareId, "Fish", "Fish Sticks");
+			raavareDAO.createRaavare(raavareDTO);
 
+			String newName = "Salt Fish";
+			String newSupplier = "US of A";
+
+			RaavareDTO updatedRaavareDTO = new RaavareDTO(raavareId, newName, newSupplier);
+
+			System.out.println("Created: " + raavareDAO.getRaavare(raavareId));
+			raavareDAO.updateRaavare(updatedRaavareDTO);
+			System.out.println("Updated: " + raavareDAO.getRaavare(raavareId));
+
+			String expected = newName;
+			String actual = raavareDAO.getRaavare(raavareId).getraavareName();
+
+			assertEquals("Failed: The updated name does not match!", expected, actual);
+
+			System.out.println(lspr);
+		} catch (DALException e) {
+			System.out.println(e.getMessage());
+			fail("Failed: Failed to update existing RaavareDTO!");
+			System.out.println(lspr);
+		}
 	}
 
 	/*
@@ -164,7 +192,24 @@ public class TestSQLRaavareDAO {
 	 */
 	@Test
 	public void testDeleteRaavarePositive() {
+		try {
+			System.out.println("\n" + spr + " Testing SQLRaavareDAO.deleteRaavare(raavareId) Positive " + spr);
+			/* Creating RaavareDTO to make sure that it exists. */
+			int raavareId = 334;
+			raavareDAO.deleteRaavare(raavareId);
+			RaavareDTO raavareDTO = new RaavareDTO(raavareId, "Veron", "Weat & Co.");
+			raavareDAO.createRaavare(raavareDTO);
 
+			System.out.println("Created: " + raavareDTO);
+			raavareDAO.deleteRaavare(raavareId);
+			System.out.println("Deleted.");
+
+			System.out.println(lspr);
+		} catch (DALException e) {
+			System.out.println(e.getMessage());
+			fail("Failed: Failed to delete existing RaavareDTO!");
+			System.out.println(lspr);
+		}
 	}
 
 }
