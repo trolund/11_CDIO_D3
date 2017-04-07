@@ -145,9 +145,16 @@ public class Connector {
 		p.setProperty("getRCSql", "SELECT * FROM receptkomponent WHERE recept_id = ? AND raavare_id = ?");
 		p.setProperty("getRCListIdSql", "SELECT * FROM receptkomponent WHERE recept_id = ?");
 		p.setProperty("getRCListSql", "SELECT * FROM receptkomponent");
-		
+		p.setProperty("createRCSql", "INSERT INTO receptkomponent(recept_id, raavare_id, nom_netto, tolerance) VALUES (?, ?, ?, ?)");
+		p.setProperty("updateRCSql", "UPDATE receptkomponent SET nom_netto = ?, tolerance = ? WHERE recept_id = ? AND raavare_id = ?");
+		p.setProperty("deleteRCSql", "DELETE FROM receptkomponent WHERE recept_id = ? AND raavare_id = ?");
 
 		// Recept SQL
+		p.setProperty("getReceptSql", "SELECT * FROM recept WHERE recept_id = ?");
+		p.setProperty("getReceptListSql", "SELECT * FROM recept");
+		p.setProperty("createReceptSql", "INSERT INTO recept(recept_id, recept_navn) VALUES (?, ?)");
+		p.setProperty("updateReceptSql", "UPDATE recept SET recept_navn = ? WHERE recept_id = ?");
+		p.setProperty("deleteReceptSql", "DELETE FROM recept WHERE recept_id = ?");
 
 		// Role SQL
 		p.setProperty("getOprRolesSql", "SELECT * FROM rolle WHERE opr_id = ?");
