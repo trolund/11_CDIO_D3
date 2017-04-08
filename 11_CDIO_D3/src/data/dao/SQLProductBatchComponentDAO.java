@@ -23,6 +23,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive an existing ProductBatchComponent with pbId and rbId.
+	 */
 	@Override
 	public ProductBatchComponentDTO getProductBatchComponent(int pbId, int rbId) throws DALException {
 		String getPBCSql = connector.getSQL("getPBCSql");
@@ -48,6 +51,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing ProductBatchComponent's with pbId.
+	 */
 	@Override
 	public List<ProductBatchComponentDTO> getProductBatchComponentList(int pbId) throws DALException {
 		String getPBCListSql = connector.getSQL("getPBCListIdSql");
@@ -76,6 +82,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing ProductBatchComponent's in the database.
+	 */
 	@Override
 	public List<ProductBatchComponentDTO> getProductBatchComponentList() throws DALException {
 		String getPBCListSql = connector.getSQL("getPBCListSql");
@@ -103,6 +112,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new ProductBatchComponent stored in the database.
+	 */
 	@Override
 	public void createProductBatchComponent(ProductBatchComponentDTO pbc) throws DALException {
 		String createPBCSql = connector.getSQL("createPBCSql");
@@ -126,6 +138,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to update an existing ProductBatchComponent stored inside the database.
+	 */
 	@Override
 	public void updateProductBatchComponent(ProductBatchComponentDTO pbc) throws DALException {
 		String updatePBCSql = connector.getSQL("updatePBCSql");
@@ -149,6 +164,9 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to delete an existing ProductBatchComponent stored inside the database.
+	 */
 	@Override
 	public void deleteProductBatchComponent(int pbId, int rbId) throws DALException {
 		String deletePBCSql = connector.getSQL("deletePBCSql");

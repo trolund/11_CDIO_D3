@@ -24,6 +24,9 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive an existing Operator with oprId.
+	 */
 	@Override
 	public OperatorDTO getOperator(int oprId) throws DALException {
 		String getOprSql = connector.getSQL("getOprSql");
@@ -48,6 +51,9 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing Operator's in the database.
+	 */
 	@Override
 	public List<OperatorDTO> getOperatorList() throws DALException {
 		String getOprListSql = connector.getSQL("getOprListSql");
@@ -75,6 +81,9 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new Operator stored in the database.
+	 */
 	@Override
 	public void createOperator(OperatorDTO opr) throws DALException {
 		String createOprSql = connector.getSQL("createOprSql");
@@ -98,6 +107,9 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		}
 	}
 
+	/*
+	 * Method to update an existing Operator stored inside the database.
+	 */
 	@Override
 	public void updateOperator(OperatorDTO opr) throws DALException {
 		String updateOprSql = connector.getSQL("updateOprSql");
@@ -121,6 +133,9 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		}
 	}
 
+	/*
+	 * Method to delete an existing Operator stored inside the database.
+	 */
 	@Override
 	public void deleteOperator(int oprId) throws DALException {
 		String deleteOprSql = connector.getSQL("deleteOprSql");

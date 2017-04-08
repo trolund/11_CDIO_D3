@@ -19,7 +19,7 @@ import java.util.Properties;
  * Singleton database connector class.
  * 
  * This class has the responsibility to load database information and SQL queries 
- * as start up as well as to maintain them and update them accordingly.
+ * at start up as well as to maintain them and update them accordingly.
  */
 public class Connector {
 
@@ -60,7 +60,11 @@ public class Connector {
 	private Connector() {
 		sqlHashMap = new HashMap<>();
 		loadConnectorProperties();
-		createSQLProperties();
+		/* 
+		 * It's not necessary to keep creating a new SQL property file.
+		 * Uncomment if the SQL properties needs to get updated.
+		 */
+		//createSQLProperties();
 		loadSQLProperties();
 
 		try {
@@ -98,6 +102,7 @@ public class Connector {
 	/*
 	 * Method to create the SQL query configuration file.
 	 */
+	@SuppressWarnings("unused")
 	private void createSQLProperties() {
 		Properties p = new Properties();
 

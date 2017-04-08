@@ -23,6 +23,9 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive an existing ProductBatch with pbId.
+	 */
 	@Override
 	public ProductBatchDTO getProductBatch(int pbId) throws DALException {
 		String getPBSql = connector.getSQL("getPBSql");
@@ -47,6 +50,9 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing ProductBatch's stored in the database.
+	 */
 	@Override
 	public List<ProductBatchDTO> getProductBatchList() throws DALException {
 		String getPBListSql = connector.getSQL("getPBListSql");
@@ -74,6 +80,9 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new ProductBatch in the database.
+	 */
 	@Override
 	public void createProductBatch(ProductBatchDTO pbDTO) throws DALException {
 		String createPBSql = connector.getSQL("createPBSql");
@@ -95,6 +104,9 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to update an existing ProductBatch stored in the database.
+	 */
 	@Override
 	public void updateProductBatch(ProductBatchDTO pbDTO) throws DALException {
 		String updatePBSql = connector.getSQL("updatePBSql");
@@ -116,6 +128,9 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to delete an existing ProductBatch stored in the database.
+	 */
 	@Override
 	public void deleteProductBatch(int pbId) throws DALException {
 		String deletePBSql = connector.getSQL("deletePBSql");
