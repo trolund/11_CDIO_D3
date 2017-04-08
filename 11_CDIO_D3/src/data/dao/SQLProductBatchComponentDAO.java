@@ -9,10 +9,16 @@ import java.util.List;
 import data.Connector;
 import data.dto.ProductBatchComponentDTO;
 
+/*
+ * ProductBatchComponent data access object implementation.
+ * This class is used to manipulate ProductBatchComponent objects to and from the database.
+ */
 public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 
+	/* Database Connector object */
 	private final Connector connector;
 
+	/* Constructor to retrieve the Database Connector object */
 	public SQLProductBatchComponentDAO(Connector connector) {
 		this.connector = connector;
 	}

@@ -9,14 +9,23 @@ import java.util.List;
 import data.Connector;
 import data.dto.ReceptDTO;
 
+/*
+ * Recept data access object implementation.
+ * This class is used to manipulate Recept objects to and from the database.
+ */
 public class SQLReceptDAO implements IReceptDAO {
 
+	/* Database Connector object */
 	private final Connector connector;
 
+	/* Constructor to retrieve the Database Connector object */
 	public SQLReceptDAO(Connector connector) {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive a Recept with receptId.
+	 */
 	@Override
 	public ReceptDTO getRecept(int receptId) throws DALException {
 		String getReceptSql = connector.getSQL("getReceptSql");
@@ -41,6 +50,9 @@ public class SQLReceptDAO implements IReceptDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing Recept's stored in the database.
+	 */
 	@Override
 	public List<ReceptDTO> getReceptList() throws DALException {
 		String getReceptListSql = connector.getSQL("getReceptListSql");
@@ -68,6 +80,9 @@ public class SQLReceptDAO implements IReceptDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new Recept stored in the database.
+	 */
 	@Override
 	public void createRecept(ReceptDTO recept) throws DALException {
 		String createReceptSql = connector.getSQL("createReceptSql");
@@ -88,6 +103,9 @@ public class SQLReceptDAO implements IReceptDAO {
 		}
 	}
 
+	/*
+	 * Method to update an existing Recept stored in the database.
+	 */
 	@Override
 	public void updateRecept(ReceptDTO recept) throws DALException {
 		String updateReceptSql = connector.getSQL("updateReceptSql");
@@ -108,6 +126,9 @@ public class SQLReceptDAO implements IReceptDAO {
 		}
 	}
 
+	/*
+	 * Method to delete an existing Recept stored in the database.
+	 */
 	@Override
 	public void deleteRecept(int receptId) throws DALException {
 		String deleteReceptSql = connector.getSQL("deleteReceptSql");

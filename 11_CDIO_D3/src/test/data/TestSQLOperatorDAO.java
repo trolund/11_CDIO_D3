@@ -56,7 +56,7 @@ public class TestSQLOperatorDAO {
 			System.out.println(lspr);
 		} catch (DALException e) {
 			System.out.println(e.getMessage());
-			fail("Failed: Failed to receive existing OperatorDTO!");
+			fail("Failed: Failed to retrieve existing OperatorDTO!");
 			System.out.println(lspr);
 		}
 	}
@@ -101,7 +101,7 @@ public class TestSQLOperatorDAO {
 			System.out.println(lspr);
 		} catch (DALException e) {
 			System.out.println(e.getMessage());
-			fail("Failed: Failed to retrieve SQLOperatorDAO.getOperatorList()!");
+			fail("Failed: Failed to retrieve OperatorList!");
 			System.out.println(lspr);
 		}
 	}

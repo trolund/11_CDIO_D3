@@ -1,7 +1,7 @@
 package ui;
 
 /*
- * User interface.
+ * GUI interface.
  */
 public interface IUI {
 

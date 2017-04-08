@@ -1,5 +1,5 @@
-body{
-     background-color:#333;
+body {
+    background-color:#333;
     background-image: url(../../assets/classy_fabric.png);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -10,19 +10,18 @@ body{
     height: 100%;  
 }
 
-h1{
+h1 {
     color: black;
     padding-top: 15px;
     position: relative;
 }
 
-p{
+p {
     color: black;
-    
 }
 
 #login_container {
-     height: auto;
+    height: auto;
     width: 300px;
     text-align: center;
     margin-left: auto;
@@ -39,17 +38,12 @@ p{
 #login_box {
     background-color: #3fb0ac;
     background-color: rgba(63,176,172, 0.8);
-    
-    
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3fb0ac+52,008c77+100,008c77+100&1+0,0.55+0,0.7+100 */
-background: -moz-linear-gradient(top, rgba(63,176,172,0.55) 0%, rgba(63,176,172,0.63) 52%, rgba(0,140,119,0.7) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(63,176,172,0.55) 0%,rgba(63,176,172,0.63) 52%,rgba(0,140,119,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(63,176,172,0.55) 0%,rgba(63,176,172,0.63) 52%,rgba(0,140,119,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c3fb0ac', endColorstr='#b3008c77',GradientType=0 ); /* IE6-9 */
-    
-    
-    
-    
+    background: -moz-linear-gradient(top, rgba(63,176,172,0.55) 0%, rgba(63,176,172,0.63) 52%, rgba(0,140,119,0.7) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(63,176,172,0.55) 0%,rgba(63,176,172,0.63) 52%,rgba(0,140,119,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(63,176,172,0.55) 0%,rgba(63,176,172,0.63) 52%,rgba(0,140,119,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c3fb0ac', endColorstr='#b3008c77',GradientType=0 ); /* IE6-9 */
+   
     height: 300px;
     width: 260px;
     text-align: center;
@@ -58,7 +52,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c3fb0ac', e
     padding-top: 0px;
     border-radius: 5px;
     margin-top: 200px;
-     -webkit-box-shadow: 0 0 10px 1px #000;
+    -webkit-box-shadow: 0 0 10px 1px #000;
     box-shadow: 0 0 10px 1px #000;
     z-index: 99999;
 }

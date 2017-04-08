@@ -123,7 +123,7 @@ public class TestSQLRaavareBatchDAO {
 			System.out.println(lspr);
 		} catch (DALException e) {
 			System.out.println(e.getMessage());
-			fail("Failed: Failed to retrieve SQLRaavareBatchDAO.getRaavareBatchList(raavareId)!");
+			fail("Failed: Failed to retrieve RaavareBatchList!");
 			System.out.println(lspr);
 		}
 	}
@@ -161,7 +161,7 @@ public class TestSQLRaavareBatchDAO {
 	public void testCreateRaavareBatchNegative() {
 		try {
 			int rbId = 1;
-			System.out.println("\n" + spr + " Testing SQLRaavareBatchDAO.createRaavareBatch(rbDTO) Positive " + spr);
+			System.out.println("\n" + spr + " Testing SQLRaavareBatchDAO.createRaavareBatch(rbDTO) Negative " + spr);
 
 			RaavareBatchDTO rbDTO = new RaavareBatchDTO(rbId, 1, 42);
 			rbDAO.createRaavareBatch(rbDTO);

@@ -98,7 +98,7 @@ public class TestSQLReceptDAO {
 			System.out.println(lspr);
 		} catch (DALException e) {
 			System.out.println(e.getMessage());
-			fail("Failed: Failed to retrieve receptDTO list!");
+			fail("Failed: Failed to retrieve receptList!");
 			System.out.println(lspr);
 		}
 	}

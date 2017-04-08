@@ -9,14 +9,23 @@ import java.util.List;
 import data.Connector;
 import data.dto.RaavareBatchDTO;
 
+/*
+ * RaavareBatch data access object implementation.
+ * This class is used to manipulate RaavareBatch objects to and from the database.
+ */
 public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 
+	/* Database Connector object */
 	private final Connector connector;
 
+	/* Constructor to retrieve the Database Connector object */
 	public SQLRaavareBatchDAO(Connector connector) {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive an existing RaavareBatch with rbId.
+	 */
 	@Override
 	public RaavareBatchDTO getRaavareBatch(int rbId) throws DALException {
 		String getRBSql = connector.getSQL("getRBSql");
@@ -41,6 +50,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing RaavareBatch's in the database.
+	 */
 	@Override
 	public List<RaavareBatchDTO> getRaavareBatchList() throws DALException {
 		String getRBListSql = connector.getSQL("getRBListSql");
@@ -68,6 +80,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing RaavareBatch's in the database with raavareId.
+	 */
 	@Override
 	public List<RaavareBatchDTO> getRaavareBatchList(int raavareId) throws DALException {
 		String getRBListIdSql = connector.getSQL("getRBListIdSql");
@@ -96,6 +111,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new RaavareBatch stored in the database.
+	 */
 	@Override
 	public void createRaavareBatch(RaavareBatchDTO rbDTO) throws DALException {
 		String createRBSql = connector.getSQL("createRBSql");
@@ -117,6 +135,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to update an existing RaavareBatch stored in the database.
+	 */
 	@Override
 	public void updateRaavareBatch(RaavareBatchDTO rbDTO) throws DALException {
 		String updateRBCSql = connector.getSQL("updateRBSql");
@@ -138,6 +159,9 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		}
 	}
 
+	/*
+	 * Method to delete an existing RaavareBatch stored in the database.
+	 */
 	@Override
 	public void deleteRaavareBatch(int rbId) throws DALException {
 		String deleteRBSql = connector.getSQL("deleteRBSql");

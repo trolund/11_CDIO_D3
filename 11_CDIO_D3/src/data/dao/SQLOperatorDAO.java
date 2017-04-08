@@ -10,10 +10,16 @@ import data.Connector;
 import data.dto.OperatorDTO;
 import utils.SecUtils;
 
+/*
+ * Operator data access object implementation.
+ * This class is used to manipulate Operator objects to and from the database.
+ */
 public class SQLOperatorDAO implements IOperatorDAO {
 
+	/* Database Connector object */
 	private final Connector connector;
 
+	/* Constructor to retrieve the Database Connector object */
 	public SQLOperatorDAO(Connector connector) {
 		this.connector = connector;
 	}

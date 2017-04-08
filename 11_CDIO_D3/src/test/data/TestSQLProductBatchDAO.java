@@ -102,7 +102,7 @@ public class TestSQLProductBatchDAO {
 			System.out.println(lspr);
 		} catch (DALException e) {
 			System.out.println(e.getMessage());
-			fail("Failed: Failed to retrieve SQLProductBatchDAO.getProductBatchList()!");
+			fail("Failed: Failed to retrieve ProductBatchList!");
 			System.out.println(lspr);
 		}
 	}

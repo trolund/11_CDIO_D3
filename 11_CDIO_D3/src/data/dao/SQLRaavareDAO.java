@@ -9,14 +9,23 @@ import java.util.List;
 import data.Connector;
 import data.dto.RaavareDTO;
 
+/*
+ * Raavare data access object implementation.
+ * This class is used to manipulate Raavare objects to and from the database.
+ */
 public class SQLRaavareDAO implements IRaavareDAO {
 
+	/* Database Connector object */
 	private final Connector connector;
 
+	/* Constructor to retrieve the Database Connector object */
 	public SQLRaavareDAO(Connector connector) {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive an existing Raavare with raavareId.
+	 */
 	@Override
 	public RaavareDTO getRaavare(int raavareId) throws DALException {
 		String getRaavareSql = connector.getSQL("getRaavareSql");
@@ -41,6 +50,9 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing Raavare's in the database.
+	 */
 	@Override
 	public List<RaavareDTO> getRaavareList() throws DALException {
 		String getRaavareListSql = connector.getSQL("getRaavareListSql");
@@ -68,6 +80,9 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new Raavare stored in the database.
+	 */
 	@Override
 	public void createRaavare(RaavareDTO raavare) throws DALException {
 		String createRaavareSql = connector.getSQL("createRaavareSql");
@@ -89,6 +104,9 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		}
 	}
 
+	/*
+	 * Method to update an existing Raavare stored in the database.
+	 */
 	@Override
 	public void updateRaavare(RaavareDTO raavare) throws DALException {
 		String updateRaavareSql = connector.getSQL("updateRaavareSql");
@@ -110,6 +128,9 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		}
 	}
 
+	/*
+	 * Method to delete an existing Raavare stored in the database.
+	 */
 	@Override
 	public void deleteRaavare(int raavareId) throws DALException {
 		String deleteRaavareSql = connector.getSQL("deleteRaavareSql");

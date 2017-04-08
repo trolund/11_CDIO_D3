@@ -3,7 +3,7 @@ html {
 }
 
 body {
-     background-color:#333;
+    background-color:#333;
     background-image: url(../../assets/classy_fabric.png);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -27,7 +27,6 @@ h2 {
     margin: 0px;
     height: 100%;
     min-width: 220px;
-    
     background-color: #3fb0ac;
     position:fixed;
     left: 0px;
@@ -137,7 +136,7 @@ h2 {
 }
 
 #content_box button:hover{
-   color: #fff;
+    color: #fff;
     background-color: #173e43;
     -webkit-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
@@ -145,19 +144,19 @@ h2 {
 }
 
 #content_box table{
-   width: 100%;
+    width: 100%;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
 #content_box table tr:first-child{
-   background-color:antiquewhite;
+    background-color:antiquewhite;
     border-bottom: solid 1px #333;
 }
 
 #content_box table td{
-   border-bottom: dashed 1px #333;
+    border-bottom: dashed 1px #333;
 }
 
 #menu_but {
@@ -170,7 +169,7 @@ h2 {
         position: fixed;
         height: 80px;
         width: 100%;
-         max-width: 100%;
+        max-width: 100%;
         min-width: 100% !important;
     }
 

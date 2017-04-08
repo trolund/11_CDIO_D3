@@ -9,14 +9,24 @@ import java.util.List;
 import data.Connector;
 import data.dto.ReceptComponentDTO;
 
+/*
+ * ReceptComponent data access object implementation.
+ * This class is used to manipulate ReceptComponent objects to and from the database.
+ */
 public class SQLReceptComponentDAO implements IReceptComponentDAO {
 
+	/* Database Connector object */
 	private final Connector connector;
 
+	/* Constructor to retrieve the Database Connector object */
 	public SQLReceptComponentDAO(Connector connector) {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive an existing ReceptComponent with receptId and raavareId
+	 * stored in the database.
+	 */
 	@Override
 	public ReceptComponentDTO getReceptComponent(int receptId, int raavareId) throws DALException {
 		String getRCSql = connector.getSQL("getRCSql");
@@ -42,6 +52,9 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing ReceptComponent's with receptId.
+	 */
 	@Override
 	public List<ReceptComponentDTO> getReceptComponentList(int receptId) throws DALException {
 		String getRCListIdSql = connector.getSQL("getRCListIdSql");
@@ -70,6 +83,9 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all existing ReceptComponent's stored in the database.
+	 */
 	@Override
 	public List<ReceptComponentDTO> getReceptComponentList() throws DALException {
 		String getRCListSql = connector.getSQL("getRCListSql");
@@ -97,6 +113,9 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new ReceptComponent in the database.
+	 */
 	@Override
 	public void createReceptComponent(ReceptComponentDTO rc) throws DALException {
 		String createRCSql = connector.getSQL("createRCSql");
@@ -119,6 +138,9 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to update an existing ReceptComponent in the database.
+	 */
 	@Override
 	public void updateReceptComponent(ReceptComponentDTO rc) throws DALException {
 		String updateRCSql = connector.getSQL("updateRCSql");
@@ -141,6 +163,9 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 		}
 	}
 
+	/*
+	 * Method to delete an existing ReceptComponent in the database.
+	 */
 	@Override
 	public void deleteReceptComponent(int receptId, int raavareId) throws DALException {
 		String deleteRCSql = connector.getSQL("deleteRCSql");

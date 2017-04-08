@@ -1,6 +1,5 @@
 package RESTResources;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.ws.rs.FormParam;
@@ -18,6 +17,11 @@ import utils.SecUtils;
 
 @Path("/opr")
 public class Operator {
+
+	/*
+	 * I stedet for at have en oprDAO i hver metode, hvorfor saa ikke
+	 * have en final global oprDAO?
+	 */
 
 	@GET
 	@Path("/test")
@@ -58,11 +62,12 @@ public class Operator {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		OperatorDTO oprDTO = null;
 
+		int oprId = 1;
 		try {
-			oprDTO = oprDAO.getOperator(1);
+			oprDTO = oprDAO.getOperator(oprId);
 		} catch (DALException e) {
 			e.printStackTrace();
-			return "opr with that ID does not exist.";
+			return "OperatorDTO with ID [" + oprId + "] does not exist!";
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 			return "Invalid ID.";
@@ -75,6 +80,9 @@ public class Operator {
 	@Produces(MediaType.TEXT_HTML)
 	public String getopr() {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+
+		StringBuilder returnString = new StringBuilder();
+
 		List<OperatorDTO> oprList = null;
 		try {
 			oprList = oprDAO.getOperatorList();
@@ -82,12 +90,9 @@ public class Operator {
 			e.printStackTrace();
 		}
 
-		StringBuilder returnString = new StringBuilder();
-
-		for (Iterator iterator = oprList.iterator(); iterator.hasNext();) {
-			OperatorDTO operatorDTO = (OperatorDTO) iterator.next();
+		for (OperatorDTO oprDTO : oprList) {
 			returnString.append("<table>");
-			returnString.append("<tr>" + "<td>" + operatorDTO.getOprId() + "</td>" + "<td>" + operatorDTO.getOprIni() + "</td>" + "<td>" + operatorDTO.getOprName() + "</td>" + "<td>" + operatorDTO.getOprCpr() + "</td>" + "<td>" + operatorDTO.getOprPassword() + "</td>" + "</tr>");
+			returnString.append("<tr>" + "<td>" + oprDTO.getOprId() + "</td>" + "<td>" + oprDTO.getOprIni() + "</td>" + "<td>" + oprDTO.getOprName() + "</td>" + "<td>" + oprDTO.getOprCpr() + "</td>" + "<td>" + oprDTO.getOprPassword() + "</td>" + "</tr>");
 			returnString.append("</table>");
 		}
 		return returnString.toString();

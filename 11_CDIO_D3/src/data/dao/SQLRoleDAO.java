@@ -9,14 +9,23 @@ import java.util.List;
 import data.Connector;
 import data.dto.RoleDTO;
 
+/*
+ * Role data access object implementation.
+ * This class is used to manipulate Role objects to and from the database.
+ */
 public class SQLRoleDAO implements IRoleDAO {
 
+	/* Database Connector object */
 	private final Connector connector;
 
+	/* Constructor to retrieve the Database Connector object */
 	public SQLRoleDAO(Connector connector) {
 		this.connector = connector;
 	}
 
+	/*
+	 * Method to receive all Roles that belong to the OperatorDTO with oprId.
+	 */
 	@Override
 	public List<RoleDTO> getOprRoles(int oprId) throws DALException {
 		List<RoleDTO> roleList = new ArrayList<>();
@@ -45,13 +54,15 @@ public class SQLRoleDAO implements IRoleDAO {
 		}
 	}
 
+	/*
+	 * Method to receive all Roles stored in the database.
+	 */
 	@Override
 	public List<RoleDTO> getRoleList() throws DALException {
 		List<RoleDTO> roleList = new ArrayList<>();
 		String getRoleListSql = connector.getSQL("getRoleListSql");
 		PreparedStatement getRoleListStmt = null;
 		ResultSet rs = null;
-
 		try {
 			getRoleListStmt = connector.getConnection().prepareStatement(getRoleListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			rs = getRoleListStmt.executeQuery();
@@ -73,6 +84,9 @@ public class SQLRoleDAO implements IRoleDAO {
 		}
 	}
 
+	/*
+	 * Method to create a new Role stored in the database.
+	 */
 	@Override
 	public void createRole(RoleDTO roleDTO) throws DALException {
 		String createRoleSql = connector.getSQL("createRoleSql");
@@ -93,6 +107,9 @@ public class SQLRoleDAO implements IRoleDAO {
 		}
 	}
 
+	/*
+	 * Method to delete a Role stored in the database.
+	 */
 	@Override
 	public void deleteRole(RoleDTO roleDTO) throws DALException {
 		String deleteRoleSql = connector.getSQL("deleteRoleSql");

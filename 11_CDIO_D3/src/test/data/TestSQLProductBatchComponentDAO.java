@@ -103,7 +103,7 @@ public class TestSQLProductBatchComponentDAO {
 			System.out.println(lspr);
 		} catch (DALException e) {
 			System.out.println(e.getMessage());
-			fail("Failed: Failed to retrieve SQLProductBatchComponentDAO.getPBCList()!");
+			fail("Failed: Failed to retrieve ProductBatchComponentList!");
 			System.out.println(lspr);
 		}
 	}
@@ -229,7 +229,6 @@ public class TestSQLProductBatchComponentDAO {
 			pbcDAO.deleteProductBatchComponent(pbId, rbId);
 			ProductBatchComponentDTO pbcDTO = new ProductBatchComponentDTO(pbId, rbId, 22.22, 33.33, 1);
 			pbcDAO.createProductBatchComponent(pbcDTO);
-			;
 
 			System.out.println("Created: " + pbcDTO);
 			pbcDAO.deleteProductBatchComponent(pbId, rbId);
