@@ -1,9 +1,10 @@
 html {
-    background: #e6e9e9;
+    <!-- background: #e6e9e9; -->
 }
 
 body {
-    background: #fff;
+    background-color:#333;
+    background-image: url(../../assets/classy_fabric.png);
     color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -22,53 +23,47 @@ h2 {
     margin-top: 1.3em;
 }
 
-/* specifik for home */
-#sidepanel{
+#sidepanel {
     margin: 0px;
     height: 100%;
     min-width: 220px;
     background-color: #3fb0ac;
     position:fixed;
     left: 0px;
-    
     -webkit-box-shadow: 0 0 10px 1px #000;
-box-shadow: 0 0 10px 1px #000;
-    
+	box-shadow: 0 0 10px 1px #000;
     z-index: 99999;
     transition: all 0.5s;
+    max-width: 220px !important;
 }
 
-#sidepanel img{
+#sidepanel img {
     text-align: left;
 }
 
-#userinfo div{
+#userinfo div {
     margin-top: -42px;
     margin-left: 60px;
     table-layout: auto;
     line-height: 0.9;
 }
 
-#userinfo img{
+#userinfo img {
     color: aliceblue;
 }
 
-
-
-#sidepanel h2{
+#sidepanel h2 {
     margin-left: 10px;
 }
 
-#sidepanel ul{
-
+#sidepanel ul {
     margin-top: 10px;
     font-family: sans-serif;
     margin-left: -15px;
-
     list-style: none;
 }
 
-#sidepanel ul li{
+#sidepanel ul li {
     padding: 10px;
     padding-left: 30px;
     margin-left: -40px;
@@ -76,27 +71,26 @@ box-shadow: 0 0 10px 1px #000;
     transition: all 0.2s;
 }
 
-#sidepanel ul li:first-child{
+#sidepanel ul li:first-child {
     border-top: solid #173e43 1px;
 }
 
-#sidepanel ul li:hover{
+#sidepanel ul li:hover {
     color: #fff;
     background-color: #173e43;
-    
     -webkit-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
--moz-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
+    box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
 }
 
-#sidepanel ul li:active{
+#sidepanel ul li:active {
     color: #fae596 ;
     webkit-box-shadow: inset 7px 9px 43px 7px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 7px 9px 43px 7px rgba(0,0,0,0.75);
     box-shadow: inset 7px 9px 43px 7px rgba(0,0,0,0.75);
 }
 
-#sidepanel_credit{
+#sidepanel_credit {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -105,23 +99,22 @@ box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
     padding: 20px;
 }
 
-#userinfo{
+#userinfo {
     padding: 20px;
 }
 
-#content{
+#content {
     background-color:#333;
-    background-image: url(assets/classy_fabric.png);
+    background-image: url(../../assets/classy_fabric.png);
     height: 100%;
     position:absolute;
     width: calc(100% - 220px);
     margin: 0px;
     margin-left: 220px;
     transition: all 0.5s;
-    
 }
 
-#content_box{
+#content_box {
     position: relative;
     background-color: aliceblue;
     min-height: 200px;
@@ -129,128 +122,85 @@ box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    
     -webkit-box-shadow: 0 0 10px 1px #000;
     box-shadow: 0 0 10px 1px #000;
-    
+    padding: 20px;
 }
 
-}
-
-/* spcefik for login */
-
-#login_container{
-    
-    
- 
-    /* height: auto;
-    width: 300px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
-    border-radius: 5px;
-    border: solid 1px #999;  
-    background-color: #3fb0ac;
-    -webkit-box-shadow: 0 0 10px 1px #000;
-    box-shadow: 0 0 10px 1px #000;
-    z-index: 99999;
-    */
-}
-
-
-#login_box{
-    background-color: #3fb0ac;
-    height: 300px;
-    width: 300px;
-    
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 0px;
-    
-}
-
-#login_box input{
-    font-size: 15px;
+#content_box button{
     outline:none;
-    border: 0px;
-    background-color: transparent;
-    border-bottom: 2px #173e43 solid;
-    transition: background 0.2s;
-    
-    
-    
-}
-
-#login_box input[type=submit]{
-    margin-top: 10px;
-    height: 40px;
-    width: 100%;
-    outline:none;
-    border: 0px;
     padding: 5px;
-    border-top: solid #173e43 1px;
-    border-bottom: solid #173e43 1px;
-    
-    position:relative;
-    
+    background-color: #3fb0ac;
+    border: solid #173e43 1px;
+    margin-bottom: 10px;
 }
 
-
-
-#login_container input[type=submit]:hover{
+#content_box button:hover{
     color: #fff;
     background-color: #173e43;
     -webkit-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
--moz-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
+    box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
 }
 
-#menu_but{
+#content_box table{
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content_box table tr:first-child{
+    background-color:antiquewhite;
+    border-bottom: solid 1px #333;
+}
+
+#content_box table td{
+    border-bottom: dashed 1px #333;
+}
+
+#menu_but {
     display: none;
 }
 
-
 /* ----------- mobile ----------- */
-
-
 @media screen and (max-width: 400px) {
-  
-    #sidepanel{
+    #sidepanel {
         position: fixed;
         height: 80px;
         width: 100%;
+        max-width: 100%;
+        min-width: 100% !important;
     }
-    
-    #sidepanel h2{
+
+    #sidepanel h2 {
         display: none;
     }
-    
-    #sidepanel ul{
+
+    #sidepanel ul {
         display: none;
     }
-    
-     #sidepanel_credit{
+
+     #sidepanel_credit {
         display: none;
     }
-    
-    
-    
-    #content{
+
+    #content {
         width: 100%;
         margin: 0px;
     }
+
+    #content_box {
+        margin-top: 95px;
+    }
     
-    #menu_but{
+    #menu_but {
         display: block;
         position: fixed;
         right: 25px;
         top: 25px;
-        
     }
-    .on{
-     
+    .on {
         display:inline-block !important;
         width: 100% !important;
         text-align: center;
@@ -259,17 +209,16 @@ box-shadow: inset 7px 9px 25px -9px rgba(0,0,0,0.75);
         margin-left: auto !important;
         margin-right: auto !important;
     }
-    
-    .on_sidepanel{
+
+    .on_sidepanel {
         height: auto !important;
+     
     }
-    
-    .rot{
-        
-       
+
+    .rot {
+
     }
-    
+
   }
+
 }
-
-
