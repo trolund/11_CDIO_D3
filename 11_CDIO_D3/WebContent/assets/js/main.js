@@ -27,9 +27,10 @@ $(document).ready(function() {
   });
 });
 
+var id = 1;
 // Ajax get user data 
 jQuery.ajax({
-  url: "/api/opr/getName",
+  url: "api/opr/" + id,
   type: "GET",
   contentType: 'text/plain',
   success: function(resultData) {
@@ -39,3 +40,17 @@ jQuery.ajax({
   },
   timeout: 120000,
 });
+
+jQuery.ajax({
+	  url: "api/opr/getOprRoleList/" + id,
+	  type: "GET",
+	  contentType: 'text/plain',
+	  success: function(resultData) {
+	    $('#oprRoles').html(resultData);
+	  },
+	  error : function(jqXHR, textStatus, errorThrown) {
+	  },
+	  timeout: 120000,
+	});
+
+
