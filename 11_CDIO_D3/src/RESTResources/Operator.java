@@ -56,21 +56,34 @@ public class Operator {
 	
 	@POST
 	@Path("/AddOpr")
-	@Produces(MediaType.APPLICATION_JSON)
-	public void Addopr(@FormParam("oprId") String oprId, 
+	@Produces(MediaType.TEXT_PLAIN)
+	public String Addopr(@FormParam("oprId") String oprId, 
 			@FormParam("password") String password,
 			@FormParam("Ini") String Ini,
 			@FormParam("Name") String Name,
-			@FormParam("CPR") String Cpr) {
+			@FormParam("CPR") String Cpr,
+			@FormParam("Role1") String Role){
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+		SQLRoleDAO oprroleDAO = new SQLRoleDAO(Connector.getInstance());
 		OperatorDTO oprDTO = new OperatorDTO(Integer.parseInt(oprId), Name, Ini, Cpr, password);
+		
+			RoleDTO roleDTO = new RoleDTO(Integer.parseInt(oprId), Role);
+		
 		try {
 			oprDAO.createOperator(oprDTO);
+			
+			if(roleDTO.getRoleName().equals("None")){
+			}
+			else{
+				oprroleDAO.createRole(roleDTO);
+			}
+			
 		} catch (DALException e) {
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
+		return"metode kørte";
 	}
 
 	@GET

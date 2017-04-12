@@ -1,4 +1,4 @@
-<button>Add User</button><button>Refresh Userlist</button>
+<button id="Adduser_But">Add User</button><button>Refresh Userlist</button>
 <table id="table_con">
 <tr>
   <td>ID</td>
@@ -9,3 +9,59 @@
   <td>Edit</td>
 </tr>
 </table>
+
+
+<div id="AddUser_Box">
+ <form method="POST" action="api/opr/AddOpr">
+     Name:<br>
+  <input type="text" name="Name">
+  <br>
+  Initals<br>
+  <input type="text" name="Ini">
+     <br>
+     Cpr:<br>
+  <input type="text" name="CPR">
+  <br>
+     Password:<br>
+  <input type="text" name="password">
+  <br>
+     Id Number:<br>
+  <input type="text" name="oprId">
+  <br>
+     Role 1:
+     <select name="Role1">
+    <option value="0">None</option>
+    <option value="volvo">Admin</option>
+    <option value="saab">Forman</option>
+    <option value="fiat">lalala</option>
+    
+  </select>
+     Role 2:
+     <select name="cars">
+         <option value="0">None</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+     Role 3:
+     <select name="cars">
+         <option value="0">None</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+     Role 4:
+     <select name="cars">
+         <option value="0">None</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+     
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+</div>

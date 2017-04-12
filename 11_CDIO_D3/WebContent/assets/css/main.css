@@ -163,6 +163,21 @@ h2 {
     display: none;
 }
 
+#AddUser_Box{
+    width: 300px;
+    height: auto;
+    position: fixed;
+    margin: auto;
+    background-color: #FFF;
+    border: #333 1px solid;
+    border-radius: 5px;
+    display: none;
+}
+
+.display{
+    display: block;
+}
+
 /* ----------- mobile ----------- */
 @media screen and (max-width: 400px) {
     #sidepanel {
