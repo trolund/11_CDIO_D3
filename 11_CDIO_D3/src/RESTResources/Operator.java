@@ -3,6 +3,7 @@ package RESTResources;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -27,12 +28,6 @@ public class Operator {
 	 * have en final global oprDAO?
 	 */
 
-	@GET
-	@Path("/test")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getUser() {
-		return "If you see this, REST should be working correctly!";
-	}
 
 	@POST
 	@Path("/verify")
@@ -56,6 +51,25 @@ public class Operator {
 			return "Correct password.";
 		} else {
 			return "Invalid credentials.";
+		}
+	}
+	
+	@POST
+	@Path("/AddOpr")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void Addopr(@FormParam("oprId") String oprId, 
+			@FormParam("password") String password,
+			@FormParam("Ini") String Ini,
+			@FormParam("Name") String Name,
+			@FormParam("CPR") String Cpr) {
+		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+		OperatorDTO oprDTO = new OperatorDTO(Integer.parseInt(oprId), Name, Ini, Cpr, password);
+		try {
+			oprDAO.createOperator(oprDTO);
+		} catch (DALException e) {
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
 		}
 	}
 
