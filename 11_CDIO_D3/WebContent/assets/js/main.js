@@ -1,3 +1,24 @@
+/* login in funktion
+function login(){
+var id = document.getElementById("Id").value;
+var pass = document.getElementById("password").value;
+var dataString ="name="+name + "pass=" + pass;
+
+jQuery.ajax({
+    type: "post",
+    url: "/api/opr/verify",
+    data: dataString,
+    cache: false,
+    success: function(html){
+        $("#msg").html("velkommen!");
+    }
+    
+})
+return false;
+}
+
+*/
+
 // Menu mobile button 
 $(document).ready(function() {
   $("#menu_but").click(function() {
@@ -6,8 +27,6 @@ $(document).ready(function() {
     $("#menu_but").toggleClass("rot");
   });
 });
-
-
 
 // User button menu 
 $(document).ready(function() {
@@ -54,6 +73,3 @@ jQuery.ajax({
 	  },
 	  timeout: 120000,
 	});
-
-
-

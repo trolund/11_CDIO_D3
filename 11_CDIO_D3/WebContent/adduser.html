@@ -3,11 +3,31 @@
 $(document).ready(function() {
     $("#Adduser_But").click(function(){
         $("#AddUser_Box").toggleClass("display");
-    });
+    }); 
+});
     
+    $(document).ready(function() {
     $("#cancel_Icon").click(function(){
         $("#AddUser_Box").toggleClass("display");
-    });
+    }); 
+});
+// submit create user ajax
+$(document).ready(function(){
+    
+    $("#Submit_CreateUser").click(function(){
+        
+        $.post("/api/opr/AddOpr", 
+               {oprId: $('#oprId').val(),
+                Name: $('#Name').val(),
+                Ini: $('#Ini').val(),
+                Cpr: $('#CPR').val(),
+                password: $('#password').val(),
+                Role1: $('#Role1').val()
+               }, function(){
+                $('#msg').html("User createt!");
+        }
+        
+    }); 
 });
 
 </script>
@@ -30,22 +50,22 @@ $(document).ready(function() {
     <img id="cancel_Icon" src="assets/img/Cancel_Icon.png">
  <form method="POST" action="api/opr/AddOpr">
      Name:<br>
-  <input type="text" name="Name">
+  <input type="text" name="Name" id="Name">
   <br>
   Initals<br>
-  <input type="text" name="Ini">
+  <input type="text" name="Ini" id="Ini">
      <br>
      Cpr:<br>
-  <input type="text" name="CPR">
+  <input type="text" name="CPR" id="CPR">
   <br>
      Password:<br>
-  <input type="text" name="password">
+  <input type="text" name="password" id="password">
   <br>
      Id Number:<br>
-  <input type="text" name="oprId">
+  <input type="text" name="oprId" id="oprId">
   <br>
      Role 1:
-     <select name="Role1">
+     <select name="Role1" id="Role1">
     <option value="0">None</option>
     <option value="volvo">Admin</option>
     <option value="saab">Forman</option>
@@ -78,7 +98,8 @@ $(document).ready(function() {
   </select>
      
   <br><br>
-  <input type="submit" value="Submit">
+  <input id="Submit_CreateUser" type="submit" value="Create user">
+     <p id="msg"></p>
 </form> 
 </div>
 
