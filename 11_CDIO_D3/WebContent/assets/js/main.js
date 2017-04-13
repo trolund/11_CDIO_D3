@@ -7,6 +7,8 @@ $(document).ready(function() {
   });
 });
 
+
+
 // User button menu 
 $(document).ready(function() {
   $("#user_but").click(function() {       
@@ -53,13 +55,5 @@ jQuery.ajax({
 	  timeout: 120000,
 	});
 
-// add user button
-$(document).ready(function() {
-  $("#Adduser_But").click(function() { 
-      $("#AddUser_Box").toggleClass("Display");
-        $( "#AddUser_Box" ).dialog(); 
-            
-  });
-}); 
 
-//
+

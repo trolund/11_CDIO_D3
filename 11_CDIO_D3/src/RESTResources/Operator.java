@@ -71,19 +71,19 @@ public class Operator {
 		
 		try {
 			oprDAO.createOperator(oprDTO);
-			
 			if(roleDTO.getRoleName().equals("None")){
 			}
 			else{
 				oprroleDAO.createRole(roleDTO);
 			}
+			return "User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!";
 			
 		} catch (DALException e) {
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
-		return"metode kørte";
+		return"UPS! - Der skete en fejl";
 	}
 
 	@GET

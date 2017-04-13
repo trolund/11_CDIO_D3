@@ -1,4 +1,19 @@
-<button id="Adduser_But">Add User</button><button>Refresh Userlist</button>
+<script>
+// add user button
+$(document).ready(function() {
+    $("#Adduser_But").click(function(){
+        $("#AddUser_Box").toggleClass("display");
+    });
+    
+    $("#cancel_Icon").click(function(){
+        $("#AddUser_Box").toggleClass("display");
+    });
+});
+
+</script>
+
+
+<button id="Adduser_But">Add user</button>
 <table id="table_con">
 <tr>
   <td>ID</td>
@@ -12,6 +27,7 @@
 
 
 <div id="AddUser_Box">
+    <img id="cancel_Icon" src="assets/img/Cancel_Icon.png">
  <form method="POST" action="api/opr/AddOpr">
      Name:<br>
   <input type="text" name="Name">
@@ -65,3 +81,7 @@
   <input type="submit" value="Submit">
 </form> 
 </div>
+
+<script>
+
+</script>

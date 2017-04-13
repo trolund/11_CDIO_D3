@@ -35,6 +35,13 @@ h2 {
     z-index: 99999;
     transition: all 0.5s;
     max-width: 220px !important;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #sidepanel img {
@@ -61,6 +68,13 @@ h2 {
     font-family: sans-serif;
     margin-left: -15px;
     list-style: none;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #sidepanel ul li {
@@ -69,6 +83,7 @@ h2 {
     margin-left: -40px;
     border-bottom: solid #173e43 1px;
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 #sidepanel ul li:first-child {
@@ -164,18 +179,29 @@ h2 {
 }
 
 #AddUser_Box{
-    width: 300px;
-    height: auto;
-    position: fixed;
-    margin: auto;
+    position:static;
+    margin-top: 10px;
     background-color: #FFF;
-    border: #333 1px solid;
     border-radius: 5px;
+    padding: 15px;
     display: none;
 }
 
+#AddUser_Box select {
+	margin-top: 15px;
+}
+
+#cancel_Icon {
+    position:absolute;
+    top: 90px;
+    right: 15px;
+    height: 50px;
+    width: 50px;
+
+}
+
 .display{
-    display: block;
+    display: block !important;
 }
 
 /* ----------- mobile ----------- */
