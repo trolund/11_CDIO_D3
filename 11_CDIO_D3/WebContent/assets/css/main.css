@@ -176,6 +176,8 @@ h2 {
 
 #menu_but {
     display: none;
+    cursor: pointer;
+    
 }
 
 

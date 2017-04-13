@@ -17,7 +17,8 @@ $(document).ready(function(){
     $("#Submit_CreateUser").click(function(){
         
         $.post("/api/opr/AddOpr", 
-               {oprId: $('#oprId').val(),
+               {
+                oprId: $('#oprId').val(),
                 Name: $('#Name').val(),
                 Ini: $('#Ini').val(),
                 Cpr: $('#CPR').val(),
@@ -27,7 +28,7 @@ $(document).ready(function(){
                 $('#msg').html("User createt!");
         }
         
-    }); 
+    )}); 
 });
 
 </script>
@@ -48,7 +49,7 @@ $(document).ready(function(){
 
 <div id="AddUser_Box">
     <img id="cancel_Icon" src="assets/img/Cancel_Icon.png">
- <form method="POST" action="api/opr/AddOpr">
+ <form method="POST">
      Name:<br>
   <input type="text" name="Name" id="Name">
   <br>
