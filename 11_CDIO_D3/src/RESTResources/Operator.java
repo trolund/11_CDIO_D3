@@ -3,7 +3,6 @@ package RESTResources;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -27,7 +26,6 @@ public class Operator {
 	 * I stedet for at have en oprDAO i hver metode, hvorfor saa ikke
 	 * have en final global oprDAO?
 	 */
-
 
 	@POST
 	@Path("/verify")
@@ -53,47 +51,47 @@ public class Operator {
 			return "Invalid credentials.";
 		}
 	}
-	
+
 	@POST
-	@Path("/AddOpr")
+	@Path("/addopr")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String Addopr(@FormParam("oprId") String oprId, 
-			@FormParam("password") String password,
-			@FormParam("Ini") String Ini,
-			@FormParam("Name") String Name,
-			@FormParam("CPR") String Cpr,
-			@FormParam("Role1") String Role){
+						 @FormParam("oprName") String oprName, 
+						 @FormParam("oprIni") String oprIni,
+						 @FormParam("oprCpr") String oprCpr,
+						 @FormParam("oprPassword") String oprPassword,
+						 @FormParam("oprRole1") String oprRole1) {
+
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-		SQLRoleDAO oprroleDAO = new SQLRoleDAO(Connector.getInstance());
-		OperatorDTO oprDTO = new OperatorDTO(Integer.parseInt(oprId), Name, Ini, Cpr, password);
-		
-			RoleDTO roleDTO = new RoleDTO(Integer.parseInt(oprId), Role);
-		
+		SQLRoleDAO roleDAO = new SQLRoleDAO(Connector.getInstance());
+		OperatorDTO oprDTO = new OperatorDTO(Integer.parseInt(oprId), oprName, oprIni, oprCpr, oprPassword);
+
+		RoleDTO roleDTO = new RoleDTO(Integer.parseInt(oprId), oprRole1);
+
 		try {
 			oprDAO.createOperator(oprDTO);
-			if(roleDTO.getRoleName().equals("None")){
-			}
-			else{
-				oprroleDAO.createRole(roleDTO);
+			if (roleDTO.getRoleName().equals("None")) {
+			} else {
+				roleDAO.createRole(roleDTO);
 			}
 			System.out.println("User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!");
 			return "User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!";
-			
+
 		} catch (DALException e) {
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
-		return"UPS! - Der skete en fejl";
+		return "UPS! - Der skete en fejl";
 	}
 
 	@GET
-	@Path("/{OprId}")
+	@Path("/{oprId}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getName(@PathParam("OprId") String OprId) {
+	public String getName(@PathParam("oprId") String oprId) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-		
-		int Id = Integer.parseInt(OprId);
+
+		int id = Integer.parseInt(oprId);
 
 		List<OperatorDTO> oprList = null;
 		try {
@@ -101,13 +99,9 @@ public class Operator {
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
-		
-		for (Iterator iterator = oprList.iterator(); iterator.hasNext();) {
-			OperatorDTO operatorDTO = (OperatorDTO) iterator.next();
-			if(operatorDTO.getOprId() == Id){
-				return operatorDTO.getOprName();
-			}
-			
+
+		for (OperatorDTO oprDTO : oprList) {
+			if (oprDTO.getOprId() == id) return oprDTO.getOprName();
 		}
 		return "Der er ingen bruger med det id.";
 	}
@@ -134,7 +128,7 @@ public class Operator {
 		}
 		return returnString.toString();
 	}
-	
+
 	@GET
 	@Path("/getOprRoleList/{OprId}")
 	@Produces(MediaType.TEXT_HTML)
@@ -142,21 +136,20 @@ public class Operator {
 		SQLRoleDAO oprDAO = new SQLRoleDAO(Connector.getInstance());
 
 		StringBuilder returnString = new StringBuilder();
-		List<RoleDTO> oprRoleList  = null;
+		List<RoleDTO> oprRoleList = null;
 		try {
 			oprRoleList = oprDAO.getOprRoles(Integer.parseInt(OprId));
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
-		
-		for (Iterator iterator = oprRoleList.iterator(); iterator.hasNext();) {
+
+		for (Iterator<RoleDTO> iterator = oprRoleList.iterator(); iterator.hasNext();) {
 			RoleDTO roleDTO = (RoleDTO) iterator.next();
-			if(iterator.hasNext())
+			if (iterator.hasNext())
 				returnString.append(roleDTO.getRoleName() + ", ");
 			else
 				returnString.append(roleDTO.getRoleName());
 		}
-		
 		return returnString.toString();
 	}
 

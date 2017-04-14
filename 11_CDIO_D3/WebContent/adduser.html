@@ -11,36 +11,33 @@ $(document).ready(function() {
         $("#AddUser_Box").toggleClass("display");
     }); 
 });
+    
 // submit create user ajax
 $(document).ready(function(){
-    
-    $("#Submit_CreateUser").click(function(){
-        
-        $.post("/api/opr/AddOpr", 
-               {
-                oprId: $('#oprId').val(),
-                Name: $('#Name').val(),
-                Ini: $('#Ini').val(),
-                Cpr: $('#CPR').val(),
-                password: $('#password').val(),
-                Role1: $('#Role1').val()
-               }, function(){
-                $('#msg').html("User createt!");
+	$("#Submit_CreateUser").click(function() {
+        $.post("/api/opr/addopr", 
+        {
+        	oprId: $('#oprId').val(),
+            oprName: $('#oprName').val(),
+            oprIni: $('#oprIni').val(),
+            oprCpr: $('#oprCpr').val(),
+            oprPassword: $('#oprPassword').val(),
+            oprRole1: $('#oprRole1').val()
+        }, function() {
+        	$('#msg').html("User created!");
         }
-        
     )}); 
 });
 
 </script>
-
-
 <button id="Adduser_But">Add user</button>
 <table id="table_con">
 <tr>
-  <td>ID</td>
+  <td>Id</td>
+  <td>Name</td>
   <td>Initials</td>
-  <td>Username</td>
-  <td>Password</td>
+  <td>Cpr</td>
+  <td>Roles</td>
   <td>Delete</td>
   <td>Edit</td>
 </tr>
@@ -48,62 +45,64 @@ $(document).ready(function(){
 
 
 <div id="AddUser_Box">
-    <img id="cancel_Icon" src="assets/img/Cancel_Icon.png">
- <form method="POST">
-     Name:<br>
-  <input type="text" name="Name" id="Name">
-  <br>
-  Initals<br>
-  <input type="text" name="Ini" id="Ini">
-     <br>
-     Cpr:<br>
-  <input type="text" name="CPR" id="CPR">
-  <br>
-     Password:<br>
-  <input type="text" name="password" id="password">
-  <br>
-     Id Number:<br>
-  <input type="text" name="oprId" id="oprId">
-  <br>
-     Role 1:
-     <select name="Role1" id="Role1">
-    <option value="0">None</option>
-    <option value="volvo">Admin</option>
-    <option value="saab">Forman</option>
-    <option value="fiat">lalala</option>
+  <img id="cancel_Icon" src="assets/img/Cancel_Icon.png">
+  <form method="POST">
+  
+    Id <br>
+    <input type="text" name="oprId" id="oprId">
+    <br>
+  	Name <br>
+    <input type="text" name="oprName" id="oprName">	
+    <br>
+    Initials <br>
+    <input type="text" name="oprIni" id="oprIni">
+    <br>
+    Cpr <br>
+    <input type="text" name="oprCpr" id="oprCpr">
+    <br>
+    Password <br>
+    <input type="text" name="oprPassword" id="oprPassword">
+    <br>
+    <br>
     
-  </select>
-     Role 2:
-     <select name="cars">
-         <option value="0">None</option>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
-     Role 3:
-     <select name="cars">
-         <option value="0">None</option>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
-     Role 4:
-     <select name="cars">
-         <option value="0">None</option>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="fiat">Fiat</option>
-    <option value="audi">Audi</option>
-  </select>
+    Role 1:
+    <select name="oprRole1" id="oprRole1">
+      <option value="none">None</option>
+      <option value="admin">Admin</option>
+      <option value="pharmacist">Pharmacist</option>
+      <option value="foreman">Foreman</option>
+      <option value="operator">Operator</option>
+    </select>
+    
+    Role 2:
+    <select name="oprRole2">
+ 	  <option value="none">None</option>
+      <option value="admin">Admin</option>
+      <option value="pharmacist">Pharmacist</option>
+      <option value="foreman">Foreman</option>
+      <option value="operator">Operator</option>
+    </select>
+    
+    Role 3:
+    <select name="oprRole3">
+      <option value="none">None</option>
+      <option value="admin">Admin</option>
+      <option value="pharmacist">Pharmacist</option>
+      <option value="foreman">Foreman</option>
+      <option value="operator">Operator</option>
+    </select>
+    
+    Role 4:
+    <select name="oprRole4">
+	  <option value="none">None</option>
+      <option value="admin">Admin</option>
+      <option value="pharmacist">Pharmacist</option>
+      <option value="foreman">Foreman</option>
+      <option value="operator">Operator</option>
+    </select>
      
   <br><br>
   <input id="Submit_CreateUser" type="submit" value="Create user">
-     <p id="msg"></p>
+    <p id="msg"></p>
 </form> 
 </div>
-
-<script>
-
-</script>
