@@ -76,6 +76,7 @@ public class Operator {
 			else{
 				oprroleDAO.createRole(roleDTO);
 			}
+			System.out.println("User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!");
 			return "User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!";
 			
 		} catch (DALException e) {
