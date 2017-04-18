@@ -48,4 +48,9 @@ public class VAdminForemanPBCDTO {
 		return status;
 	}
 
+	@Override
+	public String toString() {
+		return "VAdminForemanPBCDTO [" + oprId + ", " + oprName + ", " + pbId + ", " + rbid + ", " + tara + ", " + netto + ", " + status + "]";
+	}
+
 }

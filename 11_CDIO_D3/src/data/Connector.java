@@ -64,7 +64,7 @@ public class Connector {
 		 * It's not necessary to keep creating a new SQL property file.
 		 * Uncomment if the SQL properties needs to get updated.
 		 */
-		//createSQLProperties();
+		createSQLProperties();
 		loadSQLProperties();
 
 		try {
@@ -165,28 +165,28 @@ public class Connector {
 		p.setProperty("deleteRoleSql", "DELETE FROM rolle WHERE opr_id = ? AND rolle_navn = ?");
 
 		/* AdminForemanPBC View SQL */
-		p.setProperty("getVAdminForemanPBC", "SELECT * FROM v_admin_foreman_pbc WHERE opr_id = ?");
-		p.setProperty("getVAdminForemanPBCList", "SELECT * FROM v_admin_foreman_pbc");
+		p.setProperty("getVAdminForemanPBCSql", "SELECT * FROM v_admin_foreman_pbc WHERE opr_id = ?");
+		p.setProperty("getVAdminForemanPBCListSql", "SELECT * FROM v_admin_foreman_pbc");
 
 		/* AdminOperator View SQL */
-		p.setProperty("getVAdminOperator", "SELECT * FROM v_admin_operator WHERE opr_id = ?");
-		p.setProperty("getVAdminOperatorList", "SELECT * FROM v_admin_operator");
+		p.setProperty("getVAdminOperatorSql", "SELECT * FROM v_admin_operator WHERE opr_id = ?");
+		p.setProperty("getVAdminOperatorListSql", "SELECT * FROM v_admin_operator");
 
 		/* ForemanOperator View SQL */
-		p.setProperty("getVForemanOperator", "SELECT * FROM v_foreman_operator WHERE opr_id = ?");
-		p.setProperty("getVForemanOperatorList", "SELECT * FROM v_foreman_operator");
+		p.setProperty("getVForemanOperatorSql", "SELECT * FROM v_foreman_operator WHERE opr_id = ?");
+		p.setProperty("getVForemanOperatorListSql", "SELECT * FROM v_foreman_operator");
 
 		/* OperatorRB View SQL */
-		p.setProperty("getVOperatorRB", "SELECT * FROM v_operator_rb WHERE raavare_id = ?");
-		p.setProperty("getVOperatorRBList", "SELECT * FROM v_operator_rb");
+		p.setProperty("getVOperatorRBSql", "SELECT * FROM v_operator_rb WHERE raavare_id = ?");
+		p.setProperty("getVOperatorRBListSql", "SELECT * FROM v_operator_rb");
 
 		/* OperatorRecipe View SQL */
-		p.setProperty("getVOperatorRecipe", "SELECT * FROM v_operator_recipe WHERE recept_id = ?");
-		p.setProperty("getVOperatorRecipeList", "SELECT * FROM v_operator_recipe");
+		p.setProperty("getVOperatorRecipeSql", "SELECT * FROM v_operator_recipe WHERE recept_id = ?");
+		p.setProperty("getVOperatorRecipeListSql", "SELECT * FROM v_operator_recipe");
 
 		/* PharmacistRecipe View SQL */
-		p.setProperty("getVPharmacistRecipe", "SELECT * FROM v_pharmacist_recipe WHERE recept_id = ?");
-		p.setProperty("getVPharmacistRecipeList", "SELECT * FROM v_pharmacist_recipe");
+		p.setProperty("getVPharmacistRecipeSql", "SELECT * FROM v_pharmacist_recipe WHERE recept_id = ?");
+		p.setProperty("getVPharmacistRecipeListSql", "SELECT * FROM v_pharmacist_recipe");
 
 		/* Saves and outputs the file. */
 		FileOutputStream fs = null;

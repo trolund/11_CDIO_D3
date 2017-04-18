@@ -3,9 +3,11 @@ package data.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.dto.OperatorDTO;
 import data.dto.VAdminForemanPBCDTO;
 
 public class SQLAdminForemanPBCDAO implements IVAdminForemanPBCDAO {
@@ -44,7 +46,30 @@ public class SQLAdminForemanPBCDAO implements IVAdminForemanPBCDAO {
 
 	@Override
 	public List<VAdminForemanPBCDTO> getVAdminForemanPBCList() throws DALException {
-		return null;
+		String getVAdminForemanPBCList = connector.getSQL("getVAdminForemanPBCListSql");
+		List<VAdminForemanPBCDTO> vAdminForemanPBCList = new ArrayList<>();
+		PreparedStatement getVAdminForemanPBCDTO = null;
+		
+		ResultSet rs = null;
+		try {
+			getOprListStmt = connector.getConnection().prepareStatement(getOprListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			rs = getOprListStmt.executeQuery();
+
+			if (!rs.first()) throw new DALException("No operators exist!");
+
+			do {
+				oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password")));
+			} while (rs.next());
+			return oprList;
+		} catch (SQLException e) {
+			throw new DALException(e.getMessage(), e);
+		} finally {
+			try {
+				connector.cleanup(getOprListStmt, rs);
+			} catch (SQLException e) {
+				throw new DALException(e.getMessage(), e);
+			}
+		}
 	}
 
 }
