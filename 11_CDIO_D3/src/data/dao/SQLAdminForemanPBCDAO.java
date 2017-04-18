@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
-import data.dto.OperatorDTO;
 import data.dto.VAdminForemanPBCDTO;
 
 public class SQLAdminForemanPBCDAO implements IVAdminForemanPBCDAO {
@@ -46,26 +45,25 @@ public class SQLAdminForemanPBCDAO implements IVAdminForemanPBCDAO {
 
 	@Override
 	public List<VAdminForemanPBCDTO> getVAdminForemanPBCList() throws DALException {
-		String getVAdminForemanPBCList = connector.getSQL("getVAdminForemanPBCListSql");
+		String getVAdminForemanPBCListSql = connector.getSQL("getVAdminForemanPBCListSql");
 		List<VAdminForemanPBCDTO> vAdminForemanPBCList = new ArrayList<>();
-		PreparedStatement getVAdminForemanPBCDTO = null;
-		
+		PreparedStatement getVAdminForemanPBCListStmt = null;
 		ResultSet rs = null;
 		try {
-			getOprListStmt = connector.getConnection().prepareStatement(getOprListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			rs = getOprListStmt.executeQuery();
+			getVAdminForemanPBCListStmt = connector.getConnection().prepareStatement(getVAdminForemanPBCListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			rs = getVAdminForemanPBCListStmt.executeQuery();
 
-			if (!rs.first()) throw new DALException("No operators exist!");
+			if (!rs.first()) throw new DALException("No entries in VAdminForemanPBCList exist!");
 
 			do {
-				oprList.add(new OperatorDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getString("ini"), rs.getString("cpr"), rs.getString("password")));
+				vAdminForemanPBCList.add(new VAdminForemanPBCDTO(rs.getInt("opr_id"), rs.getString("opr_navn"), rs.getInt("pb_id"), rs.getInt("rb_id"), rs.getDouble("tara"), rs.getDouble("netto"), rs.getInt("status")));
 			} while (rs.next());
-			return oprList;
+			return vAdminForemanPBCList;
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);
 		} finally {
 			try {
-				connector.cleanup(getOprListStmt, rs);
+				connector.cleanup(getVAdminForemanPBCListStmt, rs);
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}

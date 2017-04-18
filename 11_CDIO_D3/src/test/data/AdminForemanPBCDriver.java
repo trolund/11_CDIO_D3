@@ -10,7 +10,7 @@ public class AdminForemanPBCDriver {
 
 	public static void main(String[] args) {
 		try {
-			System.out.println(dao.getVAdminForemanPBC(1));
+			System.out.println(dao.getVAdminForemanPBCList());
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
