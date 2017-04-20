@@ -2,6 +2,7 @@ package data.dao;
 
 import java.util.List;
 
+import data.DALException;
 import data.dto.ReceptComponentDTO;
 
 /*

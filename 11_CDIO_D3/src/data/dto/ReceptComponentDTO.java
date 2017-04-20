@@ -36,7 +36,7 @@ public class ReceptComponentDTO {
 
 	@Override
 	public String toString() {
-		return "ReceptComponentDTO [" + receptId + ", " + raavareId + ", " + nomNetto + ", " + tolerance + "]";
+		return "ReceptComponentDTO [receptId=" + receptId + ", raavareId=" + raavareId + ", nomNetto=" + nomNetto + ", tolerance=" + tolerance + "]";
 	}
 
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.OperatorDTO;
 import utils.SecUtils;
 
@@ -29,7 +30,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 	 */
 	@Override
 	public OperatorDTO getOperator(int oprId) throws DALException {
-		String getOprSql = connector.getSQL("getOprSql");
+		String getOprSql = connector.getQuery("getOprSql");
 		PreparedStatement getOprStmt = null;
 		ResultSet rs = null;
 		try {
@@ -56,7 +57,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 	 */
 	@Override
 	public List<OperatorDTO> getOperatorList() throws DALException {
-		String getOprListSql = connector.getSQL("getOprListSql");
+		String getOprListSql = connector.getQuery("getOprListSql");
 		List<OperatorDTO> oprList = new ArrayList<>();
 		PreparedStatement getOprListStmt = null;
 		ResultSet rs = null;
@@ -86,7 +87,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 	 */
 	@Override
 	public void createOperator(OperatorDTO opr) throws DALException {
-		String createOprSql = connector.getSQL("createOprSql");
+		String createOprSql = connector.getQuery("createOprSql");
 		PreparedStatement createOprStmt = null;
 		try {
 			createOprStmt = connector.getConnection().prepareStatement(createOprSql);
@@ -112,7 +113,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 	 */
 	@Override
 	public void updateOperator(OperatorDTO opr) throws DALException {
-		String updateOprSql = connector.getSQL("updateOprSql");
+		String updateOprSql = connector.getQuery("updateOprSql");
 		PreparedStatement updateOprStmt = null;
 		try {
 			updateOprStmt = connector.getConnection().prepareStatement(updateOprSql);
@@ -138,7 +139,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 	 */
 	@Override
 	public void deleteOperator(int oprId) throws DALException {
-		String deleteOprSql = connector.getSQL("deleteOprSql");
+		String deleteOprSql = connector.getQuery("deleteOprSql");
 		PreparedStatement deleteOprStmt = null;
 		try {
 			deleteOprStmt = connector.getConnection().prepareStatement(deleteOprSql);

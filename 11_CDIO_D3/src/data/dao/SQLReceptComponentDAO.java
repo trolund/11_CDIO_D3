@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.ReceptComponentDTO;
 
 /*
@@ -29,7 +30,7 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 	 */
 	@Override
 	public ReceptComponentDTO getReceptComponent(int receptId, int raavareId) throws DALException {
-		String getRCSql = connector.getSQL("getRCSql");
+		String getRCSql = connector.getQuery("getRCSql");
 		PreparedStatement getRCStmt = null;
 		ResultSet rs = null;
 		try {
@@ -57,7 +58,7 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 	 */
 	@Override
 	public List<ReceptComponentDTO> getReceptComponentList(int receptId) throws DALException {
-		String getRCListIdSql = connector.getSQL("getRCListIdSql");
+		String getRCListIdSql = connector.getQuery("getRCListIdSql");
 		List<ReceptComponentDTO> rcList = new ArrayList<>();
 		PreparedStatement getRCListIdStmt = null;
 		ResultSet rs = null;
@@ -88,7 +89,7 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 	 */
 	@Override
 	public List<ReceptComponentDTO> getReceptComponentList() throws DALException {
-		String getRCListSql = connector.getSQL("getRCListSql");
+		String getRCListSql = connector.getQuery("getRCListSql");
 		List<ReceptComponentDTO> rcList = new ArrayList<>();
 		PreparedStatement getRCListStmt = null;
 		ResultSet rs = null;
@@ -118,7 +119,7 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 	 */
 	@Override
 	public void createReceptComponent(ReceptComponentDTO rc) throws DALException {
-		String createRCSql = connector.getSQL("createRCSql");
+		String createRCSql = connector.getQuery("createRCSql");
 		PreparedStatement createRCStmt = null;
 		try {
 			createRCStmt = connector.getConnection().prepareStatement(createRCSql);
@@ -143,7 +144,7 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 	 */
 	@Override
 	public void updateReceptComponent(ReceptComponentDTO rc) throws DALException {
-		String updateRCSql = connector.getSQL("updateRCSql");
+		String updateRCSql = connector.getQuery("updateRCSql");
 		PreparedStatement updateRCStmt = null;
 		try {
 			updateRCStmt = connector.getConnection().prepareStatement(updateRCSql);
@@ -168,7 +169,7 @@ public class SQLReceptComponentDAO implements IReceptComponentDAO {
 	 */
 	@Override
 	public void deleteReceptComponent(int receptId, int raavareId) throws DALException {
-		String deleteRCSql = connector.getSQL("deleteRCSql");
+		String deleteRCSql = connector.getQuery("deleteRCSql");
 		PreparedStatement deleteRCStmt = null;
 		try {
 			deleteRCStmt = connector.getConnection().prepareStatement(deleteRCSql);

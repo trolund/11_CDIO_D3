@@ -1,23 +1,21 @@
-package data.dto;
+package data.dto.view;
 
-/*
- * Operator data transfer object.
- * This class is used to store information about database entities.
- */
-public class OperatorDTO {
+public class VAdminOperatorDTO {
 
 	private int oprId;
 	private String oprName;
 	private String oprIni;
 	private String oprCpr;
 	private String oprPassword;
+	private String oprRoles;
 
-	public OperatorDTO(int oprId, String oprName, String oprIni, String oprCpr, String oprPassword) {
+	public VAdminOperatorDTO(int oprId, String oprName, String oprIni, String oprCpr, String oprPassword, String oprRoles) {
 		this.oprId = oprId;
 		this.oprName = oprName;
 		this.oprIni = oprIni;
 		this.oprCpr = oprCpr;
 		this.oprPassword = oprPassword;
+		this.oprRoles = oprRoles;
 	}
 
 	public int getOprId() {
@@ -40,9 +38,13 @@ public class OperatorDTO {
 		return oprPassword;
 	}
 
+	public String getOprRoles() {
+		return oprRoles;
+	}
+
 	@Override
 	public String toString() {
-		return "OperatorDTO [oprId=" + oprId + ", oprName=" + oprName + ", oprIni=" + oprIni + ", oprCpr=" + oprCpr + ", oprPassword=" + oprPassword + "]";
+		return "VAdminOperatorDTO [oprId=" + oprId + ", oprName=" + oprName + ", oprIni=" + oprIni + ", oprCpr=" + oprCpr + ", oprPassword=" + oprPassword + ", oprRoles=" + oprRoles + "]";
 	}
 
 }

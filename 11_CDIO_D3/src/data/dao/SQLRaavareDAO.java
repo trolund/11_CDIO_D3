@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.RaavareDTO;
 
 /*
@@ -28,7 +29,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 	 */
 	@Override
 	public RaavareDTO getRaavare(int raavareId) throws DALException {
-		String getRaavareSql = connector.getSQL("getRaavareSql");
+		String getRaavareSql = connector.getQuery("getRaavareSql");
 		PreparedStatement getRaavareStmt = null;
 		ResultSet rs = null;
 		try {
@@ -55,7 +56,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 	 */
 	@Override
 	public List<RaavareDTO> getRaavareList() throws DALException {
-		String getRaavareListSql = connector.getSQL("getRaavareListSql");
+		String getRaavareListSql = connector.getQuery("getRaavareListSql");
 		List<RaavareDTO> raavareList = new ArrayList<>();
 		PreparedStatement getRaavareListStmt = null;
 		ResultSet rs = null;
@@ -85,7 +86,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 	 */
 	@Override
 	public void createRaavare(RaavareDTO raavare) throws DALException {
-		String createRaavareSql = connector.getSQL("createRaavareSql");
+		String createRaavareSql = connector.getQuery("createRaavareSql");
 		PreparedStatement createRaavareStmt = null;
 		try {
 			createRaavareStmt = connector.getConnection().prepareStatement(createRaavareSql);
@@ -109,7 +110,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 	 */
 	@Override
 	public void updateRaavare(RaavareDTO raavare) throws DALException {
-		String updateRaavareSql = connector.getSQL("updateRaavareSql");
+		String updateRaavareSql = connector.getQuery("updateRaavareSql");
 		PreparedStatement updateRaavareStmt = null;
 		try {
 			updateRaavareStmt = connector.getConnection().prepareStatement(updateRaavareSql);
@@ -133,7 +134,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 	 */
 	@Override
 	public void deleteRaavare(int raavareId) throws DALException {
-		String deleteRaavareSql = connector.getSQL("deleteRaavareSql");
+		String deleteRaavareSql = connector.getQuery("deleteRaavareSql");
 		PreparedStatement deleteRaavareStmt = null;
 		try {
 			deleteRaavareStmt = connector.getConnection().prepareStatement(deleteRaavareSql);

@@ -42,7 +42,7 @@ public class ProductBatchComponentDTO {
 
 	@Override
 	public String toString() {
-		return "ProductBatchComponentDTO [" + pbId + ", " + rbId + ", " + tara + ", " + netto + ", " + oprId + "]";
+		return "ProductBatchComponentDTO [pbId=" + pbId + ", rbId=" + rbId + ", tara=" + tara + ", netto=" + netto + ", oprId=" + oprId + "]";
 	}
 
 }

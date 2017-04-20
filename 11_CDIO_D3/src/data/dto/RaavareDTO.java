@@ -30,7 +30,7 @@ public class RaavareDTO {
 
 	@Override
 	public String toString() {
-		return "RaavareDTO [" + raavareId + ", " + raavareName + ", " + supplier + "]";
+		return "RaavareDTO [raavareId=" + raavareId + ", raavareName=" + raavareName + ", supplier=" + supplier + "]";
 	}
 
 }

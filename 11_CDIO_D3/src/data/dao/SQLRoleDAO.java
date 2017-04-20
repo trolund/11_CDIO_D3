@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.RoleDTO;
 
 /*
@@ -29,7 +30,7 @@ public class SQLRoleDAO implements IRoleDAO {
 	@Override
 	public List<RoleDTO> getOprRoles(int oprId) throws DALException {
 		List<RoleDTO> roleList = new ArrayList<>();
-		String getOprRolesSql = connector.getSQL("getOprRolesSql");
+		String getOprRolesSql = connector.getQuery("getOprRolesSql");
 		PreparedStatement getOprRolesStmt = null;
 		ResultSet rs = null;
 		try {
@@ -60,7 +61,7 @@ public class SQLRoleDAO implements IRoleDAO {
 	@Override
 	public List<RoleDTO> getRoleList() throws DALException {
 		List<RoleDTO> roleList = new ArrayList<>();
-		String getRoleListSql = connector.getSQL("getRoleListSql");
+		String getRoleListSql = connector.getQuery("getRoleListSql");
 		PreparedStatement getRoleListStmt = null;
 		ResultSet rs = null;
 		try {
@@ -89,7 +90,7 @@ public class SQLRoleDAO implements IRoleDAO {
 	 */
 	@Override
 	public void createRole(RoleDTO roleDTO) throws DALException {
-		String createRoleSql = connector.getSQL("createRoleSql");
+		String createRoleSql = connector.getQuery("createRoleSql");
 		PreparedStatement createRoleStmt = null;
 		try {
 			createRoleStmt = connector.getConnection().prepareStatement(createRoleSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -112,7 +113,7 @@ public class SQLRoleDAO implements IRoleDAO {
 	 */
 	@Override
 	public void deleteRole(RoleDTO roleDTO) throws DALException {
-		String deleteRoleSql = connector.getSQL("deleteRoleSql");
+		String deleteRoleSql = connector.getQuery("deleteRoleSql");
 		PreparedStatement deleteRoleStmt = null;
 		try {
 			deleteRoleStmt = connector.getConnection().prepareStatement(deleteRoleSql);

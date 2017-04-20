@@ -24,7 +24,7 @@ public class ReceptDTO {
 
 	@Override
 	public String toString() {
-		return "ReceptDTO [" + receptId + ", " + receptName + "]";
+		return "ReceptDTO [receptId=" + receptId + ", receptName=" + receptName + "]";
 	}
 
 }

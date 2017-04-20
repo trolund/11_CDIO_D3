@@ -250,7 +250,7 @@ public class Connector {
 	/*
 	 * Method to get the desired SQL query at the key.
 	 */
-	public String getSQL(String key) {
+	public String getQuery(String key) {
 		return sqlHashMap.get(key);
 	}
 

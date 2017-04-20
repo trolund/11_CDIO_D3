@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.ProductBatchComponentDTO;
 
 /*
@@ -28,7 +29,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 	 */
 	@Override
 	public ProductBatchComponentDTO getProductBatchComponent(int pbId, int rbId) throws DALException {
-		String getPBCSql = connector.getSQL("getPBCSql");
+		String getPBCSql = connector.getQuery("getPBCSql");
 		PreparedStatement getPBCStmt = null;
 		ResultSet rs = null;
 		try {
@@ -56,7 +57,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 	 */
 	@Override
 	public List<ProductBatchComponentDTO> getProductBatchComponentList(int pbId) throws DALException {
-		String getPBCListSql = connector.getSQL("getPBCListIdSql");
+		String getPBCListSql = connector.getQuery("getPBCListIdSql");
 		List<ProductBatchComponentDTO> pbcList = new ArrayList<>();
 		PreparedStatement getPBCListStmt = null;
 		ResultSet rs = null;
@@ -87,7 +88,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 	 */
 	@Override
 	public List<ProductBatchComponentDTO> getProductBatchComponentList() throws DALException {
-		String getPBCListSql = connector.getSQL("getPBCListSql");
+		String getPBCListSql = connector.getQuery("getPBCListSql");
 		List<ProductBatchComponentDTO> pbcList = new ArrayList<>();
 		PreparedStatement getPBCListStmt = null;
 		ResultSet rs = null;
@@ -117,7 +118,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 	 */
 	@Override
 	public void createProductBatchComponent(ProductBatchComponentDTO pbc) throws DALException {
-		String createPBCSql = connector.getSQL("createPBCSql");
+		String createPBCSql = connector.getQuery("createPBCSql");
 		PreparedStatement createPBCStmt = null;
 		try {
 			createPBCStmt = connector.getConnection().prepareStatement(createPBCSql);
@@ -143,7 +144,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 	 */
 	@Override
 	public void updateProductBatchComponent(ProductBatchComponentDTO pbc) throws DALException {
-		String updatePBCSql = connector.getSQL("updatePBCSql");
+		String updatePBCSql = connector.getQuery("updatePBCSql");
 		PreparedStatement updatePBCStmt = null;
 		try {
 			updatePBCStmt = connector.getConnection().prepareStatement(updatePBCSql);
@@ -169,7 +170,7 @@ public class SQLProductBatchComponentDAO implements IProductBatchComponentDAO {
 	 */
 	@Override
 	public void deleteProductBatchComponent(int pbId, int rbId) throws DALException {
-		String deletePBCSql = connector.getSQL("deletePBCSql");
+		String deletePBCSql = connector.getQuery("deletePBCSql");
 		PreparedStatement deletePBCStmt = null;
 		try {
 			deletePBCStmt = connector.getConnection().prepareStatement(deletePBCSql);

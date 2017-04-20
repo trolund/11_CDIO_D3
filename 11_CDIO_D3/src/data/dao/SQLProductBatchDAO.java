@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.ProductBatchDTO;
 
 /*
@@ -28,7 +29,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 	 */
 	@Override
 	public ProductBatchDTO getProductBatch(int pbId) throws DALException {
-		String getPBSql = connector.getSQL("getPBSql");
+		String getPBSql = connector.getQuery("getPBSql");
 		PreparedStatement getPBStmt = null;
 		ResultSet rs = null;
 		try {
@@ -55,7 +56,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 	 */
 	@Override
 	public List<ProductBatchDTO> getProductBatchList() throws DALException {
-		String getPBListSql = connector.getSQL("getPBListSql");
+		String getPBListSql = connector.getQuery("getPBListSql");
 		List<ProductBatchDTO> pbList = new ArrayList<>();
 		PreparedStatement getPBListStmt = null;
 		ResultSet rs = null;
@@ -85,7 +86,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 	 */
 	@Override
 	public void createProductBatch(ProductBatchDTO pbDTO) throws DALException {
-		String createPBSql = connector.getSQL("createPBSql");
+		String createPBSql = connector.getQuery("createPBSql");
 		PreparedStatement createPBStmt = null;
 		try {
 			createPBStmt = connector.getConnection().prepareStatement(createPBSql);
@@ -109,7 +110,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 	 */
 	@Override
 	public void updateProductBatch(ProductBatchDTO pbDTO) throws DALException {
-		String updatePBSql = connector.getSQL("updatePBSql");
+		String updatePBSql = connector.getQuery("updatePBSql");
 		PreparedStatement updatePBStmt = null;
 		try {
 			updatePBStmt = connector.getConnection().prepareStatement(updatePBSql);
@@ -133,7 +134,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 	 */
 	@Override
 	public void deleteProductBatch(int pbId) throws DALException {
-		String deletePBSql = connector.getSQL("deletePBSql");
+		String deletePBSql = connector.getQuery("deletePBSql");
 		PreparedStatement deletePBStmt = null;
 		try {
 			deletePBStmt = connector.getConnection().prepareStatement(deletePBSql);

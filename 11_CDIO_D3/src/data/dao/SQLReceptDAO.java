@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.ReceptDTO;
 
 /*
@@ -28,7 +29,7 @@ public class SQLReceptDAO implements IReceptDAO {
 	 */
 	@Override
 	public ReceptDTO getRecept(int receptId) throws DALException {
-		String getReceptSql = connector.getSQL("getReceptSql");
+		String getReceptSql = connector.getQuery("getReceptSql");
 		PreparedStatement getReceptStmt = null;
 		ResultSet rs = null;
 		try {
@@ -55,7 +56,7 @@ public class SQLReceptDAO implements IReceptDAO {
 	 */
 	@Override
 	public List<ReceptDTO> getReceptList() throws DALException {
-		String getReceptListSql = connector.getSQL("getReceptListSql");
+		String getReceptListSql = connector.getQuery("getReceptListSql");
 		List<ReceptDTO> receptList = new ArrayList<>();
 		PreparedStatement getReceptListStmt = null;
 		ResultSet rs = null;
@@ -85,7 +86,7 @@ public class SQLReceptDAO implements IReceptDAO {
 	 */
 	@Override
 	public void createRecept(ReceptDTO recept) throws DALException {
-		String createReceptSql = connector.getSQL("createReceptSql");
+		String createReceptSql = connector.getQuery("createReceptSql");
 		PreparedStatement createReceptStmt = null;
 		try {
 			createReceptStmt = connector.getConnection().prepareStatement(createReceptSql);
@@ -108,7 +109,7 @@ public class SQLReceptDAO implements IReceptDAO {
 	 */
 	@Override
 	public void updateRecept(ReceptDTO recept) throws DALException {
-		String updateReceptSql = connector.getSQL("updateReceptSql");
+		String updateReceptSql = connector.getQuery("updateReceptSql");
 		PreparedStatement updateReceptStmt = null;
 		try {
 			updateReceptStmt = connector.getConnection().prepareStatement(updateReceptSql);
@@ -131,7 +132,7 @@ public class SQLReceptDAO implements IReceptDAO {
 	 */
 	@Override
 	public void deleteRecept(int receptId) throws DALException {
-		String deleteReceptSql = connector.getSQL("deleteReceptSql");
+		String deleteReceptSql = connector.getQuery("deleteReceptSql");
 		PreparedStatement deleteReceptStmt = null;
 		try {
 			deleteReceptStmt = connector.getConnection().prepareStatement(deleteReceptSql);

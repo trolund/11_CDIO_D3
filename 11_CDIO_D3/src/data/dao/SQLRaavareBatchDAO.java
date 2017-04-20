@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.Connector;
+import data.DALException;
 import data.dto.RaavareBatchDTO;
 
 /*
@@ -28,7 +29,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 	 */
 	@Override
 	public RaavareBatchDTO getRaavareBatch(int rbId) throws DALException {
-		String getRBSql = connector.getSQL("getRBSql");
+		String getRBSql = connector.getQuery("getRBSql");
 		PreparedStatement getRBStmt = null;
 		ResultSet rs = null;
 		try {
@@ -55,7 +56,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 	 */
 	@Override
 	public List<RaavareBatchDTO> getRaavareBatchList() throws DALException {
-		String getRBListSql = connector.getSQL("getRBListSql");
+		String getRBListSql = connector.getQuery("getRBListSql");
 		List<RaavareBatchDTO> rbList = new ArrayList<>();
 		PreparedStatement getRBListStmt = null;
 		ResultSet rs = null;
@@ -85,7 +86,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 	 */
 	@Override
 	public List<RaavareBatchDTO> getRaavareBatchList(int raavareId) throws DALException {
-		String getRBListIdSql = connector.getSQL("getRBListIdSql");
+		String getRBListIdSql = connector.getQuery("getRBListIdSql");
 		List<RaavareBatchDTO> rbList = new ArrayList<>();
 		PreparedStatement getRBListIdStmt = null;
 		ResultSet rs = null;
@@ -116,7 +117,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 	 */
 	@Override
 	public void createRaavareBatch(RaavareBatchDTO rbDTO) throws DALException {
-		String createRBSql = connector.getSQL("createRBSql");
+		String createRBSql = connector.getQuery("createRBSql");
 		PreparedStatement createRBStmt = null;
 		try {
 			createRBStmt = connector.getConnection().prepareStatement(createRBSql);
@@ -140,7 +141,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 	 */
 	@Override
 	public void updateRaavareBatch(RaavareBatchDTO rbDTO) throws DALException {
-		String updateRBCSql = connector.getSQL("updateRBSql");
+		String updateRBCSql = connector.getQuery("updateRBSql");
 		PreparedStatement updateRBStmt = null;
 		try {
 			updateRBStmt = connector.getConnection().prepareStatement(updateRBCSql);
@@ -164,7 +165,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 	 */
 	@Override
 	public void deleteRaavareBatch(int rbId) throws DALException {
-		String deleteRBSql = connector.getSQL("deleteRBSql");
+		String deleteRBSql = connector.getQuery("deleteRBSql");
 		PreparedStatement deleteRBStmt = null;
 		try {
 			deleteRBStmt = connector.getConnection().prepareStatement(deleteRBSql);

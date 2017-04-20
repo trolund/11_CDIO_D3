@@ -24,7 +24,7 @@ public class RoleDTO {
 
 	@Override
 	public String toString() {
-		return "RoleDTO [" + oprId + ", " + roleName + "]";
+		return "RoleDTO [oprId=" + oprId + ", roleName=" + roleName + "]";
 	}
 
 }

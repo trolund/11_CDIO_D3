@@ -30,7 +30,7 @@ public class RaavareBatchDTO {
 
 	@Override
 	public String toString() {
-		return "RaavareBatchDTO [" + rBId + ", " + raavareId + ", " + amount + "]";
+		return "RaavareBatchDTO [rBId=" + rBId + ", raavareId=" + raavareId + ", amount=" + amount + "]";
 	}
 
 }

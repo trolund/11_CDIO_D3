@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import data.Connector;
-import data.dao.DALException;
+import data.DALException;
 import data.dao.SQLOperatorDAO;
 import data.dao.SQLRoleDAO;
 import data.dto.OperatorDTO;
