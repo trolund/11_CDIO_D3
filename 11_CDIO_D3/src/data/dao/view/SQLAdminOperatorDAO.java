@@ -54,6 +54,7 @@ public class SQLAdminOperatorDAO implements IVAdminOperatorDAO {
 		ResultSet rs = null;
 		try {
 			getVAdminOperatorListStmt = connector.getConnection().prepareStatement(getVAdminOperatorListSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
 			rs = getVAdminOperatorListStmt.executeQuery();
 
 			if (!rs.first()) throw new DALException("No entries in VAdminOperator view exist!");

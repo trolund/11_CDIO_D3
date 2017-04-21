@@ -64,7 +64,7 @@ public class Connector {
 		 * It's not necessary to keep creating a new SQL property file.
 		 * Uncomment if the SQL properties needs to get updated.
 		 */
-		//createSQLProperties();
+		createSQLProperties();
 		loadSQLProperties();
 
 		try {
