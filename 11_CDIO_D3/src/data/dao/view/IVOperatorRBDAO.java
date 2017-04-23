@@ -6,6 +6,6 @@ import data.DALException;
 import data.dto.view.VOperatorRBDTO;
 
 public interface IVOperatorRBDAO {
-	List<VOperatorRBDTO> getVOperatorRBDTO(int raavareId) throws DALException;
-	List<VOperatorRBDTO> getVOperatorRBDTOList() throws DALException;
+	List<VOperatorRBDTO> getVOperatorRB(int raavareId) throws DALException;
+	List<VOperatorRBDTO> getVOperatorRBList() throws DALException;
 }

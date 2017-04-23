@@ -22,7 +22,7 @@ public class SQLOperatorRBDAO implements IVOperatorRBDAO {
 
 	/* Returns the VOperatorRBDTO View associated with raavareId */
 	@Override
-	public List<VOperatorRBDTO> getVOperatorRBDTO(int raavareId) throws DALException {
+	public List<VOperatorRBDTO> getVOperatorRB(int raavareId) throws DALException {
 		String getVOperatorRBSql = connector.getQuery("getVOperatorRBSql");
 		List<VOperatorRBDTO> vOperatorRBList = new ArrayList<>();
 		PreparedStatement getOperatorRBStmt = null;
@@ -51,7 +51,7 @@ public class SQLOperatorRBDAO implements IVOperatorRBDAO {
 
 	/* Returns a list with all VOperatorRBDTO's */
 	@Override
-	public List<VOperatorRBDTO> getVOperatorRBDTOList() throws DALException {
+	public List<VOperatorRBDTO> getVOperatorRBList() throws DALException {
 		String getVOperatorRBListSql = connector.getQuery("getVOperatorRBListSql");
 		List<VOperatorRBDTO> vOperatorRBList = new ArrayList<>();
 		PreparedStatement getVOperatorRBListStmt = null;
