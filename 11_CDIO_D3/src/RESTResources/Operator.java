@@ -85,31 +85,10 @@ public class Operator {
 		return "UPS! - Der skete en fejl";
 	}
 
-//	@GET
-//	@Path("/{oprId}")
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String getName(@PathParam("oprId") String oprId) {
-//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-//
-//		int id = Integer.parseInt(oprId);
-//
-//		List<OperatorDTO> oprList = null;
-//		try {
-//			oprList = oprDAO.getOperatorList();
-//		} catch (DALException e) {
-//			e.printStackTrace();
-//		}
-//
-//		for (OperatorDTO oprDTO : oprList) {
-//			if (oprDTO.getOprId() == id) return oprDTO.getOprName();
-//		}
-//		return "Der er ingen bruger med det id.";
-//	}
-	
 	@GET
 	@Path("/{oprId}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public OperatorDTO getName(@PathParam("oprId") String oprId) {
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getName(@PathParam("oprId") String oprId) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 
 		int id = Integer.parseInt(oprId);
@@ -122,10 +101,31 @@ public class Operator {
 		}
 
 		for (OperatorDTO oprDTO : oprList) {
-			if (oprDTO.getOprId() == id) return oprDTO;
+			if (oprDTO.getOprId() == id) return oprDTO.getOprName();
 		}
-		return null;
+		return "Der er ingen bruger med det id.";
 	}
+	
+//	@GET
+//	@Path("/{oprId}")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public OperatorDTO getName(@PathParam("oprId") String oprId) {
+//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+//
+//		int id = Integer.parseInt(oprId);
+//
+//		List<OperatorDTO> oprList = null;
+//		try {
+//			oprList = oprDAO.getOperatorList();
+//		} catch (DALException e) {
+//			e.printStackTrace();
+//		}
+//
+//		for (OperatorDTO oprDTO : oprList) {
+//			if (oprDTO.getOprId() == id) return oprDTO;
+//		}
+//		return null;
+//	}
 
 	@GET
 	@Path("/getOprList")

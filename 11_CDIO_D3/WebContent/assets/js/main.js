@@ -21,9 +21,24 @@ return false;
 var id = 1;
 var user = null;
 
-$(document).ready(function(){
-    findById(id);
-});
+$(document).ready(function() {
+  $("#login_but").click(function() {
+   
+      jQuery.ajax({
+		url : "/api/opr/verify",
+		data : $('#form').serializeJSON(),
+		contentType: "application/json",
+		method: 'POST',
+		success : function(data){
+			alert(data);
+		},
+		error: function(jqXHR, text, error){
+			alert(jqXHR.status + text + error);
+		}
+	});
+});   
+  });
+
 
 // Menu mobile button 
 $(document).ready(function() {
@@ -55,6 +70,8 @@ $(document).ready(function() {
 });
 
 
+
+
 // Ajax get user data 
 jQuery.ajax({
   url: "api/opr/" + id,
@@ -82,19 +99,19 @@ jQuery.ajax({
 
 
 
-function findById(id) {
-	console.log('find opr by id: ' + id);
-	jQuery.ajax({
-		type: 'GET',
-		url: "api/opr/getOprRoleList/" + id,
-		dataType: "json",
-		success: function(data){
-			user = data;
-			console.log('findById success: ' + user.name);
-		},
-	    error : function(jqXHR, textStatus, errorThrown){
-          console.log('fejl!')
-          
-      }
-	});
-}
+//function findById(id) {
+//	console.log('find opr by id: ' + id);
+//	jQuery.ajax({
+//		type: 'GET',
+//		url: "api/opr/getOprRoleList/" + id,
+//		dataType: "json",
+//		success: function(data){
+//			user = data;
+//			console.log('findById success: ' + user.name);
+//		},
+//	    error : function(jqXHR, textStatus, errorThrown){
+//          console.log('fejl!')
+//          
+//      }
+//	});
+//}
