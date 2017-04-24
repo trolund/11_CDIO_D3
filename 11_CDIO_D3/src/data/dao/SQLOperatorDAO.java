@@ -156,4 +156,9 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		}
 	}
 
+	/* Test method for possible connection bug */
+	public void closeConnection() throws SQLException {
+		connector.closeConnection();
+	}
+
 }

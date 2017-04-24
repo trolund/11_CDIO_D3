@@ -1,4 +1,4 @@
-package test;
+package test.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -40,7 +40,6 @@ public class TestListOperatorDAO {
 	public void testGetOperatorPositive() {
 		OperatorDTO dto = null;
 		int oprId = 101;
-
 		try {
 			System.out.println("\n" + spr + " Testing ListOperatorDAO.getOperator(" + oprId + ") Positive " + spr);
 			dto = oprDAO.getOperator(oprId);
@@ -59,7 +58,7 @@ public class TestListOperatorDAO {
 	public void testGetOperatorNegative() {
 		int oprId = 2342;
 		try {
-			System.out.println("\n" + spr + " Testing ListOperatorDAO.getOperator(" + oprId + ") Positive " + spr);
+			System.out.println("\n" + spr + " Testing ListOperatorDAO.getOperator(" + oprId + ") Negative " + spr);
 			OperatorDTO dto = oprDAO.getOperator(oprId);
 			int expected = oprId;
 			int actual = dto.getOprId();
@@ -71,14 +70,32 @@ public class TestListOperatorDAO {
 	}
 
 	@Test
-	public void testGetOperatorList() {
+	public void testGetOperatorListPositive() {
 		try {
 			System.out.println("\n" + spr + " Testing ListOperatorDAO.getOperatorList() " + spr);
 			for (OperatorDTO dto : oprDAO.getOperatorList()) {
+				System.out.println(dto);
 				if (dto == null) {
 					fail("Failed: Null object returned!");
 				}
 			}
+			System.out.println(lspr);
+		} catch (DALException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testCreateOperatorPositive() {
+		try {
+			System.out.println("\n" + spr + " Testing ListOperatorDAO.createOperator() Positive " + spr);
+			boolean expected = true;
+			boolean actual = false;
+			oprDAO.createOperator(new OperatorDTO(49, "Franco", "Francis", "6666-666-69", "666"));
+			for (OperatorDTO dto : oprDAO.getOperatorList()) {
+				if (dto.getOprId() == 49) actual = true;
+			}
+			assertEquals("Failed: Created Operator not found!", expected, actual);
 			System.out.println(lspr);
 		} catch (DALException e) {
 			e.printStackTrace();

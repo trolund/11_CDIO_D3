@@ -1,5 +1,6 @@
 package RESTResources;
 
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -44,12 +45,19 @@ public class Operator {
 			e.printStackTrace();
 			return "Invalid ID.";
 		}
-
+		
+		try {
+			oprDAO.closeConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		if (secUtil.sha256(password).equals(oprDTO.getOprPassword())) {
 			return "Correct password.";
 		} else {
 			return "Invalid credentials.";
 		}
+		
 	}
 
 	@POST
@@ -82,6 +90,13 @@ public class Operator {
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
+		
+		try {
+			oprDAO.closeConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return "UPS! - Der skete en fejl";
 	}
 
@@ -103,6 +118,13 @@ public class Operator {
 		for (OperatorDTO oprDTO : oprList) {
 			if (oprDTO.getOprId() == id) return oprDTO.getOprName();
 		}
+		
+		try {
+			oprDAO.closeConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return "Der er ingen bruger med det id.";
 	}
 	
@@ -147,6 +169,13 @@ public class Operator {
 			returnString.append("<tr>" + "<td>" + oprDTO.getOprId() + "</td>" + "<td>" + oprDTO.getOprIni() + "</td>" + "<td>" + oprDTO.getOprName() + "</td>" + "<td>" + oprDTO.getOprCpr() + "</td>" + "<td>" + oprDTO.getOprPassword() + "</td>" + "</tr>");
 			returnString.append("</table>");
 		}
+		
+		try {
+			oprDAO.closeConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return returnString.toString();
 	}
 
@@ -171,6 +200,7 @@ public class Operator {
 			else
 				returnString.append(roleDTO.getRoleName());
 		}
+				
 		return returnString.toString();
 	}
 
