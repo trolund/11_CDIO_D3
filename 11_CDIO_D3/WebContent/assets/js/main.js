@@ -18,6 +18,12 @@ return false;
 }
 
 */
+var id = 1;
+var user = null;
+
+$(document).ready(function(){
+    findById(id);
+});
 
 // Menu mobile button 
 $(document).ready(function() {
@@ -48,7 +54,7 @@ $(document).ready(function() {
   });
 });
 
-var id = 1;
+
 // Ajax get user data 
 jQuery.ajax({
   url: "api/opr/" + id,
@@ -73,3 +79,22 @@ jQuery.ajax({
 	  },
 	  timeout: 120000,
 	});
+
+
+
+function findById(id) {
+	console.log('find opr by id: ' + id);
+	jQuery.ajax({
+		type: 'GET',
+		url: "api/opr/getOprRoleList/" + id,
+		dataType: "json",
+		success: function(data){
+			user = data;
+			console.log('findById success: ' + user.name);
+		},
+	    error : function(jqXHR, textStatus, errorThrown){
+          console.log('fejl!')
+          
+      }
+	});
+}
