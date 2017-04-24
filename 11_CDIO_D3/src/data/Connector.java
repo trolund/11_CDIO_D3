@@ -27,6 +27,7 @@ public class Connector {
 	 * MYSQL_CONFIG_FILE: Path to the database configuration file.
 	 * SQL_CONFIG_FILE:   Path to the SQL query configuration file.
 	 */
+	//private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
 	private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
 	private final String SQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/sql.config";
 

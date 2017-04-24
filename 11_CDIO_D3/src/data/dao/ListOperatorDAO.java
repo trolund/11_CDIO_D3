@@ -45,6 +45,7 @@ public class ListOperatorDAO implements IOperatorDAO {
 	public void updateOperator(OperatorDTO opr) throws DALException {
 		for (int i = 0; i < oprList.size(); i++) {
 			if (opr.getOprId() == oprList.get(i).getOprId()) {
+				oprList.remove(i);
 				oprList.add(i, opr);
 			}
 		}
