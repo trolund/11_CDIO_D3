@@ -36,6 +36,10 @@ public class TestListOperatorDAO {
 		oprDAO = null;
 	}
 
+	/* 
+	 * Testing ListOperatorDAO.getOperator(oprId)
+	 * Positive atomic test
+	 */
 	@Test
 	public void testGetOperatorPositive() {
 		OperatorDTO dto = null;
@@ -54,6 +58,10 @@ public class TestListOperatorDAO {
 		}
 	}
 
+	/* 
+	 * Testing ListOperatorDAO.getOperator(oprId)
+	 * Negative atomic test
+	 */
 	@Test
 	public void testGetOperatorNegative() {
 		int oprId = 2342;
@@ -69,6 +77,10 @@ public class TestListOperatorDAO {
 		}
 	}
 
+	/* 
+	 * Testing ListOperatorDAO.getOperatorList()
+	 * Positive atomic test
+	 */
 	@Test
 	public void testGetOperatorListPositive() {
 		try {
@@ -85,6 +97,10 @@ public class TestListOperatorDAO {
 		}
 	}
 
+	/* 
+	 * Testing ListOperatorDAO.createOperator(oprDTO)
+	 * Positive atomic test
+	 */
 	@Test
 	public void testCreateOperatorPositive() {
 		try {
@@ -106,6 +122,10 @@ public class TestListOperatorDAO {
 		}
 	}
 
+	/* 
+	 * Testing ListOperatorDAO.createOperator(oprDTO)
+	 * Negative atomic test
+	 */
 	@Test
 	public void testCreateOperatorNegative() {
 		try {
@@ -120,6 +140,10 @@ public class TestListOperatorDAO {
 		}
 	}
 
+	/* 
+	 * Testing ListOperatorDAO.updateOperator(oprDTO)
+	 * Positive atomic test
+	 */
 	@Test
 	public void testUpdateOperatorPositive() {
 		try {
@@ -130,35 +154,62 @@ public class TestListOperatorDAO {
 
 			oprDAO.updateOperator(new OperatorDTO(99, "Jim", "JIMMIE", "111111-4444", "nytpassword"));
 			System.out.println("Updated: " + oprDAO.getOperator(oprId));
-			System.out.println(lspr);
 
 			String expected = "JIMMIE";
 			String actual = oprDAO.getOperator(99).getOprIni();
 
 			assertEquals("Failed: Did not update the DTO correctly.", expected, actual);
+			System.out.println(lspr);
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/* 
+	 * Testing ListOperatorDAO.updateOperator(oprDTO)
+	 * Negative atomic test
+	 */
 	@Test
 	public void testUpdateOperatorNegative() {
 		try {
 			System.out.println("\n" + spr + " Testing ListOperatorDAO.updateOperator(oprDTO) Negative " + spr);
 			int oprId = 99;
-			oprDAO.createOperator(new OperatorDTO(oprId, "Jim", "JM", "999999-1122", "password"));
-			System.out.println("Created: " + oprDAO.getOperator(oprId));
 
 			oprDAO.updateOperator(new OperatorDTO(99, "Jim", "JIMMIE", "111111-4444", "nytpassword"));
 			System.out.println("Updated: " + oprDAO.getOperator(oprId));
+			fail("Failed: Updated non-existent operator!");
+
 			System.out.println(lspr);
-
-			String expected = "JIMMIE";
-			String actual = oprDAO.getOperator(99).getOprIni();
-
-			assertEquals("Failed: Did not update the DTO correctly.", expected, actual);
 		} catch (DALException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+			System.out.println(lspr);
+		}
+	}
+
+	/* 
+	 * Testing ListOperatorDAO.deleteOperator(oprId)
+	 * Positive atomic test
+	 */
+	@Test
+	public void testDeleteOperatorPositive() {
+		try {
+			System.out.println("\n" + spr + " Testing ListOperatorDAO.deleteOperator(oprDTO) Positive " + spr);
+			int oprId = 54;
+
+			oprDAO.createOperator(new OperatorDTO(oprId, "John", "JN", "999999-1234", "pumpkin"));
+			System.out.println("Created: " + oprDAO.getOperator(oprId));
+
+			oprDAO.deleteOperator(oprId);
+			System.out.println("Deleted!");
+
+			oprDAO.getOperator(oprId);
+
+			fail("Failed: Operator still exists after deletion!");
+
+			System.out.println(lspr);
+		} catch (DALException e) {
+			System.out.println(e.getMessage());
+			System.out.println(lspr);
 		}
 	}
 

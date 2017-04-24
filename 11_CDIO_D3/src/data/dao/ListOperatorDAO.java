@@ -8,14 +8,17 @@ import data.dto.OperatorDTO;
 
 public class ListOperatorDAO implements IOperatorDAO {
 
+	/* Global List object to store OperatorDTO's */
 	private static List<OperatorDTO> oprList;
 
+	/* Initializing the oprList as well as two sample objects */
 	public ListOperatorDAO() {
 		oprList = new ArrayList<>();
 		oprList.add(new OperatorDTO(101, "Stig", "HGH", "123456-6543", "givos12"));
 		oprList.add(new OperatorDTO(102, "Finn", "FGS", "987654-4567", "givos12"));
 	}
 
+	/* Method to retrieve an OperatorDTO */
 	@Override
 	public OperatorDTO getOperator(int oprId) throws DALException {
 		for (OperatorDTO dto : oprList) {
@@ -26,11 +29,13 @@ public class ListOperatorDAO implements IOperatorDAO {
 		throw new DALException("Operator with oprId [" + oprId + "] does not exist!");
 	}
 
+	/* Method to retrieve a list of all OperatorDTO's */
 	@Override
 	public List<OperatorDTO> getOperatorList() throws DALException {
 		return oprList;
 	}
 
+	/* Method to create an OperatorDTO */
 	@Override
 	public void createOperator(OperatorDTO opr) throws DALException {
 		for (OperatorDTO dto : oprList) {
@@ -41,6 +46,7 @@ public class ListOperatorDAO implements IOperatorDAO {
 		oprList.add(opr);
 	}
 
+	/* Method to update an OperatorDTO */
 	@Override
 	public void updateOperator(OperatorDTO opr) throws DALException {
 		for (int i = 0; i < oprList.size(); i++) {
@@ -51,6 +57,7 @@ public class ListOperatorDAO implements IOperatorDAO {
 		}
 	}
 
+	/* Method to delete an OperatorDTO */
 	@Override
 	public void deleteOperator(int oprId) throws DALException {
 		for (int i = 0; i < oprList.size(); i++) {
