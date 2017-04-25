@@ -12,11 +12,27 @@ jQuery.ajax({
     success: function(html){
         $("#msg").html("velkommen!");
     }
-    
+     
 })
 return false;
 }
 
+*/
+
+
+/*
+ jQuery.ajax({
+      url: "/api/opr/getOprList",
+      type: "GET",
+      contentType: 'text/plain',
+      success: function(resultData) {
+        $("#table_con").html(resultData);
+      },
+      error : function(jqXHR, textStatus, errorThrown) {
+      },
+
+      timeout: 120000,
+    });          
 */
 var id = 1;
 var user = null;
@@ -52,22 +68,12 @@ $(document).ready(function() {
 // User button menu 
 $(document).ready(function() {
   $("#user_but").click(function() {       
-    $( "#content_box" ).load( 'adduser.html');
-          
-    jQuery.ajax({
-      url: "/api/opr/getOprList",
-      type: "GET",
-      contentType: 'text/plain',
-      success: function(resultData) {
-        $("#table_con").html(resultData);
-      },
-      error : function(jqXHR, textStatus, errorThrown) {
-      },
-
-      timeout: 120000,
-    });          
-  });
+    $("#content_box").load('adduser.html');
+      
+    loadUsers();
 });
+  });
+
 
 
 
@@ -99,6 +105,20 @@ jQuery.ajax({
 
 
 
+function loadUsers(){
+	//TODO load list of users from service and append rows to user table
+	//Hints: $.each(data, function(i, element){ } iterates over a JSON-collection (data). 
+	// $('').append('html'), appends html to an html element.
+    
+    $.getJSON('api/opr/getOprList', function(data) {
+	    console.log(data);
+	
+        $.each(data, function(i, item) {
+            $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button id="del_User_' + data[i].oprId + '">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User_' + data[i].oprId + '">Edit</button>' + '</td>' + '</tr>')
+	    });
+});
+    
+}
 //function findById(id) {
 //	console.log('find opr by id: ' + id);
 //	jQuery.ajax({

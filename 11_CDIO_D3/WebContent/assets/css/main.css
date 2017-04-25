@@ -243,6 +243,10 @@ float: right;
     display: block !important;
 }
 
+#pass_td {  
+    max-width: 60px;
+}
+
 /* ----------- mobile ----------- */
 @media screen and (max-width: 400px) {
     #sidepanel {

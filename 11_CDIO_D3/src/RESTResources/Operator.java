@@ -149,34 +149,51 @@ public class Operator {
 //		return null;
 //	}
 
+//	@GET
+//	@Path("/getOprList")
+//	@Produces(MediaType.TEXT_HTML)
+//	public String getopr() {
+//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+//
+//		StringBuilder returnString = new StringBuilder();
+//
+//		List<OperatorDTO> oprList = null;
+//		try {
+//			oprList = oprDAO.getOperatorList();
+//		} catch (DALException e) {
+//			e.printStackTrace();
+//		}
+//
+//		for (OperatorDTO oprDTO : oprList) {
+//			returnString.append("<table>");
+//			returnString.append("<tr>" + "<td>" + oprDTO.getOprId() + "</td>" + "<td>" + oprDTO.getOprIni() + "</td>" + "<td>" + oprDTO.getOprName() + "</td>" + "<td>" + oprDTO.getOprCpr() + "</td>" + "<td>" + oprDTO.getOprPassword() + "</td>" + "</tr>");
+//			returnString.append("</table>");
+//		}
+//		
+//		try {
+//			oprDAO.closeConnection();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return returnString.toString();
+//	}
+	
+	
 	@GET
 	@Path("/getOprList")
-	@Produces(MediaType.TEXT_HTML)
-	public String getopr() {
+	@Produces(MediaType.APPLICATION_JSON)
+	public  List<OperatorDTO> getopr() {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 
-		StringBuilder returnString = new StringBuilder();
-
 		List<OperatorDTO> oprList = null;
+		
 		try {
 			oprList = oprDAO.getOperatorList();
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
-
-		for (OperatorDTO oprDTO : oprList) {
-			returnString.append("<table>");
-			returnString.append("<tr>" + "<td>" + oprDTO.getOprId() + "</td>" + "<td>" + oprDTO.getOprIni() + "</td>" + "<td>" + oprDTO.getOprName() + "</td>" + "<td>" + oprDTO.getOprCpr() + "</td>" + "<td>" + oprDTO.getOprPassword() + "</td>" + "</tr>");
-			returnString.append("</table>");
-		}
-		
-		try {
-			oprDAO.closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return returnString.toString();
+		return oprList;
 	}
 
 	@GET
