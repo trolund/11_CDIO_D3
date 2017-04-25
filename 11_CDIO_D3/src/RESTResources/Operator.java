@@ -1,5 +1,8 @@
 package RESTResources;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +15,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import RESTResources.model.LoginForm;
 import data.Connector;
@@ -65,10 +72,18 @@ public class Operator {
 	@Path("/verify")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String verify(LoginForm data) {
+	public String verify(String data) throws JsonParseException, JsonMappingException, IOException {
 		
-		int id = data.getId();
-		String pass = data.getPassword();
+		ObjectMapper mapper = new ObjectMapper();
+		LoginForm objekt = null;
+		
+		//JSON from String to Object
+		LoginForm form = mapper.readValue(data, LoginForm.class);
+		
+		int id = form.getId();
+		String pass = form.getPassword(); 
+		
+		System.out.println(id + pass + "1.0");
 		
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		SecUtils secUtil = SecUtils.getInstance();

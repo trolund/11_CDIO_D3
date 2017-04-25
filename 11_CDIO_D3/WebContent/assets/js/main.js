@@ -10,9 +10,13 @@ $(document).ready(function(){
 // post login data - virker ikke endnu
 $(document).ready(function() {
   $("#login_but").click(function() {
+      
+      var data = $('#login').serializeJSON(); 
+      console.log('data: ' + data);
+      
       jQuery.ajax({
 		url : "api/opr/verify",
-		data : $('#form').serializeJSON(),
+		data : data,
 		contentType: "application/json",
 		method: 'POST',
 		success : function(data){
