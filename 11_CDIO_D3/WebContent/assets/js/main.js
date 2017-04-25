@@ -11,7 +11,7 @@ $(document).ready(function(){
 $(document).ready(function() {
   $("#login_but").click(function() {
       
-      var data = $('#login').serializeJSON();  
+      var data = $('#login').serializeJSON();   
       console.log('data: ' + data);
       
       jQuery.ajax({
@@ -20,8 +20,8 @@ $(document).ready(function() {
 		contentType: "application/json",
 		method: 'POST',
 		success : function(data){
-            if(data != 'ID does not exist.' || data != 'Invalid ID.' || data != 'Invalid credentials.'){
-                $('#msg').html(data + ' - true');
+            if(data == 'Correct password.'){
+                $('#msg').html(data);
                 $('#login_Bg').hide();
                 
                 id = $('#login_oprId').val();
@@ -29,7 +29,7 @@ $(document).ready(function() {
                 loadLoginUser(id);
             }
             else{
-                $('#msg').html(data + ' - false');
+                $('#msg').html(data);
                 $('#login_Bg').show();
             }
 		},
