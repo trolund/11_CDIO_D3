@@ -10,7 +10,6 @@ $(document).ready(function(){
 // post login data - virker ikke endnu
 $(document).ready(function() {
   $("#login_but").click(function() {
-   
       jQuery.ajax({
 		url : "api/opr/verify",
 		data : $('#form').serializeJSON(),
@@ -18,11 +17,20 @@ $(document).ready(function() {
 		method: 'POST',
 		success : function(data){
 			alert('Login data send, data: ' + data);
+            if(data != 'ID does not exist.' || data != 'Invalid ID.' || data != 'Invalid credentials.'){
+                $('#msg').html(data + ' - false');
+                $('#login_Bg').show();
+            }
+            else{
+                $('#msg').html(data + ' - true');
+                $('#login_Bg').hide();
+            }
 		},
 		error: function(jqXHR, text, error){ 
-			alert(jqXHR.status + text + error);
+                $('#msg').html('Server fail');
+			    alert(jqXHR.status + text + error);
 		}
-	});
+	});  
 });   
   });
 
