@@ -1,5 +1,6 @@
 <script>
-// add user button
+
+// Add user button
 $(document).ready(function() {
     $("#Adduser_But").click(function(){
         $("#AddUser_Box").toggleClass("display");
@@ -12,7 +13,7 @@ $(document).ready(function() {
     }); 
 });
      
-// submit create user ajax
+//Submit create user ajax
 $(document).ready(function(){
 	$("#Submit_CreateUser").click(function() {
         $.post("api/opr/addopr", 
@@ -28,6 +29,16 @@ $(document).ready(function(){
         }
     )}); 
 });
+
+//refresh button
+$(document).ready(function() {
+  $("#refresh_But").click(function() {  
+      
+      console.log('refresh of users');
+      loadUsers();
+      
+});
+  });
 
 </script>
 

@@ -44,16 +44,6 @@ $(document).ready(function() {
 });
   });
 
-// refresh button
-$(document).ready(function() {
-  $("#refresh_But").click(function() {  
-      
-      console.log('refresh of users');
-      loadUsers();
-      
-});
-  });
-
 // hent liste af users og oversæt dem til tabel
 function loadUsers(){
     $('#table_con').empty();
