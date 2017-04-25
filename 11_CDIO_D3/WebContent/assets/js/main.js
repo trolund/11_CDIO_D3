@@ -1,60 +1,30 @@
-/* login in funktion
-function login(){
-var id = document.getElementById("Id").value;
-var pass = document.getElementById("password").value;
-var dataString ="name="+name + "pass=" + pass;
-
-jQuery.ajax({
-    type: "post",
-    url: "/api/opr/verify",
-    data: dataString,
-    cache: false,
-    success: function(html){
-        $("#msg").html("velkommen!");
-    }
-     
-})
-return false;
-}
-
-*/
-
-
-/*
- jQuery.ajax({
-      url: "/api/opr/getOprList",
-      type: "GET",
-      contentType: 'text/plain',
-      success: function(resultData) {
-        $("#table_con").html(resultData);
-      },
-      error : function(jqXHR, textStatus, errorThrown) {
-      },
-
-      timeout: 120000,
-    });          
-*/
 var id = 1;
 var user = null;
+var rols = null;
 
+// alt der skal køres ved opstart af application!
+$(document).ready(function(){
+    loadLoginUser(id);
+});
+
+// post login data - virker ikke endnu
 $(document).ready(function() {
   $("#login_but").click(function() {
    
       jQuery.ajax({
-		url : "/api/opr/verify",
+		url : "api/opr/verify",
 		data : $('#form').serializeJSON(),
 		contentType: "application/json",
 		method: 'POST',
 		success : function(data){
-			alert(data);
+			alert('Login data send, data: ' + data);
 		},
-		error: function(jqXHR, text, error){
+		error: function(jqXHR, text, error){ 
 			alert(jqXHR.status + text + error);
 		}
 	});
 });   
   });
-
 
 // Menu mobile button 
 $(document).ready(function() {
@@ -74,64 +44,49 @@ $(document).ready(function() {
 });
   });
 
-
-
-
-
-// Ajax get user data 
-jQuery.ajax({
-  url: "api/opr/" + id,
-  type: "GET",
-  contentType: 'text/plain',
-  success: function(resultData) {
-    $('#oprName').html(resultData);
-  },
-  error : function(jqXHR, textStatus, errorThrown) {
-  },
-  timeout: 120000,
+// refresh button
+$(document).ready(function() {
+  $("#refresh_But").click(function() {  
+      
+      console.log('refresh of users');
+      loadUsers();
+      
 });
+  });
 
-jQuery.ajax({
+// hent liste af users og oversæt dem til tabel
+function loadUsers(){
+    $('#table_con').empty();
+    $('#table_con').append('<tr><td>Id</td><td>Name</td><td>Initials</td><td>Cpr</td><td>passwords</td><td>Delete</td><td>Edit</td></tr>');
+    
+    $.getJSON('api/opr/getOprList', function(data) {
+	    console.log('Users loaded');
+	
+        $.each(data, function(i, item) {
+            $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button id="del_User_' + data[i].oprId + '">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User_' + data[i].oprId + '">Edit</button>' + '</td>' + '</tr>')
+	    });
+}); 
+} 
+
+// load den user logget ind samt dens roller.
+function loadLoginUser(id){
+    $.getJSON('api/opr/' + id, function(data) {
+        user = data;
+        $('#oprName').html(user.oprName);
+	    console.log('User ' + user.oprId + ' name:' + user.oprName);
+        
+        jQuery.ajax({
 	  url: "api/opr/getOprRoleList/" + id,
 	  type: "GET",
 	  contentType: 'text/plain',
 	  success: function(resultData) {
+          rols = resultData;
 	    $('#oprRoles').html(resultData);
 	  },
 	  error : function(jqXHR, textStatus, errorThrown) {
 	  },
 	  timeout: 120000,
 	});
-
-
-
-function loadUsers(){
-	//TODO load list of users from service and append rows to user table
-	//Hints: $.each(data, function(i, element){ } iterates over a JSON-collection (data). 
-	// $('').append('html'), appends html to an html element.
-    
-    $.getJSON('api/opr/getOprList', function(data) {
-	    console.log(data);
-	
-        $.each(data, function(i, item) {
-            $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button id="del_User_' + data[i].oprId + '">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User_' + data[i].oprId + '">Edit</button>' + '</td>' + '</tr>')
-	    });
-});
-    
+        console.log('user load done.')
 }
-//function findById(id) {
-//	console.log('find opr by id: ' + id);
-//	jQuery.ajax({
-//		type: 'GET',
-//		url: "api/opr/getOprRoleList/" + id,
-//		dataType: "json",
-//		success: function(data){
-//			user = data;
-//			console.log('findById success: ' + user.name);
-//		},
-//	    error : function(jqXHR, textStatus, errorThrown){
-//          console.log('fejl!')
-//          
-//      }
-//	});
-//}
+             )} 

@@ -15,7 +15,7 @@ $(document).ready(function() {
 // submit create user ajax
 $(document).ready(function(){
 	$("#Submit_CreateUser").click(function() {
-        $.post("/api/opr/addopr", 
+        $.post("api/opr/addopr", 
         {
         	oprId: $('#oprId').val(),
             oprName: $('#oprName').val(),
@@ -30,21 +30,8 @@ $(document).ready(function(){
 });
 
 </script>
-<button id="Adduser_But">Add user</button><button id="refresh_But">Refresh user list</button>
-<table id="table_con">
-<tr>
-  <td>Id</td>
-  <td>Name</td>
-  <td>Initials</td>
-  <td>Cpr</td>
-  <td>passwords</td>
-  <td>Delete</td>
-  <td>Edit</td>
-</tr>
-    
-</table>
 
-
+<!--create user popup-->
 <div id="AddUser_Box">
   <img id="cancel_Icon" src="assets/img/Cancel_Icon.png"> 
     <h1>Create user</h1>
@@ -107,3 +94,19 @@ $(document).ready(function(){
     <p id="msg"></p>
 </form> 
 </div>
+<!--create user popup slut-->
+
+<button id="Adduser_But">Add user</button><button id="refresh_But">Refresh user list</button>
+<table id="table_con">
+<tr>
+  <td>Id</td>
+  <td>Name</td>
+  <td>Initials</td>
+  <td>Cpr</td>
+  <td>passwords</td>
+  <td>Delete</td>
+  <td>Edit</td>
+</tr>
+</table>
+
+

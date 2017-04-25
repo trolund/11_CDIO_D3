@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,6 +13,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import RESTResources.model.LoginForm;
 import data.Connector;
 import data.DALException;
 import data.dao.SQLOperatorDAO;
@@ -28,16 +30,52 @@ public class Operator {
 	 * have en final global oprDAO?
 	 */
 
+//	@POST
+//	@Path("/verify")
+//	@Produces(MediaType.TEXT_PLAIN)
+//	public String verify(@FormParam("oprId") String oprId, @FormParam("password") String password) {
+//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+//		SecUtils secUtil = SecUtils.getInstance();
+//
+//		OperatorDTO oprDTO = null;
+//		try {
+//			oprDTO = oprDAO.getOperator(Integer.parseInt(oprId));
+//		} catch (DALException e) {
+//			e.printStackTrace();
+//			return "ID does not exist.";
+//		} catch (NumberFormatException e) {
+//			e.printStackTrace();
+//			return "Invalid ID.";
+//		}
+//		
+//		try {
+//			oprDAO.closeConnection();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		if (secUtil.sha256(password).equals(oprDTO.getOprPassword())) {
+//			return "Correct password.";
+//		} else {
+//			return "Invalid credentials.";
+//		}
+//	}
+	
 	@POST
 	@Path("/verify")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String verify(@FormParam("oprId") String oprId, @FormParam("password") String password) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String verify(LoginForm data) {
+		
+		int id = data.getId();
+		String pass = data.getPassword();
+		
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		SecUtils secUtil = SecUtils.getInstance();
 
 		OperatorDTO oprDTO = null;
 		try {
-			oprDTO = oprDAO.getOperator(Integer.parseInt(oprId));
+			oprDTO = oprDAO.getOperator(id);
 		} catch (DALException e) {
 			e.printStackTrace();
 			return "ID does not exist.";
@@ -52,58 +90,57 @@ public class Operator {
 			e.printStackTrace();
 		}
 		
-		if (secUtil.sha256(password).equals(oprDTO.getOprPassword())) {
+		if (secUtil.sha256(pass).equals(oprDTO.getOprPassword())) {
 			return "Correct password.";
 		} else {
 			return "Invalid credentials.";
 		}
-		
 	}
 
-	@POST
-	@Path("/addopr")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String Addopr(@FormParam("oprId") String oprId, 
-						 @FormParam("oprName") String oprName, 
-						 @FormParam("oprIni") String oprIni,
-						 @FormParam("oprCpr") String oprCpr,
-						 @FormParam("oprPassword") String oprPassword,
-						 @FormParam("oprRole1") String oprRole1) {
-
-		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-		SQLRoleDAO roleDAO = new SQLRoleDAO(Connector.getInstance());
-		OperatorDTO oprDTO = new OperatorDTO(Integer.parseInt(oprId), oprName, oprIni, oprCpr, oprPassword);
-
-		RoleDTO roleDTO = new RoleDTO(Integer.parseInt(oprId), oprRole1);
-
-		try {
-			oprDAO.createOperator(oprDTO);
-			if (roleDTO.getRoleName().equals("None")) {
-			} else {
-				roleDAO.createRole(roleDTO);
-			}
-			System.out.println("User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!");
-			return "User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!";
-
-		} catch (DALException e) {
-			e.printStackTrace();
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-		
-		try {
-			oprDAO.closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return "UPS! - Der skete en fejl";
-	}
+//	@POST
+//	@Path("/addopr")
+//	@Produces(MediaType.TEXT_PLAIN)
+//	public String Addopr(@FormParam("oprId") String oprId, 
+//						 @FormParam("oprName") String oprName, 
+//						 @FormParam("oprIni") String oprIni,
+//						 @FormParam("oprCpr") String oprCpr,
+//						 @FormParam("oprPassword") String oprPassword,
+//						 @FormParam("oprRole1") String oprRole1) {
+//
+//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+//		SQLRoleDAO roleDAO = new SQLRoleDAO(Connector.getInstance());
+//		OperatorDTO oprDTO = new OperatorDTO(Integer.parseInt(oprId), oprName, oprIni, oprCpr, oprPassword);
+//
+//		RoleDTO roleDTO = new RoleDTO(Integer.parseInt(oprId), oprRole1);
+//
+//		try {
+//			oprDAO.createOperator(oprDTO);
+//			if (roleDTO.getRoleName().equals("None")) {
+//			} else {
+//				roleDAO.createRole(roleDTO);
+//			}
+//			System.out.println("User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!");
+//			return "User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!";
+//
+//		} catch (DALException e) {
+//			e.printStackTrace();
+//		} catch (NumberFormatException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		try {
+//			oprDAO.closeConnection();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return "UPS! - Der skete en fejl";
+//	}
 
 	@GET
 	@Path("/{oprId}")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getName(@PathParam("oprId") String oprId) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public OperatorDTO getName(@PathParam("oprId") String oprId) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 
 		int id = Integer.parseInt(oprId);
@@ -116,7 +153,7 @@ public class Operator {
 		}
 
 		for (OperatorDTO oprDTO : oprList) {
-			if (oprDTO.getOprId() == id) return oprDTO.getOprName();
+			if (oprDTO.getOprId() == id) return oprDTO;
 		}
 		
 		try {
@@ -124,8 +161,7 @@ public class Operator {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return "Der er ingen bruger med det id.";
+		return null;
 	}
 	
 //	@GET
