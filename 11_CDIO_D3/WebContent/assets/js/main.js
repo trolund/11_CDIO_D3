@@ -1,17 +1,17 @@
-var id = 1;
+var id = null;
 var user = null;
 var rols = null;
 
 // alt der skal køres ved opstart af application!
 $(document).ready(function(){
-    loadLoginUser(id);
+    
 });
 
-// post login data - virker ikke endnu
+// post login data
 $(document).ready(function() {
   $("#login_but").click(function() {
       
-      var data = $('#login').serializeJSON(); 
+      var data = $('#login').serializeJSON();  
       console.log('data: ' + data);
       
       jQuery.ajax({
@@ -20,14 +20,17 @@ $(document).ready(function() {
 		contentType: "application/json",
 		method: 'POST',
 		success : function(data){
-			alert('Login data send, data: ' + data);
             if(data != 'ID does not exist.' || data != 'Invalid ID.' || data != 'Invalid credentials.'){
-                $('#msg').html(data + ' - false');
-                $('#login_Bg').show();
-            }
-            else{
                 $('#msg').html(data + ' - true');
                 $('#login_Bg').hide();
+                
+                id = $('#login_oprId').val();
+                user = data;
+                loadLoginUser(id);
+            }
+            else{
+                $('#msg').html(data + ' - false');
+                $('#login_Bg').show();
             }
 		},
 		error: function(jqXHR, text, error){ 
@@ -67,6 +70,7 @@ function loadUsers(){
         $.each(data, function(i, item) {
             $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button id="del_User_' + data[i].oprId + '">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User_' + data[i].oprId + '">Edit</button>' + '</td>' + '</tr>')
 	    });
+        console.log('tabel data done');
 }); 
 } 
 

@@ -93,11 +93,11 @@ public class Operator {
 			return "Invalid ID.";
 		}
 		
-		try {
-			oprDAO.closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			oprDAO.closeConnection();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 		if (secUtil.sha256(pass).equals(oprDTO.getOprPassword())) {
 			return "Correct password.";
