@@ -11,7 +11,7 @@ $(document).ready(function(){
 $(document).ready(function() {
   $("#login_but").click(function() {
       
-      var data = $('#login').serializeJSON();   
+      var data = $('#login').serializeJSON();    
       console.log('data: ' + data);
       
       jQuery.ajax({
@@ -22,8 +22,8 @@ $(document).ready(function() {
 		success : function(data){
             if(data == 'Correct password.'){
                 $('#msg').html(data);
-                $('#login_Bg').hide();
-                
+                $('#login_Bg').hide(1000);  
+                 
                 id = $('#login_oprId').val();
                 user = data;
                 loadLoginUser(id);
