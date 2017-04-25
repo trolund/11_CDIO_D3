@@ -72,18 +72,12 @@ public class Operator {
 	@Path("/verify")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String verify(String data) throws JsonParseException, JsonMappingException, IOException {
+	public String verify(LoginForm data) throws JsonParseException, JsonMappingException, IOException {
 		
-		ObjectMapper mapper = new ObjectMapper();
-		LoginForm objekt = null;
+		int id = data.getOprId();
+		String pass = data.getPassword(); 
 		
-		//JSON from String to Object
-		LoginForm form = mapper.readValue(data, LoginForm.class);
-		
-		int id = form.getId();
-		String pass = form.getPassword(); 
-		
-		System.out.println(id + pass + "1.0");
+		System.out.println(id + pass);
 		
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		SecUtils secUtil = SecUtils.getInstance();

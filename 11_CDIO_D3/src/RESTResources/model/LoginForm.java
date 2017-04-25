@@ -2,15 +2,16 @@ package RESTResources.model;
 
 public class LoginForm {
 	
-	private int id;
+	private int oprId;
     private String password;
 
-	public int getId() {
-		return id;
+	
+	public int getOprId() {
+		return oprId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setOprId(int oprId) {
+		this.oprId = oprId;
 	}
 
 	public String getPassword() {
