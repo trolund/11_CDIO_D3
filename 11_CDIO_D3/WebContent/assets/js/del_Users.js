@@ -18,7 +18,7 @@ $(document).ready(function(){
          $('#' + id).hide(500);
         }
           else{
-              $('#' + id).css('background-color', 'yellow'); 
+              $('#' + id).css('background-color', 'yellow').fadeIn( 400 ); 
           }
 	  },
 	  error : function(jqXHR, textStatus, errorThrown) {

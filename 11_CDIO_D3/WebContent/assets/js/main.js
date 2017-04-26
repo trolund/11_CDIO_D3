@@ -8,6 +8,21 @@ $(document).ready(function(){
 });
 
 
+// logout button menu  
+$(document).ready(function() {
+  $("#logOut_but").click(function() {    
+      var id = null;
+      var user = null;
+      var rols = null;
+      $('#msg').html('');
+      $('#login_Bg').show(1000);  
+      $('#oprName').html('Username').delay(1000);
+      $('#oprRoles').html('Rolle, rolle').delay(1000);
+      $('#content_box').html('').delay(1000); 
+     // window.location.reload(); måske skal den bruges....
+});
+  });
+
 // post login data
 $(document).ready(function() {
   $("#login_but").click(function() {
