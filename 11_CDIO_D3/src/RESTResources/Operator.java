@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import RESTResources.model.LoginForm;
+import RESTResources.model.creatUserFormPOJO;
 import data.Connector;
 import data.DALException;
 import data.dao.SQLOperatorDAO;
@@ -98,45 +99,54 @@ public class Operator {
 		}
 	}
 
-//	@POST
-//	@Path("/addopr")
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String Addopr(@FormParam("oprId") String oprId, 
-//						 @FormParam("oprName") String oprName, 
-//						 @FormParam("oprIni") String oprIni,
-//						 @FormParam("oprCpr") String oprCpr,
-//						 @FormParam("oprPassword") String oprPassword,
-//						 @FormParam("oprRole1") String oprRole1) {
-//
-//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-//		SQLRoleDAO roleDAO = new SQLRoleDAO(Connector.getInstance());
-//		OperatorDTO oprDTO = new OperatorDTO(Integer.parseInt(oprId), oprName, oprIni, oprCpr, oprPassword);
-//
-//		RoleDTO roleDTO = new RoleDTO(Integer.parseInt(oprId), oprRole1);
-//
-//		try {
-//			oprDAO.createOperator(oprDTO);
-//			if (roleDTO.getRoleName().equals("None")) {
-//			} else {
-//				roleDAO.createRole(roleDTO);
-//			}
-//			System.out.println("User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!");
-//			return "User - id: " + roleDTO.getOprId() + ", Name: " + roleDTO.getRoleName() + " added!";
-//
-//		} catch (DALException e) {
-//			e.printStackTrace();
-//		} catch (NumberFormatException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		try {
-//			oprDAO.closeConnection();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return "UPS! - Der skete en fejl";
-//	}
+	@POST
+	@Path("/addopr")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String Addopr(creatUserFormPOJO data) throws DALException {
+
+		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+		SQLRoleDAO roleDAO = new SQLRoleDAO(Connector.getInstance());
+		
+		OperatorDTO oprDTO = new OperatorDTO(data.getOprId(), data.getOprName(), data.getOprIni(), data.getOprCpr(), data.getOprPassword());
+
+
+		if(data.getOprRole1().equals("None")){
+			RoleDTO roleDTO1 = new RoleDTO(data.getOprId(), data.getOprRole1());
+			roleDAO.createRole(roleDTO1);
+		}
+		if(data.getOprRole2().equals("None")){
+			RoleDTO roleDTO2 = new RoleDTO(data.getOprId(), data.getOprRole2());
+			roleDAO.createRole(roleDTO2);
+		}
+		if(data.getOprRole3().equals("None")){
+			RoleDTO roleDTO3 = new RoleDTO(data.getOprId(), data.getOprRole3());
+			roleDAO.createRole(roleDTO3);
+		}
+		if(data.getOprRole4().equals("None")){
+			RoleDTO roleDTO4 = new RoleDTO(data.getOprId(), data.getOprRole4());
+			roleDAO.createRole(roleDTO4);
+		}
+
+		try {
+			oprDAO.createOperator(oprDTO);
+			System.out.println("User - id: " + data.getOprId() + ", Name: " + data.getOprName() + " added!");
+			return "User - id: " + data.getOprId() + ", Name: " + data.getOprName() + " added!";
+
+		} catch (DALException e) {
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			oprDAO.closeConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return "UPS! - Der skete en fejl";
+	}
 
 	@GET
 	@Path("/{oprId}")
@@ -164,58 +174,6 @@ public class Operator {
 		}
 		return null;
 	}
-	
-//	@GET
-//	@Path("/{oprId}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public OperatorDTO getName(@PathParam("oprId") String oprId) {
-//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-//
-//		int id = Integer.parseInt(oprId);
-//
-//		List<OperatorDTO> oprList = null;
-//		try {
-//			oprList = oprDAO.getOperatorList();
-//		} catch (DALException e) {
-//			e.printStackTrace();
-//		}
-//
-//		for (OperatorDTO oprDTO : oprList) {
-//			if (oprDTO.getOprId() == id) return oprDTO;
-//		}
-//		return null;
-//	}
-
-//	@GET
-//	@Path("/getOprList")
-//	@Produces(MediaType.TEXT_HTML)
-//	public String getopr() {
-//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-//
-//		StringBuilder returnString = new StringBuilder();
-//
-//		List<OperatorDTO> oprList = null;
-//		try {
-//			oprList = oprDAO.getOperatorList();
-//		} catch (DALException e) {
-//			e.printStackTrace();
-//		}
-//
-//		for (OperatorDTO oprDTO : oprList) {
-//			returnString.append("<table>");
-//			returnString.append("<tr>" + "<td>" + oprDTO.getOprId() + "</td>" + "<td>" + oprDTO.getOprIni() + "</td>" + "<td>" + oprDTO.getOprName() + "</td>" + "<td>" + oprDTO.getOprCpr() + "</td>" + "<td>" + oprDTO.getOprPassword() + "</td>" + "</tr>");
-//			returnString.append("</table>");
-//		}
-//		
-//		try {
-//			oprDAO.closeConnection();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return returnString.toString();
-//	}
-	
 	
 	@GET
 	@Path("/getOprList")

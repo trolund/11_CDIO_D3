@@ -6,29 +6,60 @@ $(document).ready(function() {
         $("#AddUser_Box").toggleClass("display");
     }); 
 });
-    
-    $(document).ready(function() {
+
+// edit user button
+$(document).ready(function() {
+    $(".edit_User").click(function(){
+        
+        var id = $(this).prop('name');
+        
+        $.getJSON('api/opr/' + id, function(data) {
+	    console.log('User with id: ' + id + "loaded for edit");
+        
+        $('#oprId').val(data.oprId);
+        $('#oprName').val(data.oprName);
+        $('#oprIni').val(data.oprIni);
+        $('#oprCpr').val(data.oprCpr);
+        $('#oprPassword').val(data.oprPassword);
+            $('#oprRole1').val(data.oprRole1);
+            $('#oprRole2').val(data.oprRole1);
+            $('#oprRole3').val(data.oprRole1);
+            $('#oprRole4').val(data.oprRole1);
+        
+        console.log(data + "added to form")
+    }); 
+        $("#AddUser_Box").toggleClass("display");
+});
+  });  
+// cancel icon creat user box
+$(document).ready(function() {
     $("#cancel_Icon").click(function(){
         $("#AddUser_Box").toggleClass("display");
     }); 
 });
-     
-//Submit create user ajax
-$(document).ready(function(){
-	$("#Submit_CreateUser").click(function() {
-        $.post("api/opr/addopr", 
-        {
-        	oprId: $('#oprId').val(),
-            oprName: $('#oprName').val(),
-            oprIni: $('#oprIni').val(),
-            oprCpr: $('#oprCpr').val(),
-            oprPassword: $('#oprPassword').val(),
-            oprRole1: $('#oprRole1').val()
-        }, function() {
-        	$('#msg').html("User created!");
-        }
-    )}); 
-});
+    
+// post creat user data - virker ikke nednu
+$(document).ready(function() {
+  $("#Submit_CreateUser").click(function() {
+      
+      var data = $('#creatUserForm').serializeJSON();    
+      
+      jQuery.ajax({
+		url : "api/opr/addopr",
+		data : data,
+		contentType: "application/json",
+		method: 'POST',
+		success : function(data){
+            console.log(data);
+            $('#CreatMSG').html(data);
+		},
+		error: function(jqXHR, text, error){ 
+               console.log(data);
+            $('#CreatMSG').html(data);
+		}
+	});  
+});   
+  });
 
 //refresh button
 $(document).ready(function() {
@@ -74,7 +105,7 @@ $(document).ready(function(){
 <div id="AddUser_Box">
   <img id="cancel_Icon" src="assets/img/Cancel_Icon.png"> 
     <h1>Create user</h1>
-  <form method="POST" action="api/opr/addopr">
+  <form id="creatUserForm" method="POST" action="api/opr/addopr">
       Id<br>
     <input type="text" name="oprId" id="oprId">
     <br>
@@ -89,6 +120,7 @@ $(document).ready(function(){
     <br>
     Password <br>
     <input type="text" name="oprPassword" id="oprPassword">
+      <p id="CreatMSG"></p>
     <br>
     <br>
     
@@ -129,7 +161,7 @@ $(document).ready(function(){
     </select>
      
   <br><br>
-  <input id="Submit_CreateUser" type="submit" value="Create user">
+  <input id="Submit_CreateUser" type="button" value="Create user">
     <p id="msg"></p>
 </form> 
 </div>
