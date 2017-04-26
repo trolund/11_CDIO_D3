@@ -67,15 +67,23 @@ $(document).ready(function() {
 
 // hent liste af users og oversæt dem til tabel
 function loadUsers(){
-    $('#table_con').empty();
+    $('#table_con').empty();                         
     $('#table_con').append('<tr><td>Id</td><td>Name</td><td>Initials</td><td>Cpr</td><td>passwords</td><td>Delete</td><td>Edit</td></tr>');
     
     $.getJSON('api/opr/getOprList', function(data) {
 	    console.log('Users loaded');
 	
         $.each(data, function(i, item) {
-            $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button name="' + data[i].oprId + '" id="del_User">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User">Edit</button>' + '</td>' + '</tr>')
+            $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button name="' + data[i].oprId + '" class="del_User">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User">Edit</button>' + '</td>' + '</tr>')
 	    });
+        
+        $.getScript( "assets/js/del_Users.js", function( data, textStatus, jqxhr ) {
+  console.log( data ); // Data returned
+  console.log( textStatus ); // Success
+  console.log( jqxhr.status ); // 200
+  console.log( "js Load was performed." );
+});
+        
         console.log('tabel data done');
 }); 
 } 

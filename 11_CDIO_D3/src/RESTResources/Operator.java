@@ -49,15 +49,15 @@ public class Operator {
 	
 		try {
 			oprDAO.deleteOperator(id);
+			System.out.println("User with" + id + "deleted");
+			return "User with id: " + id + " deleted";
 		} catch (DALException e) {
 			e.printStackTrace();
-			return "ID does not exist.";
+			return "ID does not exist." + "id: " + id;
 		} catch (NumberFormatException e) {
 			e.printStackTrace(); 
 			return "Invalid ID.";
 		}
-		
-		return "Failed to delete user";
 	}
 	
 	@POST
