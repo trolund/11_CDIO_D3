@@ -14,7 +14,12 @@ $(document).ready(function(){
 	  contentType: "application/json",
 	  success: function(resultData) {
          console.log(resultData);
-         $(this).css('background-color', 'gray'); 
+        if(resultData == 'User deleted.'){
+         $('#' + id).hide(500);
+        }
+          else{
+              $('#' + id).css('background-color', 'yellow'); 
+          }
 	  },
 	  error : function(jqXHR, textStatus, errorThrown) {
           console.log(resultData);
