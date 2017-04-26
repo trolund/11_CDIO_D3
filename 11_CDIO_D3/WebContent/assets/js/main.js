@@ -7,12 +7,12 @@ $(document).ready(function(){
     
 });
 
+
 // post login data
 $(document).ready(function() {
   $("#login_but").click(function() {
       
       var data = $('#login').serializeJSON();    
-      console.log('data: ' + data);
       
       jQuery.ajax({
 		url : "api/opr/verify",
@@ -21,21 +21,27 @@ $(document).ready(function() {
 		method: 'POST',
 		success : function(data){
             if(data == 'Correct password.'){
+                $('#msg').css('color','green');
                 $('#msg').html(data);
-                $('#login_Bg').hide(1000);  
+                $('#login_Bg').hide(1000);     
                  
                 id = $('#login_oprId').val();
                 user = data;
                 loadLoginUser(id);
+                console.log('user: ' + user.oprId + ', ' + user.oprName + ' successfully logged in.')
             }
             else{
+                $('#msg').css('color','red');
                 $('#msg').html(data);
                 $('#login_Bg').show();
+                console.log('Failed to logged in - ' + data)
             }
 		},
 		error: function(jqXHR, text, error){ 
+                $('#msg').css('color','red');
                 $('#msg').html('Server fail');
-			    alert(jqXHR.status + text + error);
+			//    alert(jqXHR.status + text + error);
+                console.log('Failed to logged in - ' + data)
 		}
 	});  
 });   
@@ -68,7 +74,7 @@ function loadUsers(){
 	    console.log('Users loaded');
 	
         $.each(data, function(i, item) {
-            $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button id="del_User_' + data[i].oprId + '">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User_' + data[i].oprId + '">Edit</button>' + '</td>' + '</tr>')
+            $('#table_con').append('<tr>' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button name="' + data[i].oprId + '" id="del_User">Delete</button>' + '</td>' + '<td>' + '<button id="edit_User">Edit</button>' + '</td>' + '</tr>')
 	    });
         console.log('tabel data done');
 }); 

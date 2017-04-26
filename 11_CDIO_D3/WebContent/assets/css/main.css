@@ -160,9 +160,10 @@ h2 {
 
 #content_box table{
     width: 100%;
-    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    word-wrap: break-word;    
+    overflow-wrap: break-word; 
 }
 
 #content_box table tr:first-child{
@@ -172,6 +173,7 @@ h2 {
 
 #content_box table td{
     border-bottom: dashed 1px #333;
+    
 }
 
 #menu_but {

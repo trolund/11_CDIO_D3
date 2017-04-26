@@ -36,37 +36,29 @@ public class Operator {
 	 * I stedet for at have en oprDAO i hver metode, hvorfor saa ikke
 	 * have en final global oprDAO?
 	 */
-
-//	@POST
-//	@Path("/verify")
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public String verify(@FormParam("oprId") String oprId, @FormParam("password") String password) {
-//		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-//		SecUtils secUtil = SecUtils.getInstance();
-//
-//		OperatorDTO oprDTO = null;
-//		try {
-//			oprDTO = oprDAO.getOperator(Integer.parseInt(oprId));
-//		} catch (DALException e) {
-//			e.printStackTrace();
-//			return "ID does not exist.";
-//		} catch (NumberFormatException e) {
-//			e.printStackTrace();
-//			return "Invalid ID.";
-//		}
-//		
-//		try {
-//			oprDAO.closeConnection();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		if (secUtil.sha256(password).equals(oprDTO.getOprPassword())) {
-//			return "Correct password.";
-//		} else {
-//			return "Invalid credentials.";
-//		}
-//	}
+	
+	@POST
+	@Path("/deleteOpr")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String delUser(String oprId){
+		
+		int id = Integer.parseInt(oprId);
+		
+		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
+	
+		try {
+			oprDAO.deleteOperator(id);
+		} catch (DALException e) {
+			e.printStackTrace();
+			return "ID does not exist.";
+		} catch (NumberFormatException e) {
+			e.printStackTrace(); 
+			return "Invalid ID.";
+		}
+		
+		return "Failed to delete user";
+	}
 	
 	@POST
 	@Path("/verify")
