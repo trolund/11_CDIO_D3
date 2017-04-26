@@ -4,6 +4,8 @@ $(document).ready(function() {
         
         var id = $(this).prop('name');
         
+        console.log(id);
+        
         $.getJSON('api/opr/' + id, function(data) {
 	    console.log('User with id: ' + id + "loaded for edit");
         

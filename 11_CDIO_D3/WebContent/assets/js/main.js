@@ -89,7 +89,7 @@ function loadUsers(){
 	    console.log('Users loaded');
 	
         $.each(data, function(i, item) {
-            $('#table_con').append('<tr id="' + data[i].oprId + '">' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button name="' + data[i].oprId + '" class="del_User">Delete</button>' + '</td>' + '<td>' + '<button class="edit_User">Edit</button>' + '</td>' + '</tr>')
+            $('#table_con').append('<tr id="' + data[i].oprId + '">' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button name="' + data[i].oprId + '" class="del_User">Delete</button>' + '</td>' + '<td>' + '<button name="'+ data[i].oprId +'" class="edit_User">Edit</button>' + '</td>' + '</tr>')
 	    });
         
         $.getScript( "assets/js/del_Users.js", function( data, textStatus, jqxhr ) {
