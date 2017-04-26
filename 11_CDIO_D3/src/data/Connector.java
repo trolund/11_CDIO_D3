@@ -28,8 +28,8 @@ public class Connector {
 	 * SQL_CONFIG_FILE:   Path to the SQL query configuration file.
 	 */
 	//private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
-	private final String MYSQL_CONFIG_FILE = "/Users/troelslund/git/11_CDIO_D3_2/11_CDIO_D3/local_mysql_oracle.config";
-	private final String SQL_CONFIG_FILE = "/Users/troelslund/git/11_CDIO_D3_2/11_CDIO_D3/sql.config";
+	private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
+	private final String SQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/sql.config";
 
 	/*
 	 * String objects to hold the database configuration information.
@@ -110,8 +110,9 @@ public class Connector {
 		/* Operator SQL */
 		p.setProperty("getOprSql", "SELECT * FROM operatoer WHERE opr_id = ?");
 		p.setProperty("getOprListSql", "SELECT * FROM operatoer");
-		p.setProperty("createOprSql", "INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES (?, ?, ?, ?, ?)");
+		p.setProperty("createOprSql", "CALL CREATE_OPERATOR(?, ?, ?, ?, ?)");
 		p.setProperty("updateOprSql", "UPDATE operatoer SET opr_navn = ?, ini = ?, cpr = ?, password = ? WHERE opr_id = ?");
+		p.setProperty("deleteOprRolesSql", "CALL DELETE_OPR_ROLES(?)");
 		p.setProperty("deleteOprSql", "DELETE FROM operatoer WHERE opr_id = ?");
 
 		/* ProductBatchComponent SQL */
@@ -148,7 +149,7 @@ public class Connector {
 		p.setProperty("getRCSql", "SELECT * FROM receptkomponent WHERE recept_id = ? AND raavare_id = ?");
 		p.setProperty("getRCListIdSql", "SELECT * FROM receptkomponent WHERE recept_id = ?");
 		p.setProperty("getRCListSql", "SELECT * FROM receptkomponent");
-		p.setProperty("createRCSql", "INSERT INTO receptkomponent(recept_id, raavare_id, nom_netto, tolerance) VALUES (?, ?, ?, ?)");
+		p.setProperty("createRCSql", "CALL CREATE_RECEPTKOMPONENT(?, ?, ?, ?)");
 		p.setProperty("updateRCSql", "UPDATE receptkomponent SET nom_netto = ?, tolerance = ? WHERE recept_id = ? AND raavare_id = ?");
 		p.setProperty("deleteRCSql", "DELETE FROM receptkomponent WHERE recept_id = ? AND raavare_id = ?");
 

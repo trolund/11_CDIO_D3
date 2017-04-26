@@ -90,7 +90,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		String createOprSql = connector.getQuery("createOprSql");
 		PreparedStatement createOprStmt = null;
 		try {
-			createOprStmt = connector.getConnection().prepareStatement(createOprSql);
+			createOprStmt = connector.getConnection().prepareStatement(createOprSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			createOprStmt.setInt(1, opr.getOprId());
 			createOprStmt.setString(2, opr.getOprName());
 			createOprStmt.setString(3, opr.getOprIni());
@@ -116,7 +116,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		String updateOprSql = connector.getQuery("updateOprSql");
 		PreparedStatement updateOprStmt = null;
 		try {
-			updateOprStmt = connector.getConnection().prepareStatement(updateOprSql);
+			updateOprStmt = connector.getConnection().prepareStatement(updateOprSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			updateOprStmt.setString(1, opr.getOprName());
 			updateOprStmt.setString(2, opr.getOprIni());
 			updateOprStmt.setString(3, opr.getOprCpr());
@@ -139,11 +139,17 @@ public class SQLOperatorDAO implements IOperatorDAO {
 	 */
 	@Override
 	public void deleteOperator(int oprId) throws DALException {
+		String deleteOprRolesSql = connector.getQuery("deleteOprRolesSql");
 		String deleteOprSql = connector.getQuery("deleteOprSql");
+		PreparedStatement deleteOprRolesStmt = null;
 		PreparedStatement deleteOprStmt = null;
 		try {
-			deleteOprStmt = connector.getConnection().prepareStatement(deleteOprSql);
+			deleteOprRolesStmt = connector.getConnection().prepareStatement(deleteOprRolesSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			deleteOprStmt = connector.getConnection().prepareStatement(deleteOprSql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			deleteOprRolesStmt.setInt(1, oprId);
 			deleteOprStmt.setInt(1, oprId);
+
+			deleteOprRolesStmt.executeUpdate();
 			deleteOprStmt.executeUpdate();
 		} catch (SQLException e) {
 			throw new DALException(e.getMessage(), e);
