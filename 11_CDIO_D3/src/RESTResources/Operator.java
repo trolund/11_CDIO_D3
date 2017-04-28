@@ -1,14 +1,10 @@
 package RESTResources;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -18,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import RESTResources.model.LoginForm;
 import RESTResources.model.creatUserFormPOJO;
@@ -33,45 +28,39 @@ import utils.SecUtils;
 @Path("/opr")
 public class Operator {
 
-	/*
-	 * I stedet for at have en oprDAO i hver metode, hvorfor saa ikke
-	 * have en final global oprDAO?
-	 */
-	
 	@POST
 	@Path("/deleteOpr")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String delUser(String oprId){
-		
-		int id = Integer.parseInt(oprId);
-		
+	public String delUser(String oprId) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
-	
+
+		int id = -1;
+
 		try {
+			id = Integer.parseInt(oprId);
 			oprDAO.deleteOperator(id);
-			System.out.println("User with" + id + "deleted");
-			return "User deleted.";
+			System.out.println("User [" + id + "] successfully deleted.");
+			return "User successfully deleted.";
 		} catch (DALException e) {
 			e.printStackTrace();
-			return "ID does not exist." + "id: " + id;
+			return "Id [" + id + "] does not exist.";
 		} catch (NumberFormatException e) {
-			e.printStackTrace(); 
-			return "Invalid ID.";
+			e.printStackTrace();
+			return "Invalid Id.";
 		}
 	}
-	
+
 	@POST
 	@Path("/verify")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String verify(LoginForm data) throws JsonParseException, JsonMappingException, IOException {
-		
-		int id = data.getOprId();
-		String pass = data.getPassword(); 
-		
-		System.out.println(id + pass);
-		
+	public String verify(LoginForm formData) throws JsonParseException, JsonMappingException, IOException {
+		int id = formData.getOprId();
+		String password = formData.getPassword();
+
+		System.out.println("Id: " + id + ", Password: " + password);
+
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		SecUtils secUtil = SecUtils.getInstance();
 
@@ -80,20 +69,14 @@ public class Operator {
 			oprDTO = oprDAO.getOperator(id);
 		} catch (DALException e) {
 			e.printStackTrace();
-			return "ID does not exist.";
+			return "Id does not exist.";
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
-			return "Invalid ID.";
+			return "Invalid Id.";
 		}
-		
-//		try {
-//			oprDAO.closeConnection();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-		
-		if (secUtil.sha256(pass).equals(oprDTO.getOprPassword())) {
-			return "Correct password.";
+
+		if (secUtil.sha256(password).equals(oprDTO.getOprPassword())) {
+			return "Logged in successfully.";
 		} else {
 			return "Invalid credentials.";
 		}
@@ -103,49 +86,43 @@ public class Operator {
 	@Path("/addopr")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String Addopr(creatUserFormPOJO data) throws DALException {
-
+	public String Addopr(creatUserFormPOJO formData) throws DALException {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 		SQLRoleDAO roleDAO = new SQLRoleDAO(Connector.getInstance());
-		
-		OperatorDTO oprDTO = new OperatorDTO(data.getOprId(), data.getOprName(), data.getOprIni(), data.getOprCpr(), data.getOprPassword());
 
+		OperatorDTO oprDTO = new OperatorDTO(formData.getOprId(), formData.getOprName(), formData.getOprIni(), formData.getOprCpr(), formData.getOprPassword());
 
-		if(data.getOprRole1().equals("None")){
-			RoleDTO roleDTO1 = new RoleDTO(data.getOprId(), data.getOprRole1());
+		if (formData.getOprRole1().equals("None")) {
+			RoleDTO roleDTO1 = new RoleDTO(formData.getOprId(), formData.getOprRole1());
 			roleDAO.createRole(roleDTO1);
 		}
-		if(data.getOprRole2().equals("None")){
-			RoleDTO roleDTO2 = new RoleDTO(data.getOprId(), data.getOprRole2());
+		
+		if (formData.getOprRole2().equals("None")) {
+			RoleDTO roleDTO2 = new RoleDTO(formData.getOprId(), formData.getOprRole2());
 			roleDAO.createRole(roleDTO2);
 		}
-		if(data.getOprRole3().equals("None")){
-			RoleDTO roleDTO3 = new RoleDTO(data.getOprId(), data.getOprRole3());
+		
+		if (formData.getOprRole3().equals("None")) {
+			RoleDTO roleDTO3 = new RoleDTO(formData.getOprId(), formData.getOprRole3());
 			roleDAO.createRole(roleDTO3);
 		}
-		if(data.getOprRole4().equals("None")){
-			RoleDTO roleDTO4 = new RoleDTO(data.getOprId(), data.getOprRole4());
+		
+		if (formData.getOprRole4().equals("None")) {
+			RoleDTO roleDTO4 = new RoleDTO(formData.getOprId(), formData.getOprRole4());
 			roleDAO.createRole(roleDTO4);
 		}
 
 		try {
 			oprDAO.createOperator(oprDTO);
-			System.out.println("User - id: " + data.getOprId() + ", Name: " + data.getOprName() + " added!");
-			return "User - id: " + data.getOprId() + ", Name: " + data.getOprName() + " added!";
-
+			System.out.println("User with Id: " + formData.getOprId() + ", Name: " + formData.getOprName() + " successfully added.");
+			return "User: id: " + formData.getOprId() + ", Name: " + formData.getOprName() + " successfully added.";
 		} catch (DALException e) {
 			e.printStackTrace();
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 		
-		try {
-			oprDAO.closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return "UPS! - Der skete en fejl";
+		return "Encountered failure.";
 	}
 
 	@GET
@@ -166,23 +143,18 @@ public class Operator {
 		for (OperatorDTO oprDTO : oprList) {
 			if (oprDTO.getOprId() == id) return oprDTO;
 		}
-		
-		try {
-			oprDAO.closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+
 		return null;
 	}
-	
+
 	@GET
 	@Path("/getOprList")
 	@Produces(MediaType.APPLICATION_JSON)
-	public  List<OperatorDTO> getopr() {
+	public List<OperatorDTO> getopr() {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 
 		List<OperatorDTO> oprList = null;
-		
+
 		try {
 			oprList = oprDAO.getOperatorList();
 		} catch (DALException e) {
@@ -199,9 +171,12 @@ public class Operator {
 
 		StringBuilder returnString = new StringBuilder();
 		List<RoleDTO> oprRoleList = null;
+		
 		try {
 			oprRoleList = oprDAO.getOprRoles(Integer.parseInt(OprId));
 		} catch (DALException e) {
+			e.printStackTrace();
+		} catch (NumberFormatException e){
 			e.printStackTrace();
 		}
 
@@ -212,7 +187,7 @@ public class Operator {
 			else
 				returnString.append(roleDTO.getRoleName());
 		}
-				
+
 		return returnString.toString();
 	}
 
