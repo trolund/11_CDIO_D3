@@ -14,7 +14,7 @@ $(document).ready(function() {
     }); 
 });
     
-// post creat user data - virker ikke nednu
+// post creat user data
 $(document).ready(function() {
   $("#Submit_CreateUser").click(function() {
       
@@ -28,11 +28,13 @@ $(document).ready(function() {
 		success : function(data){
             console.log(data);
             $('#CreatMSG').html(data);
+            loadUsers(); // updata liste.
 		},
 		error: function(jqXHR, text, error){ 
                console.log(data);
             $('#CreatMSG').html(data).fadeToggle(500);
-             $("#AddUser_Box").toggleClass("display").delay(1000);
+             $("#AddUser_Box").toggleClass("display").delay();
+            
 		}
 	});  
 });   
