@@ -229,9 +229,14 @@ public class Connector {
 		}
 	}
 
+	/*
+	 * TEST METHOD. DO NOT USE.
+	 */
 	public ResultSet executeSQLStatement(String sqlId, List<Object> parameters) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
 		try {
-			PreparedStatement stmt = getConnection().prepareStatement(sqlHashMap.get(sqlId), ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			stmt = getConnection().prepareStatement(sqlHashMap.get(sqlId), ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			for (int i = 0; i < parameters.size(); i++) {
 				if (parameters.get(i) instanceof Integer) {
 					stmt.setInt(i + 1, (int) parameters.get(i));
@@ -243,16 +248,18 @@ public class Connector {
 					stmt.setFloat(i + 1, (float) parameters.get(i));
 				}
 			}
-
-			ResultSet rs = stmt.executeQuery();
-
+			rs = stmt.executeQuery();
 			return rs;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-
+			try {
+				cleanup(stmt);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		return null;
+		return rs;
 	}
 
 	/*
