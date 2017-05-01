@@ -11,6 +11,7 @@ $(document).ready(function() {
         
         $('#oprId').val(data.oprId);
         $('#oprName').val(data.oprName); 
+        $('#oprName').val(data.oprName); 
         $('#oprIni').val(data.oprIni);
         $('#oprCpr').val(data.oprCpr);
         $('#oprPassword').val(data.oprPassword);

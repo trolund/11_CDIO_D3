@@ -122,6 +122,8 @@ function loadLoginUser(id){
 $.getJSON('api/opr/' + id, function(data) {
     
         $('#oprName').html(data.oprName).fadeIn(200);
+        userName = data.oprName;
+        id = data.oprId;
 	    console.log('User ' + data.oprId + ' name:' + data.oprName);
         
         jQuery.ajax({

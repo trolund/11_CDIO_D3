@@ -44,8 +44,10 @@ public class Operator {
 			return true;
 		} catch (DALException e) {
 			e.printStackTrace();
+			System.out.println("fejl ved sletning af user med id:" + id );
 			return false;
 		} catch (NumberFormatException e) {
+			System.out.println("fejl ved sletning af user med id:" + id );
 			e.printStackTrace();
 			return false;
 		}
