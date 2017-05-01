@@ -49,6 +49,7 @@ public class SQLRoleDAO implements IRoleDAO {
 		} finally {
 			try {
 				connector.cleanup(getOprRolesStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -79,6 +80,7 @@ public class SQLRoleDAO implements IRoleDAO {
 		} finally {
 			try {
 				connector.cleanup(getRoleListStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -102,6 +104,7 @@ public class SQLRoleDAO implements IRoleDAO {
 		} finally {
 			try {
 				connector.cleanup(createRoleStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -125,6 +128,7 @@ public class SQLRoleDAO implements IRoleDAO {
 		} finally {
 			try {
 				connector.cleanup(deleteRoleStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}

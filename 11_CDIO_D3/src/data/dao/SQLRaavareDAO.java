@@ -45,6 +45,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		} finally {
 			try {
 				connector.cleanup(getRaavareStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -75,6 +76,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		} finally {
 			try {
 				connector.cleanup(getRaavareListStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -99,6 +101,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		} finally {
 			try {
 				connector.cleanup(createRaavareStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -123,6 +126,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		} finally {
 			try {
 				connector.cleanup(updateRaavareStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -145,6 +149,7 @@ public class SQLRaavareDAO implements IRaavareDAO {
 		} finally {
 			try {
 				connector.cleanup(deleteRaavareStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}

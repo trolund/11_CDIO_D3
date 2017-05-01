@@ -75,6 +75,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(getRBListStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -106,6 +107,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(getRBListIdStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -130,6 +132,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(createRBStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -154,6 +157,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(updateRBStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -176,6 +180,7 @@ public class SQLRaavareBatchDAO implements IRaavareBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(deleteRBStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}

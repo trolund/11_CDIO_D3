@@ -46,6 +46,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		} finally {
 			try {
 				connector.cleanup(getOprStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -76,6 +77,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		} finally {
 			try {
 				connector.cleanup(getOprListStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -102,6 +104,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		} finally {
 			try {
 				connector.cleanup(createOprStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -128,6 +131,7 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		} finally {
 			try {
 				connector.cleanup(updateOprStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -156,10 +160,11 @@ public class SQLOperatorDAO implements IOperatorDAO {
 		} finally {
 			try {
 				connector.cleanup(deleteOprStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
 		}
 	}
-	
+
 }

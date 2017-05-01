@@ -45,6 +45,7 @@ public class SQLReceptDAO implements IReceptDAO {
 		} finally {
 			try {
 				connector.cleanup(getReceptStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -75,6 +76,7 @@ public class SQLReceptDAO implements IReceptDAO {
 		} finally {
 			try {
 				connector.cleanup(getReceptListStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -98,6 +100,7 @@ public class SQLReceptDAO implements IReceptDAO {
 		} finally {
 			try {
 				connector.cleanup(createReceptStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -121,6 +124,7 @@ public class SQLReceptDAO implements IReceptDAO {
 		} finally {
 			try {
 				connector.cleanup(updateReceptStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -143,6 +147,7 @@ public class SQLReceptDAO implements IReceptDAO {
 		} finally {
 			try {
 				connector.cleanup(deleteReceptStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}

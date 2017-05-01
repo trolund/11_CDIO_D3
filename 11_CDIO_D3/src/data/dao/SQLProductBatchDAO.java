@@ -45,6 +45,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(getPBStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -75,6 +76,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(getPBListStmt, rs);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -99,6 +101,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(createPBStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -123,6 +126,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(updatePBStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}
@@ -145,6 +149,7 @@ public class SQLProductBatchDAO implements IProductBatchDAO {
 		} finally {
 			try {
 				connector.cleanup(deletePBStmt);
+				connector.closeConnection();
 			} catch (SQLException e) {
 				throw new DALException(e.getMessage(), e);
 			}

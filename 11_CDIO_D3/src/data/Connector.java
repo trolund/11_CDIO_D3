@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -41,6 +42,7 @@ public class Connector {
 	private String database;
 	private String username;
 	private String password;
+	private String url = driver + "://" + host + ":" + port + "/" + database;
 
 	/*
 	 * Database connection object and HashMap object to store all 
@@ -70,9 +72,7 @@ public class Connector {
 
 		try {
 			Class.forName(driverClass);
-			String url = driver + "://" + host + ":" + port + "/" + database;
-			connection = DriverManager.getConnection(url, username, password);
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
@@ -226,6 +226,32 @@ public class Connector {
 		}
 	}
 
+	public ResultSet executeSQLStatement(String sqlId, List<Object> parameters) {
+		try {
+			PreparedStatement stmt = getConnection().prepareStatement(sqlHashMap.get(sqlId), ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			for (int i = 0; i < parameters.size(); i++) {
+				if (parameters.get(i) instanceof Integer) {
+					stmt.setInt(i + 1, (int) parameters.get(i));
+				} else if (parameters.get(i) instanceof String) {
+					stmt.setString(i + i, (String) parameters.get(i));
+				} else if (parameters.get(i) instanceof Double) {
+					stmt.setDouble(i + 1, (double) parameters.get(i));
+				} else if (parameters.get(i) instanceof Float) {
+					stmt.setFloat(i + 1, (float) parameters.get(i));
+				}
+			}
+
+			ResultSet rs = stmt.executeQuery();
+
+			return rs;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+		}
+		return null;
+	}
+
 	/*
 	 * Method to close a desired PreparedStatement
 	 * and ResultSet.
@@ -260,6 +286,13 @@ public class Connector {
 	 * Method to get the database connection object.
 	 */
 	public Connection getConnection() {
+		try {
+			if (!connection.isValid(1)) {
+				connection = createConnection();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return connection;
 	}
 
@@ -268,6 +301,11 @@ public class Connector {
 	 */
 	public static synchronized Connector getInstance() {
 		return instance;
+	}
+
+	private Connection createConnection() throws SQLException {
+		Connection newConnection = DriverManager.getConnection(url, username, password);
+		return newConnection;
 	}
 
 }
