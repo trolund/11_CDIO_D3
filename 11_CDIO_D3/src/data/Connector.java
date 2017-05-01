@@ -72,7 +72,8 @@ public class Connector {
 
 		try {
 			Class.forName(driverClass);
-		} catch (ClassNotFoundException e) {
+			connection = DriverManager.getConnection(url, username, password);
+		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
