@@ -32,7 +32,7 @@ public class Operator {
 	@Path("/deleteOpr")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String delUser(String oprId) {
+	public boolean delUser(String oprId) {
 		SQLOperatorDAO oprDAO = new SQLOperatorDAO(Connector.getInstance());
 
 		int id = -1;
@@ -41,13 +41,13 @@ public class Operator {
 			id = Integer.parseInt(oprId);
 			oprDAO.deleteOperator(id);
 			System.out.println("User [" + id + "] successfully deleted.");
-			return "User successfully deleted.";
+			return true;
 		} catch (DALException e) {
 			e.printStackTrace();
-			return "Id [" + id + "] does not exist.";
+			return false;
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
-			return "Invalid Id.";
+			return false;
 		}
 	}
 

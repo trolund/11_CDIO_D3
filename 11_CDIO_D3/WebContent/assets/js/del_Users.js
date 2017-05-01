@@ -14,7 +14,8 @@ $(document).ready(function(){
 	  contentType: "application/json",
 	  success: function(resultData) {
          console.log(resultData);
-        if(resultData == 'User deleted.'){
+        if(resultData == true){
+            console.log('User successfully deleted.');
          $('#' + id).hide(500);
         }
           else{
@@ -22,7 +23,7 @@ $(document).ready(function(){
           }
 	  },
 	  error : function(jqXHR, textStatus, errorThrown) {
-          console.log(resultData);
+          console.log("Id [" + id + "] does not exist.");
 	  },
 	  timeout: 120000,
 	});

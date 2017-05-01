@@ -10,7 +10,7 @@ $(document).ready(function() {
 	    console.log('User with id: ' + id + "loaded for edit");
         
         $('#oprId').val(data.oprId);
-        $('#oprName').val(data.oprName);
+        $('#oprName').val(data.oprName); 
         $('#oprIni').val(data.oprIni);
         $('#oprCpr').val(data.oprCpr);
         $('#oprPassword').val(data.oprPassword);

@@ -195,12 +195,16 @@ h2 {
     border-radius: 5px;
     padding: 15px;
     display: none;
-    position: relative;
+    position: fixed;
     margin: auto;
     padding: 15px;
     border: 1px solid #888;
-    width: 80%;
+    width: 300px;
+    left: calc(50%-157px);
+    z-index: 99999;
+    
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
@@ -211,12 +215,12 @@ h2 {
 /* Add Animation to popup */
 @-webkit-keyframes animatetop {
     from {top: -300px; opacity: 0} 
-    to {top: 0; opacity: 1}
+    to {top: 150px; opacity: 1}
 }
 
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+    to {top: 150px; opacity: 1}
 }
 
 #AddUser_Box select {

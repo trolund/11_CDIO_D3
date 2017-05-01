@@ -13,6 +13,21 @@
     z-index: 99999;
 }
 
+#loadingGif {
+    margin-top: 130px;
+    left:calc(50% - 25px);
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    filter: blur(5px);
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+
+    
+}
+
 #login_Bg {
     position: absolute;
 	width:100%;

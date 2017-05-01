@@ -1,10 +1,10 @@
 var id = null;
-var user = null;
+var userName = null;
 var rols = null;
 
 // alt der skal køres ved opstart af application!
 $(document).ready(function(){
-    
+    $('#loadingGif').hide();
 });
 
 
@@ -26,41 +26,47 @@ $(document).ready(function() {
 // post login data
 $(document).ready(function() {
   $("#login_but").click(function() {
+	  
+	  id = $('#login_oprId').val();
       
-      var data = $('#login').serializeJSON();    
+      $('#login_Bg').show();
+      $('#loadingGif').show(200);
+      
+      
+      var Postdata = $('#login').serializeJSON();    
       
       jQuery.ajax({
-		url : "api/opr/verify",
-		data : data,
+		url : "api/opr/verify", 
+		data : Postdata,
 		contentType: "application/json",
 		method: 'POST',
 		success : function(data){
-            if(data == 'Correct password.'){
+            if(data == 'Logged in successfully.'){
                 $('#msg').css('color','green');
                 $('#msg').html(data);
                 $('#login_Bg').hide(1000);     
-                 
-                id = $('#login_oprId').val();
-                user = data;
+                $('#login_Bg').hide(200);
+                $('#loadingGif').hide(200);
+     
                 loadLoginUser(id);
-                console.log('user: ' + user.oprId + ', ' + user.oprName + ' successfully logged in.')
             }
             else{
                 $('#msg').css('color','red');
                 $('#msg').html(data);
                 $('#login_Bg').show();
+                $('#loadingGif').hide(200);
                 console.log('Failed to logged in - ' + data)
             }
 		},
-		error: function(jqXHR, text, error){ 
+		error: function(jqXHR, text, error){  
                 $('#msg').css('color','red');
                 $('#msg').html('Server fail');
+                $('#loadingGif').hide(200);
 			//    alert(jqXHR.status + text + error);
                 console.log('Failed to logged in - ' + data)
-		}
-	});  
-});   
-  });
+		}}
+
+)} )} );
 
 // Menu mobile button 
 $(document).ready(function() {
@@ -112,10 +118,11 @@ function loadUsers(){
 
 // load den user logget ind samt dens roller.
 function loadLoginUser(id){
-    $.getJSON('api/opr/' + id, function(data) {
-        user = data;
-        $('#oprName').html(user.oprName).fadeIn(1000);
-	    console.log('User ' + user.oprId + ' name:' + user.oprName);
+
+$.getJSON('api/opr/' + id, function(data) {
+    
+        $('#oprName').html(data.oprName).fadeIn(200);
+	    console.log('User ' + data.oprId + ' name:' + data.oprName);
         
         jQuery.ajax({
 	  url: "api/opr/getOprRoleList/" + id,
@@ -131,4 +138,4 @@ function loadLoginUser(id){
 	});
         console.log('user load done.')
 }
-             )} 
+          )};
