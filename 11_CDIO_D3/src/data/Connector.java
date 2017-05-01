@@ -28,10 +28,10 @@ public class Connector {
 	 * MYSQL_CONFIG_FILE: Path to the database configuration file.
 	 * SQL_CONFIG_FILE:   Path to the SQL query configuration file.
 	 */
-	private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
-	private final String SQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/sql.config";
-	//private final String MYSQL_CONFIG_FILE = "/Users/troelslund/git/11_CDIO_D3_2/11_CDIO_D3/mysql_oracle.config";
-	//private final String SQL_CONFIG_FILE = "/Users/troelslund/git/11_CDIO_D3_2/11_CDIO_D3/sql.config";
+	//private final String MYSQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/mysql_mariadb.config";
+	//private final String SQL_CONFIG_FILE = "/home/absencia/workspace/11_CDIO_D3/11_CDIO_D3/sql.config";
+	private final String MYSQL_CONFIG_FILE = "/Users/troelslund/git/11_CDIO_D3_2/11_CDIO_D3/mysql_oracle.config";
+	private final String SQL_CONFIG_FILE = "/Users/troelslund/git/11_CDIO_D3_2/11_CDIO_D3/sql.config";
 
 	/*
 	 * String objects to hold the database configuration information.
@@ -79,7 +79,6 @@ public class Connector {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		System.out.println("DEBUG: [DBConnection] Status: Successfully connected to MySQL database,\nhost '" + host + "' with user '" + username + "'.");
 	}
 
 	/*
@@ -230,7 +229,7 @@ public class Connector {
 	}
 
 	/*
-	 * TEST METHOD. DO NOT USE.
+	 * TEST METHOD. DO NOT USE YET.
 	 */
 	public ResultSet executeSQLStatement(String sqlId, List<Object> parameters) {
 		PreparedStatement stmt = null;
