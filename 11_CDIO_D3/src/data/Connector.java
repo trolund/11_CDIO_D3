@@ -49,8 +49,8 @@ public class Connector {
 
 		try {
 			Class.forName(driverClass);
-			//url = driver + "://" + host + ":" + port + "/" + database;
-			url = driver + "://" + host + ":" + port + "/" + database + "?autoReconnect=true&useSSL=false";
+			url = driver + "://" + host + ":" + port + "/" + database;
+			//url = driver + "://" + host + ":" + port + "/" + database + "?autoReconnect=true&useSSL=false";
 			connection = DriverManager.getConnection(url, username, password);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

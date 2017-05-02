@@ -17,7 +17,8 @@ public class DBInfoHandler {
 	 * MYSQL_CONFIG_FILE: Path to the database configuration file.
 	 * SQL_CONFIG_FILE:   Path to the SQL query configuration file.
 	 */
-	private final URL MYSQL_CONFIG_FILE = DBInfoHandler.class.getResource("/mysql_mariadb.config");
+	//private final URL MYSQL_CONFIG_FILE = DBInfoHandler.class.getResource("/mysql_mariadb.config");
+	private final URL MYSQL_CONFIG_FILE = DBInfoHandler.class.getResource("/mysql_oracle.config");
 	private final URL SQL_CONFIG_FILE = DBInfoHandler.class.getResource("/sql.config");
 
 	private static final DBInfoHandler instance = new DBInfoHandler();
