@@ -39,6 +39,39 @@ $(document).ready(function() {
 	});  
 });   
   });
+    
+// creat dommy user  
+$(document).ready(function() {
+  $("#Submit_CreateUser_dummy").click(function() {
+      
+        $('#oprId').val(Math.floor((Math.random() * 900) + 100));
+        $('#oprName').val('Dum Dummy');
+        $('#oprIni').val('DD');
+        $('#oprCpr').val('oprCpr');
+        $('#oprPassword').val('pass');
+        $('#oprRole1').val('admin'); 
+      
+      var data = $('#creatUserForm').serializeJSON();    
+      
+      jQuery.ajax({
+		url : "api/opr/addopr",
+		data : data,
+		contentType: "application/json",
+		method: 'POST',
+		success : function(data){
+            console.log(data);
+            $('#CreatMSG').html(data);
+            loadUsers(); // updata liste.
+		},
+		error: function(jqXHR, text, error){ 
+               console.log(data);
+            $('#CreatMSG').html(data).fadeToggle(500);
+             $("#AddUser_Box").toggleClass("display").delay();
+            
+		}
+	}); 
+});   
+  });
 
 //refresh button
 $(document).ready(function() {
@@ -52,30 +85,30 @@ $(document).ready(function() {
 
 
 //Delete users 
-$(document).ready(function(){
-   $('.del_User').click(function(){
-	   console.log('delete');  
-       
-        var id = $(this).prop('name');
-
-        console.log('delete' + id);  
-        
-     jQuery.ajax({
-	  url: "api/opr/deleteOpr",
-	  type: "POST",
-      data : id,
-	  contentType: "application/json",
-	  success: function(resultData) {
-         console.log(resultData);
-         $(this).css('color', 'gray'); 
-	  },
-	  error : function(jqXHR, textStatus, errorThrown) {
-          console.log(resultData);
-	  },
-	  timeout: 120000,
-	});
-    }); 
-});
+//$(document).ready(function(){
+//   $('.del_User').click(function(){
+//	   console.log('delete');  
+//       
+//        var id = $(this).prop('name');
+//
+//        console.log('delete' + id);  
+//        
+//     jQuery.ajax({
+//	  url: "api/opr/deleteOpr",
+//	  type: "POST",
+//      data : id,
+//	  contentType: "application/json",
+//	  success: function(resultData) {
+//         console.log(resultData);
+//         $(this).css('color', 'gray'); 
+//	  },
+//	  error : function(jqXHR, textStatus, errorThrown) {
+//          console.log(resultData);
+//	  },
+//	  timeout: 120000,
+//	});
+//    }); 
+//});
 
 
 </script>
@@ -141,6 +174,7 @@ $(document).ready(function(){
      
   <br><br>
   <input id="Submit_CreateUser" type="button" value="Create user">
+      <input id="Submit_CreateUser_dummy" type="button" value="Create dummy user">
     <p id="msg"></p>
 </form> 
 </div>

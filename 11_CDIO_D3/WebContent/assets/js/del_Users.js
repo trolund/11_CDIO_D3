@@ -14,11 +14,11 @@ $(document).ready(function(){
 	  contentType: "application/json",
 	  success: function(resultData) {
          console.log(resultData);
-        if(resultData == true){
+        if(Boolean(resultData) == true){
             console.log('User successfully deleted.');
-         $('#' + id).hide(500);
+         $('#' + id).hide(200);
         }
-          else{
+        else{
               $('#' + id).css('background-color', 'yellow').fadeIn( 400 ); 
           }
 	  },

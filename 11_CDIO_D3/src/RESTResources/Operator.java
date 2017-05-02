@@ -143,7 +143,24 @@ public class Operator {
 		}
 
 		for (OperatorDTO oprDTO : oprList) {
-			if (oprDTO.getOprId() == id) return oprDTO;
+			if (oprDTO.getOprId() == id) {
+				creatUserFormPOJO pojo = new creatUserFormPOJO();
+			
+				try {
+					List<RoleDTO> roleList = new SQLRoleDAO(Connector.getInstance()).getOprRoles(id);
+					pojo.setOprId(oprDTO.getOprId());
+					pojo.setOprIni(oprDTO.getOprIni());
+					pojo.setOprCpr(oprDTO.getOprCpr());
+					pojo.setOprPassword(oprDTO.getOprPassword());
+					pojo.setOprRole1(roleList.get(0).getRoleName());
+				} catch (DALException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				return oprDTO;
+			}
 		}
 
 		return null;
