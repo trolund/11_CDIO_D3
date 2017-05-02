@@ -6,23 +6,33 @@ $(document).ready(function() {
         
         console.log(id);
         
+        $.getJSON('RoleList/' + id, function(roleData) {            
+            $.each(roleData, function(i, item) {
+                if(roleData != null){
+                    var string = roleData[i].toString();
+                $('#oprRole'+(i+1)).val(string.toLowerCase());
+                    console.log('DEBUG ROLE-LOOP: i: ' + (i+1) +', data: '+ roleData[i]);
+                }
+	    });
+    });
+        
         $.getJSON('api/opr/' + id, function(data) {
+            
 	    console.log('User with id: ' + id + "loaded for edit");
             
-            console.log(data);
+        console.log(data);
         
         $('#oprId').val(data.oprId);
         $('#oprName').val(data.oprName); 
         $('#oprIni').val(data.oprIni);
         $('#oprCpr').val(data.oprCpr);
         $('#oprPassword').val(data.oprPassword);
-            $('#oprRole1').val(_role);
-//            $('#oprRole2').val(data.oprRole1);
-//            $('#oprRole3').val(data.oprRole1);
-//            $('#oprRole4').val(data.oprRole1);
         
         console.log(data + "added to form")
     }); 
-        $("#AddUser_Box").toggleClass("display");
+        $("#AddUser_Box").show(400);
 });
   });  
+
+
+

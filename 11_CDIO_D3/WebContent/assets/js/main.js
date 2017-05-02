@@ -5,6 +5,7 @@ var rols = null;
 // alt der skal køres ved opstart af application!
 $(document).ready(function(){
     $('#loadingGif').hide();
+    $('#AddUser_Box').hide();
 });
 
 
@@ -81,7 +82,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("#user_but").click(function() {       
     $("#content_box").load('adduser.html');
-      
+      $('#AddUser_Box').hide();
     loadUsers();
 });
   });

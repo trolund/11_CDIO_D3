@@ -210,4 +210,24 @@ public class Operator {
 		return returnString.toString();
 	}
 
+	@GET
+	@Path("/RoleList/{OprId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<RoleDTO> getoprRoleListJSON(@PathParam("OprId") String OprId) {
+		SQLRoleDAO oprDAO = new SQLRoleDAO(Connector.getInstance());
+
+		List<RoleDTO> oprRoleList = null;
+		
+		try {
+			oprRoleList = oprDAO.getOprRoles(Integer.parseInt(OprId));
+			return oprRoleList;
+		} catch (DALException e) {
+			e.printStackTrace();
+		} catch (NumberFormatException e){
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
 }

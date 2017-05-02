@@ -3,14 +3,14 @@
 // Add user button
 $(document).ready(function() {
     $("#Adduser_But").click(function(){
-        $("#AddUser_Box").toggleClass("display");
+        $("#AddUser_Box").show(400);
     }); 
 });
 
 // cancel icon creat user box
 $(document).ready(function() {
     $("#cancel_Icon").click(function(){
-        $("#AddUser_Box").toggleClass("display");
+        $("#AddUser_Box").hide(400);
     }); 
 });
     
@@ -33,7 +33,7 @@ $(document).ready(function() {
 		error: function(jqXHR, text, error){ 
                console.log(data);
             $('#CreatMSG').html(data).fadeToggle(500);
-             $("#AddUser_Box").toggleClass("display").delay();
+             $("#AddUser_Box").show(400);
             
 		}
 	});  
@@ -66,7 +66,7 @@ $(document).ready(function() {
 		error: function(jqXHR, text, error){ 
                console.log(data);
             $('#CreatMSG').html(data).fadeToggle(500);
-             $("#AddUser_Box").toggleClass("display").delay();
+             $("#AddUser_Box").show();
             
 		}
 	}); 

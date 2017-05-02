@@ -13,13 +13,13 @@ $(document).ready(function(){
       data : id,
 	  contentType: "application/json",
 	  success: function(resultData) {
-         console.log(resultData);
-        if(Boolean(resultData) == true){
-            console.log('User successfully deleted.');
-         $('#' + id).hide(200);
+        if(resultData == "true"){
+            console.log('User successfully deleted.' + 'return:' + resultData);
+         $('#' + id).hide(400);
         }
         else{
-              $('#' + id).css('background-color', 'yellow').fadeIn( 400 ); 
+             console.log('User NOT deleted.' + 'return:' + resultData);
+              $('#' + id).css('background-color', 'yellow').fadeIn(400); 
           }
 	  },
 	  error : function(jqXHR, textStatus, errorThrown) {
