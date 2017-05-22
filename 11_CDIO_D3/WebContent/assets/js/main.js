@@ -50,6 +50,7 @@ $(document).ready(function() {
                 $('#loadingGif').hide(200);
      
                 loadLoginUser(id);
+                rols.search("Admin");
             }
             else{
                 $('#msg').css('color','red');
@@ -96,8 +97,13 @@ function loadUsers(){
 	    console.log('Users loaded');
 	
         $.each(data, function(i, item) {
+        	if(id == data[i].oprId){ // gør man ikke kan slette sig selv.
+        	$('#table_con').append('<tr id="' + data[i].oprId + '">' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<p>User login</p>' + '</td>' + '<td>' + '<button name="'+ data[i].oprId +'" class="edit_User">Edit</button>' + '</td>' + '</tr>')
+        	}
+        	else{
             $('#table_con').append('<tr id="' + data[i].oprId + '">' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button name="' + data[i].oprId + '" class="del_User">Delete</button>' + '</td>' + '<td>' + '<button name="'+ data[i].oprId +'" class="edit_User">Edit</button>' + '</td>' + '</tr>')
-	    });
+        	}
+        	});
         
         $.getScript( "assets/js/del_Users.js", function( data, textStatus, jqxhr ) {
   console.log( data ); // Data returned
@@ -133,7 +139,10 @@ $.getJSON('api/opr/' + id, function(data) {
 	  contentType: 'text/plain',
 	  success: function(resultData) {
           rols = resultData;
-	    $('#oprRoles').html(resultData).fadeIn(1000);
+	    $('#oprRoles').html(resultData).fadeIn(1000); // skriver roller på label.
+        if(rols.indexOf("Admin") !== -1){ // gem menu punkter som kun skal kunne bruges af admin
+            $('#user_but').hide();
+        }
 	  },
 	  error : function(jqXHR, textStatus, errorThrown) {
 	  },
