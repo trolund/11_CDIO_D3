@@ -26,7 +26,7 @@ $(document).ready(function() {
         $('#oprName').val(data.oprName); 
         $('#oprIni').val(data.oprIni);
         $('#oprCpr').val(data.oprCpr);
-        $('#oprPassword').val(data.oprPassword);
+        $('#oprPassword').val("");
         
         console.log(data + "added to form")
     }); 

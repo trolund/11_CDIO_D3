@@ -2,6 +2,8 @@ var id = null;
 var userName = null;
 var rols = null;
 
+var authHeader = "Bearer " + localStorage.getItem("jwt");
+
 // alt der skal køres ved opstart af application!
 $(document).ready(function(){
     $('#loadingGif').hide();
@@ -24,7 +26,7 @@ $(document).ready(function() {
 });
   });
 
-// post login data
+//post login data
 $(document).ready(function() {
   $("#login_but").click(function() {
 	  
@@ -98,7 +100,7 @@ function loadUsers(){
 	
         $.each(data, function(i, item) {
         	if(id == data[i].oprId){ // gør man ikke kan slette sig selv.
-        	$('#table_con').append('<tr id="' + data[i].oprId + '">' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<p>User login</p>' + '</td>' + '<td>' + '<button name="'+ data[i].oprId +'" class="edit_User">Edit</button>' + '</td>' + '</tr>');
+        	$('#table_con').append('<tr id="' + data[i].oprId + '">' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<p>user logged in</p>' + '</td>' + '<td>' + '<button name="'+ data[i].oprId +'" class="edit_User">Edit</button>' + '</td>' + '</tr>');
         	}
         	else{
             $('#table_con').append('<tr id="' + data[i].oprId + '">' + '<td>' + data[i].oprId + '</td>' + '<td>' + data[i].oprName + '</td>' + '<td>' + data[i].oprIni + '</td>' + '<td>' + data[i].oprCpr + '</td>' + '<td id="pass_td">' + data[i].oprPassword + '</td>' + '<td>' + '<button name="' + data[i].oprId + '" class="del_User">Delete</button>' + '</td>' + '<td>' + '<button name="'+ data[i].oprId +'" class="edit_User">Edit</button>' + '</td>' + '</tr>');
@@ -122,6 +124,25 @@ function loadUsers(){
         console.log('tabel data done');
 }); 
 } 
+
+// view display
+function viewToHTML(data){
+	$('#table_con').empty();
+	$.each(data, function (index, item) {
+	     var eachrow = "<tr>";
+	     eachrow.append("<td>" + item[1] + "</td>");             
+        
+for (i = 1; i < item.length; i++) { 
+    if(item[i+1] != null){
+   eachrow.append("<td>" + item[i] + "</td>");
+}
+}
+	                 eachrow.append("</tr>");
+	     $('#table_con').append(eachrow);
+	});
+	
+}
+
 
 // load den user logget ind samt dens roller.
 function loadLoginUser(id){
